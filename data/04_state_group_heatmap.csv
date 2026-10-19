@@ -1,0 +1,33 @@
+state_code,state_name,animal_group,observation_count,percentage
+ACT,Australian Capital Territory,Amphibian,323,0.51
+ACT,Australian Capital Territory,Bird,52277,4.97
+ACT,Australian Capital Territory,Mammal,3289,2.28
+ACT,Australian Capital Territory,Reptile,2476,1.6
+NSW,New South Wales,Amphibian,16793,26.34
+NSW,New South Wales,Bird,241061,22.93
+NSW,New South Wales,Mammal,28488,19.77
+NSW,New South Wales,Reptile,39787,25.69
+NT,Northern Territory,Amphibian,2192,3.44
+NT,Northern Territory,Bird,25462,2.42
+NT,Northern Territory,Mammal,2098,1.46
+NT,Northern Territory,Reptile,7198,4.65
+QLD,Queensland,Amphibian,27728,43.5
+QLD,Queensland,Bird,244685,23.28
+QLD,Queensland,Mammal,39665,27.53
+QLD,Queensland,Reptile,46817,30.23
+SA,South Australia,Amphibian,2299,3.61
+SA,South Australia,Bird,119326,11.35
+SA,South Australia,Mammal,14128,9.81
+SA,South Australia,Reptile,17016,10.99
+TAS,Tasmania,Amphibian,949,1.49
+TAS,Tasmania,Bird,26734,2.54
+TAS,Tasmania,Mammal,9969,6.92
+TAS,Tasmania,Reptile,2567,1.66
+VIC,Victoria,Amphibian,9764,15.32
+VIC,Victoria,Bird,271916,25.87
+VIC,Victoria,Mammal,38649,26.83
+VIC,Victoria,Reptile,24092,15.55
+WA,Western Australia,Amphibian,3696,5.8
+WA,Western Australia,Bird,69770,6.64
+WA,Western Australia,Mammal,7775,5.4
+WA,Western Australia,Reptile,14940,9.65

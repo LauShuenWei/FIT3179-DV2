@@ -1,0 +1,673 @@
+year,month,season,state_code,state_name,observation_count,species_richness,mean_rainfall_mm,mean_temperature_c
+2018,1,Summer,ACT,Australian Capital Territory,213,71,42.02,22.78
+2018,1,Summer,NSW,New South Wales,1404,288,51.53,23.65
+2018,1,Summer,NT,Northern Territory,118,91,540.28,28.94
+2018,1,Summer,QLD,Queensland,894,324,124.56,26.46
+2018,1,Summer,SA,South Australia,393,171,13.02,23.5
+2018,1,Summer,TAS,Tasmania,143,62,44.57,16.23
+2018,1,Summer,VIC,Victoria,1252,249,52.95,21.49
+2018,1,Summer,WA,Western Australia,310,152,55.31,23.04
+2018,2,Summer,ACT,Australian Capital Territory,207,97,75.12,20.56
+2018,2,Summer,NSW,New South Wales,1106,260,120.83,22.23
+2018,2,Summer,NT,Northern Territory,57,43,179.19,29.77
+2018,2,Summer,QLD,Queensland,772,269,292.22,25.21
+2018,2,Summer,SA,South Australia,247,129,9.8,22.32
+2018,2,Summer,TAS,Tasmania,299,101,49.52,16.3
+2018,2,Summer,VIC,Victoria,705,193,10.58,20.68
+2018,2,Summer,WA,Western Australia,248,145,34.64,23.97
+2018,3,Autumn,ACT,Australian Capital Territory,248,90,5.22,18.09
+2018,3,Autumn,NSW,New South Wales,1565,296,124.42,22.0
+2018,3,Autumn,NT,Northern Territory,64,51,101.25,27.72
+2018,3,Autumn,QLD,Queensland,913,277,179.45,24.24
+2018,3,Autumn,SA,South Australia,292,142,8.29,20.05
+2018,3,Autumn,TAS,Tasmania,160,73,99.57,14.56
+2018,3,Autumn,VIC,Victoria,1134,248,29.28,18.51
+2018,3,Autumn,WA,Western Australia,358,154,10.46,23.03
+2018,4,Autumn,ACT,Australian Capital Territory,353,104,22.58,16.62
+2018,4,Autumn,NSW,New South Wales,1757,277,33.52,19.8
+2018,4,Autumn,NT,Northern Territory,128,88,31.28,26.47
+2018,4,Autumn,QLD,Queensland,1085,366,41.44,22.9
+2018,4,Autumn,SA,South Australia,588,156,28.35,19.36
+2018,4,Autumn,TAS,Tasmania,93,49,38.06,13.18
+2018,4,Autumn,VIC,Victoria,1076,227,18.84,16.48
+2018,4,Autumn,WA,Western Australia,380,161,19.38,20.08
+2018,5,Autumn,ACT,Australian Capital Territory,304,99,18.29,9.3
+2018,5,Autumn,NSW,New South Wales,952,220,26.1,14.94
+2018,5,Autumn,NT,Northern Territory,239,131,0.32,23.25
+2018,5,Autumn,QLD,Queensland,1073,291,38.25,18.99
+2018,5,Autumn,SA,South Australia,340,130,37.71,13.78
+2018,5,Autumn,TAS,Tasmania,69,43,106.23,10.73
+2018,5,Autumn,VIC,Victoria,699,189,88.02,12.3
+2018,5,Autumn,WA,Western Australia,208,104,46.06,17.99
+2018,6,Winter,ACT,Australian Capital Territory,221,87,32.34,6.85
+2018,6,Winter,NSW,New South Wales,1105,230,131.4,12.48
+2018,6,Winter,NT,Northern Territory,239,135,0.01,22.49
+2018,6,Winter,QLD,Queensland,2028,426,33.19,16.53
+2018,6,Winter,SA,South Australia,704,150,45.41,11.09
+2018,6,Winter,TAS,Tasmania,51,34,70.43,8.13
+2018,6,Winter,VIC,Victoria,636,170,65.46,9.03
+2018,6,Winter,WA,Western Australia,504,224,64.94,17.98
+2018,7,Winter,ACT,Australian Capital Territory,173,75,9.75,5.42
+2018,7,Winter,NSW,New South Wales,1277,243,17.48,12.03
+2018,7,Winter,NT,Northern Territory,419,182,0.16,23.02
+2018,7,Winter,QLD,Queensland,2457,443,32.06,16.88
+2018,7,Winter,SA,South Australia,495,158,45.58,11.42
+2018,7,Winter,TAS,Tasmania,90,47,134.47,8.38
+2018,7,Winter,VIC,Victoria,839,185,50.0,9.67
+2018,7,Winter,WA,Western Australia,279,157,118.43,15.24
+2018,8,Winter,ACT,Australian Capital Territory,228,87,33.98,6.8
+2018,8,Winter,NSW,New South Wales,1243,254,20.35,12.46
+2018,8,Winter,NT,Northern Territory,598,185,0.1,24.72
+2018,8,Winter,QLD,Queensland,2429,402,13.1,17.16
+2018,8,Winter,SA,South Australia,461,165,76.63,12.29
+2018,8,Winter,TAS,Tasmania,37,30,120.52,8.0
+2018,8,Winter,VIC,Victoria,749,175,57.28,9.65
+2018,8,Winter,WA,Western Australia,420,170,136.14,13.28
+2018,9,Spring,ACT,Australian Capital Territory,356,110,35.03,9.65
+2018,9,Spring,NSW,New South Wales,2030,327,47.77,14.61
+2018,9,Spring,NT,Northern Territory,302,168,3.17,26.35
+2018,9,Spring,QLD,Queensland,3259,482,23.84,19.46
+2018,9,Spring,SA,South Australia,635,173,17.7,12.6
+2018,9,Spring,TAS,Tasmania,259,94,53.81,9.97
+2018,9,Spring,VIC,Victoria,1677,248,28.24,11.21
+2018,9,Spring,WA,Western Australia,660,228,29.88,15.05
+2018,10,Spring,ACT,Australian Capital Territory,668,142,18.9,14.86
+2018,10,Spring,NSW,New South Wales,2014,371,128.83,17.64
+2018,10,Spring,NT,Northern Territory,380,200,33.83,29.51
+2018,10,Spring,QLD,Queensland,2364,469,138.67,22.41
+2018,10,Spring,SA,South Australia,885,217,21.41,16.58
+2018,10,Spring,TAS,Tasmania,496,138,45.31,12.38
+2018,10,Spring,VIC,Victoria,1661,276,32.43,14.95
+2018,10,Spring,WA,Western Australia,1140,258,32.78,19.21
+2018,11,Spring,ACT,Australian Capital Territory,396,130,76.85,17.02
+2018,11,Spring,NSW,New South Wales,1698,329,96.53,19.73
+2018,11,Spring,NT,Northern Territory,229,129,136.76,29.73
+2018,11,Spring,QLD,Queensland,2800,488,30.55,24.76
+2018,11,Spring,SA,South Australia,634,182,47.84,17.7
+2018,11,Spring,TAS,Tasmania,108,45,101.27,12.59
+2018,11,Spring,VIC,Victoria,1276,268,78.42,16.61
+2018,11,Spring,WA,Western Australia,623,205,18.83,18.8
+2018,12,Summer,ACT,Australian Capital Territory,355,119,94.47,21.06
+2018,12,Summer,NSW,New South Wales,1440,310,88.36,22.17
+2018,12,Summer,NT,Northern Territory,142,104,52.29,30.48
+2018,12,Summer,QLD,Queensland,2006,401,244.72,25.45
+2018,12,Summer,SA,South Australia,728,203,32.51,21.77
+2018,12,Summer,TAS,Tasmania,211,82,73.59,15.99
+2018,12,Summer,VIC,Victoria,1274,256,79.85,20.18
+2018,12,Summer,WA,Western Australia,634,200,9.3,21.62
+2019,1,Summer,ACT,Australian Capital Territory,342,114,59.23,25.82
+2019,1,Summer,NSW,New South Wales,1873,298,56.4,24.85
+2019,1,Summer,NT,Northern Territory,51,41,301.95,29.58
+2019,1,Summer,QLD,Queensland,2118,410,190.2,26.06
+2019,1,Summer,SA,South Australia,744,203,0.67,23.87
+2019,1,Summer,TAS,Tasmania,259,98,8.74,18.23
+2019,1,Summer,VIC,Victoria,1972,262,13.84,22.38
+2019,1,Summer,WA,Western Australia,748,210,9.77,22.37
+2019,2,Summer,ACT,Australian Capital Territory,253,97,37.08,20.45
+2019,2,Summer,NSW,New South Wales,1187,272,58.71,22.43
+2019,2,Summer,NT,Northern Territory,106,71,132.53,29.67
+2019,2,Summer,QLD,Queensland,1554,338,159.0,26.13
+2019,2,Summer,SA,South Australia,562,196,7.27,22.13
+2019,2,Summer,TAS,Tasmania,195,90,90.7,15.15
+2019,2,Summer,VIC,Victoria,1892,254,19.88,20.1
+2019,2,Summer,WA,Western Australia,1113,215,0.73,24.01
+2019,3,Autumn,ACT,Australian Capital Territory,294,117,73.24,18.55
+2019,3,Autumn,NSW,New South Wales,1963,340,159.61,21.64
+2019,3,Autumn,NT,Northern Territory,127,80,80.99,29.63
+2019,3,Autumn,QLD,Queensland,1641,389,233.06,25.6
+2019,3,Autumn,SA,South Australia,738,215,9.0,20.65
+2019,3,Autumn,TAS,Tasmania,164,75,51.25,15.01
+2019,3,Autumn,VIC,Victoria,2167,257,27.92,19.32
+2019,3,Autumn,WA,Western Australia,866,245,22.16,23.65
+2019,4,Autumn,ACT,Australian Capital Territory,307,109,17.37,14.6
+2019,4,Autumn,NSW,New South Wales,2293,341,32.25,18.39
+2019,4,Autumn,NT,Northern Territory,111,76,67.13,26.89
+2019,4,Autumn,QLD,Queensland,1644,401,116.39,22.7
+2019,4,Autumn,SA,South Australia,2388,239,8.95,18.45
+2019,4,Autumn,TAS,Tasmania,217,86,63.16,12.74
+2019,4,Autumn,VIC,Victoria,2260,248,19.7,16.0
+2019,4,Autumn,WA,Western Australia,666,204,36.6,19.31
+2019,5,Autumn,ACT,Australian Capital Territory,117,62,53.1,9.53
+2019,5,Autumn,NSW,New South Wales,1429,262,24.87,15.03
+2019,5,Autumn,NT,Northern Territory,405,150,21.47,21.55
+2019,5,Autumn,QLD,Queensland,1355,323,56.0,19.9
+2019,5,Autumn,SA,South Australia,513,160,91.04,13.9
+2019,5,Autumn,TAS,Tasmania,121,63,98.11,11.08
+2019,5,Autumn,VIC,Victoria,1111,198,103.58,12.47
+2019,5,Autumn,WA,Western Australia,458,197,16.07,17.07
+2019,6,Winter,ACT,Australian Capital Territory,284,99,21.67,6.35
+2019,6,Winter,NSW,New South Wales,1188,244,123.5,12.75
+2019,6,Winter,NT,Northern Territory,859,198,0.04,23.31
+2019,6,Winter,QLD,Queensland,1745,341,55.38,17.52
+2019,6,Winter,SA,South Australia,729,176,73.32,11.19
+2019,6,Winter,TAS,Tasmania,49,32,85.24,7.99
+2019,6,Winter,VIC,Victoria,963,186,91.3,10.0
+2019,6,Winter,WA,Western Australia,844,269,63.82,19.54
+2019,7,Winter,ACT,Australian Capital Territory,270,108,9.65,6.72
+2019,7,Winter,NSW,New South Wales,1376,261,26.27,12.73
+2019,7,Winter,NT,Northern Territory,1202,256,0.0,22.83
+2019,7,Winter,QLD,Queensland,2211,412,34.55,17.72
+2019,7,Winter,SA,South Australia,533,175,56.7,11.54
+2019,7,Winter,TAS,Tasmania,71,41,232.08,8.38
+2019,7,Winter,VIC,Victoria,909,180,71.5,9.83
+2019,7,Winter,WA,Western Australia,507,198,48.86,18.23
+2019,8,Winter,ACT,Australian Capital Territory,324,101,23.24,6.76
+2019,8,Winter,NSW,New South Wales,1177,258,42.43,12.15
+2019,8,Winter,NT,Northern Territory,754,171,0.28,25.07
+2019,8,Winter,QLD,Queensland,2195,431,12.82,17.94
+2019,8,Winter,SA,South Australia,827,173,59.37,10.57
+2019,8,Winter,TAS,Tasmania,176,74,98.68,8.19
+2019,8,Winter,VIC,Victoria,1102,196,89.27,9.32
+2019,8,Winter,WA,Western Australia,739,266,55.61,18.76
+2019,9,Spring,ACT,Australian Capital Territory,499,146,37.43,9.84
+2019,9,Spring,NSW,New South Wales,1655,328,57.81,14.94
+2019,9,Spring,NT,Northern Territory,137,97,0.81,25.93
+2019,9,Spring,QLD,Queensland,2300,482,4.72,20.42
+2019,9,Spring,SA,South Australia,849,223,38.66,13.11
+2019,9,Spring,TAS,Tasmania,54,33,82.2,9.41
+2019,9,Spring,VIC,Victoria,1353,260,56.94,11.56
+2019,9,Spring,WA,Western Australia,1203,326,18.16,18.83
+2019,10,Spring,ACT,Australian Capital Territory,496,135,25.24,13.99
+2019,10,Spring,NSW,New South Wales,2185,356,34.33,17.72
+2019,10,Spring,NT,Northern Territory,165,109,7.58,28.1
+2019,10,Spring,QLD,Queensland,3472,514,57.79,21.85
+2019,10,Spring,SA,South Australia,1364,253,19.62,16.76
+2019,10,Spring,TAS,Tasmania,95,52,35.73,11.56
+2019,10,Spring,VIC,Victoria,1761,301,30.84,14.8
+2019,10,Spring,WA,Western Australia,985,304,22.6,20.79
+2019,11,Spring,ACT,Australian Capital Territory,425,130,18.91,17.32
+2019,11,Spring,NSW,New South Wales,2653,357,26.17,20.36
+2019,11,Spring,NT,Northern Territory,188,105,42.55,29.42
+2019,11,Spring,QLD,Queensland,2022,435,9.67,24.67
+2019,11,Spring,SA,South Australia,1080,231,20.78,16.91
+2019,11,Spring,TAS,Tasmania,454,95,62.6,12.59
+2019,11,Spring,VIC,Victoria,1647,262,67.18,15.07
+2019,11,Spring,WA,Western Australia,603,195,10.07,22.65
+2019,12,Summer,ACT,Australian Capital Territory,462,129,1.7,21.83
+2019,12,Summer,NSW,New South Wales,2765,385,18.77,22.56
+2019,12,Summer,NT,Northern Territory,61,50,50.3,31.15
+2019,12,Summer,QLD,Queensland,2028,445,93.44,26.45
+2019,12,Summer,SA,South Australia,1211,218,7.7,22.31
+2019,12,Summer,TAS,Tasmania,222,71,70.95,13.95
+2019,12,Summer,VIC,Victoria,1941,284,15.44,18.73
+2019,12,Summer,WA,Western Australia,772,230,3.4,24.95
+2020,1,Summer,ACT,Australian Capital Territory,510,111,21.33,23.2
+2020,1,Summer,NSW,New South Wales,3051,361,98.13,24.4
+2020,1,Summer,NT,Northern Territory,57,44,140.41,30.86
+2020,1,Summer,QLD,Queensland,2043,453,224.15,26.53
+2020,1,Summer,SA,South Australia,1173,221,27.13,21.32
+2020,1,Summer,TAS,Tasmania,657,105,68.5,16.06
+2020,1,Summer,VIC,Victoria,1826,287,85.17,20.01
+2020,1,Summer,WA,Western Australia,816,256,11.3,23.08
+2020,2,Summer,ACT,Australian Capital Territory,522,118,95.14,21.14
+2020,2,Summer,NSW,New South Wales,2768,364,391.2,22.65
+2020,2,Summer,NT,Northern Territory,190,108,163.74,29.91
+2020,2,Summer,QLD,Queensland,1507,373,329.64,26.06
+2020,2,Summer,SA,South Australia,879,213,41.78,20.0
+2020,2,Summer,TAS,Tasmania,225,92,55.41,15.52
+2020,2,Summer,VIC,Victoria,1444,252,77.83,19.02
+2020,2,Summer,WA,Western Australia,719,200,27.77,24.48
+2020,3,Autumn,ACT,Australian Capital Territory,574,120,102.69,16.96
+2020,3,Autumn,NSW,New South Wales,2645,353,117.79,20.01
+2020,3,Autumn,NT,Northern Territory,259,109,205.35,29.34
+2020,3,Autumn,QLD,Queensland,1452,371,130.83,24.18
+2020,3,Autumn,SA,South Australia,1095,231,6.62,18.93
+2020,3,Autumn,TAS,Tasmania,255,92,120.98,12.98
+2020,3,Autumn,VIC,Victoria,1466,253,60.53,17.12
+2020,3,Autumn,WA,Western Australia,800,232,36.31,22.14
+2020,4,Autumn,ACT,Australian Capital Territory,432,105,69.07,13.23
+2020,4,Autumn,NSW,New South Wales,3453,289,41.49,18.72
+2020,4,Autumn,NT,Northern Territory,20,19,54.02,28.66
+2020,4,Autumn,QLD,Queensland,1972,323,20.69,21.96
+2020,4,Autumn,SA,South Australia,2210,220,92.1,15.99
+2020,4,Autumn,TAS,Tasmania,60,35,118.41,12.5
+2020,4,Autumn,VIC,Victoria,2037,227,119.23,14.07
+2020,4,Autumn,WA,Western Australia,641,175,23.56,19.66
+2020,5,Autumn,ACT,Australian Capital Territory,539,105,25.65,8.69
+2020,5,Autumn,NSW,New South Wales,2900,310,79.42,14.4
+2020,5,Autumn,NT,Northern Territory,22,19,1.84,25.98
+2020,5,Autumn,QLD,Queensland,2076,382,37.21,18.05
+2020,5,Autumn,SA,South Australia,952,202,65.33,12.19
+2020,5,Autumn,TAS,Tasmania,65,41,48.34,10.58
+2020,5,Autumn,VIC,Victoria,1296,217,77.67,10.91
+2020,5,Autumn,WA,Western Australia,472,163,104.77,15.92
+2020,6,Winter,ACT,Australian Capital Territory,502,104,51.57,6.97
+2020,6,Winter,NSW,New South Wales,3205,332,58.66,12.7
+2020,6,Winter,NT,Northern Territory,14,13,0.0,25.43
+2020,6,Winter,QLD,Queensland,1982,388,40.26,17.03
+2020,6,Winter,SA,South Australia,833,183,67.54,10.57
+2020,6,Winter,TAS,Tasmania,87,51,100.92,8.48
+2020,6,Winter,VIC,Victoria,1591,205,57.74,9.25
+2020,6,Winter,WA,Western Australia,447,166,85.56,15.44
+2020,7,Winter,ACT,Australian Capital Territory,628,96,39.17,6.91
+2020,7,Winter,NSW,New South Wales,3417,336,167.06,12.56
+2020,7,Winter,NT,Northern Territory,25,18,0.01,24.62
+2020,7,Winter,QLD,Queensland,2271,407,60.03,15.65
+2020,7,Winter,SA,South Australia,1377,230,27.03,10.2
+2020,7,Winter,TAS,Tasmania,107,60,42.67,7.15
+2020,7,Winter,VIC,Victoria,1477,219,46.05,9.09
+2020,7,Winter,WA,Western Australia,679,216,69.82,15.23
+2020,8,Winter,ACT,Australian Capital Territory,643,117,116.33,6.8
+2020,8,Winter,NSW,New South Wales,3279,352,69.24,12.84
+2020,8,Winter,NT,Northern Territory,36,33,1.58,24.36
+2020,8,Winter,QLD,Queensland,2477,438,18.58,17.72
+2020,8,Winter,SA,South Australia,1224,240,59.13,10.62
+2020,8,Winter,TAS,Tasmania,132,66,102.87,8.05
+2020,8,Winter,VIC,Victoria,1487,197,91.69,9.76
+2020,8,Winter,WA,Western Australia,625,206,105.47,13.86
+2020,9,Spring,ACT,Australian Capital Territory,1064,138,48.86,10.81
+2020,9,Spring,NSW,New South Wales,4161,426,35.69,16.19
+2020,9,Spring,NT,Northern Territory,112,79,11.45,27.16
+2020,9,Spring,QLD,Queensland,2759,478,27.25,20.99
+2020,9,Spring,SA,South Australia,2153,255,60.73,14.41
+2020,9,Spring,TAS,Tasmania,135,57,52.56,10.32
+2020,9,Spring,VIC,Victoria,3746,303,65.3,12.53
+2020,9,Spring,WA,Western Australia,737,233,66.33,16.8
+2020,10,Spring,ACT,Australian Capital Territory,840,142,144.35,14.3
+2020,10,Spring,NSW,New South Wales,4407,447,109.0,18.23
+2020,10,Spring,NT,Northern Territory,94,71,71.79,28.78
+2020,10,Spring,QLD,Queensland,3477,523,68.86,22.79
+2020,10,Spring,SA,South Australia,1651,278,62.62,15.73
+2020,10,Spring,TAS,Tasmania,143,70,120.84,11.27
+2020,10,Spring,VIC,Victoria,3212,320,94.66,14.02
+2020,10,Spring,WA,Western Australia,819,251,17.79,18.55
+2020,11,Spring,ACT,Australian Capital Territory,786,136,97.21,17.66
+2020,11,Spring,NSW,New South Wales,3639,418,47.56,19.97
+2020,11,Spring,NT,Northern Territory,37,34,42.01,30.77
+2020,11,Spring,QLD,Queensland,2320,438,22.31,23.85
+2020,11,Spring,SA,South Australia,1505,279,13.87,20.66
+2020,11,Spring,TAS,Tasmania,171,70,42.82,14.57
+2020,11,Spring,VIC,Victoria,3549,315,52.75,17.88
+2020,11,Spring,WA,Western Australia,501,222,62.45,20.26
+2020,12,Summer,ACT,Australian Capital Territory,731,138,49.15,17.9
+2020,12,Summer,NSW,New South Wales,3402,404,223.64,21.12
+2020,12,Summer,NT,Northern Territory,68,58,263.01,28.49
+2020,12,Summer,QLD,Queensland,2620,493,220.9,25.58
+2020,12,Summer,SA,South Australia,1421,278,18.75,19.33
+2020,12,Summer,TAS,Tasmania,227,74,87.92,13.31
+2020,12,Summer,VIC,Victoria,2620,331,51.4,17.01
+2020,12,Summer,WA,Western Australia,639,177,19.18,20.37
+2021,1,Summer,ACT,Australian Capital Territory,794,143,76.75,19.85
+2021,1,Summer,NSW,New South Wales,3774,419,122.12,21.86
+2021,1,Summer,NT,Northern Territory,193,78,554.19,28.69
+2021,1,Summer,QLD,Queensland,2929,566,191.63,25.12
+2021,1,Summer,SA,South Australia,1476,263,20.45,21.38
+2021,1,Summer,TAS,Tasmania,252,96,62.64,15.49
+2021,1,Summer,VIC,Victoria,2965,310,97.34,19.26
+2021,1,Summer,WA,Western Australia,516,174,16.05,22.86
+2021,2,Summer,ACT,Australian Capital Territory,680,141,96.06,19.24
+2021,2,Summer,NSW,New South Wales,2926,387,128.83,21.44
+2021,2,Summer,NT,Northern Territory,114,58,302.39,28.41
+2021,2,Summer,QLD,Queensland,2460,505,131.4,25.26
+2021,2,Summer,SA,South Australia,1459,259,30.81,20.14
+2021,2,Summer,TAS,Tasmania,144,72,85.68,15.43
+2021,2,Summer,VIC,Victoria,2339,279,27.62,18.56
+2021,2,Summer,WA,Western Australia,393,162,53.36,21.35
+2021,3,Autumn,ACT,Australian Capital Territory,581,120,134.6,15.96
+2021,3,Autumn,NSW,New South Wales,3307,399,337.34,19.95
+2021,3,Autumn,NT,Northern Territory,170,95,180.21,28.47
+2021,3,Autumn,QLD,Queensland,2253,491,248.63,24.07
+2021,3,Autumn,SA,South Australia,1627,272,15.58,19.13
+2021,3,Autumn,TAS,Tasmania,359,107,86.86,14.83
+2021,3,Autumn,VIC,Victoria,3052,309,71.52,16.69
+2021,3,Autumn,WA,Western Australia,373,164,48.92,22.61
+2021,4,Autumn,ACT,Australian Capital Territory,643,125,3.9,12.03
+2021,4,Autumn,NSW,New South Wales,3497,405,40.51,16.66
+2021,4,Autumn,NT,Northern Territory,162,111,57.57,26.17
+2021,4,Autumn,QLD,Queensland,2845,538,136.15,20.93
+2021,4,Autumn,SA,South Australia,1892,276,18.93,16.47
+2021,4,Autumn,TAS,Tasmania,204,81,53.53,13.03
+2021,4,Autumn,VIC,Victoria,3173,301,43.82,14.65
+2021,4,Autumn,WA,Western Australia,557,184,83.84,19.02
+2021,5,Autumn,ACT,Australian Capital Territory,718,125,54.92,9.27
+2021,5,Autumn,NSW,New South Wales,2724,347,93.33,14.63
+2021,5,Autumn,NT,Northern Territory,293,165,0.54,24.14
+2021,5,Autumn,QLD,Queensland,2560,484,68.79,18.52
+2021,5,Autumn,SA,South Australia,2349,269,35.65,13.7
+2021,5,Autumn,TAS,Tasmania,298,104,64.52,10.17
+2021,5,Autumn,VIC,Victoria,2971,263,72.64,11.9
+2021,5,Autumn,WA,Western Australia,685,244,102.71,18.05
+2021,6,Winter,ACT,Australian Capital Territory,695,119,108.37,7.27
+2021,6,Winter,NSW,New South Wales,2457,358,62.39,12.22
+2021,6,Winter,NT,Northern Territory,591,186,2.15,23.96
+2021,6,Winter,QLD,Queensland,3319,501,35.94,17.35
+2021,6,Winter,SA,South Australia,1338,239,95.55,12.03
+2021,6,Winter,TAS,Tasmania,156,72,97.51,9.36
+2021,6,Winter,VIC,Victoria,2152,251,93.05,10.15
+2021,6,Winter,WA,Western Australia,817,252,72.39,14.96
+2021,7,Winter,ACT,Australian Capital Territory,610,116,71.85,6.02
+2021,7,Winter,NSW,New South Wales,2219,320,49.59,11.41
+2021,7,Winter,NT,Northern Territory,285,122,0.24,20.31
+2021,7,Winter,QLD,Queensland,3820,476,60.75,16.72
+2021,7,Winter,SA,South Australia,1517,230,105.07,10.89
+2021,7,Winter,TAS,Tasmania,252,82,89.82,8.48
+2021,7,Winter,VIC,Victoria,1938,243,63.99,9.44
+2021,7,Winter,WA,Western Australia,458,199,128.75,15.65
+2021,8,Winter,ACT,Australian Capital Territory,530,108,47.33,7.45
+2021,8,Winter,NSW,New South Wales,3272,333,61.25,12.44
+2021,8,Winter,NT,Northern Territory,246,140,4.22,25.4
+2021,8,Winter,QLD,Queensland,3875,531,22.15,17.95
+2021,8,Winter,SA,South Australia,1889,249,50.8,11.65
+2021,8,Winter,TAS,Tasmania,162,78,115.62,8.96
+2021,8,Winter,VIC,Victoria,3032,271,54.65,10.91
+2021,8,Winter,WA,Western Australia,464,191,70.57,14.73
+2021,9,Spring,ACT,Australian Capital Territory,857,138,110.28,10.23
+2021,9,Spring,NSW,New South Wales,4424,387,45.5,14.7
+2021,9,Spring,NT,Northern Territory,156,109,8.62,25.84
+2021,9,Spring,QLD,Queensland,3606,527,22.78,18.84
+2021,9,Spring,SA,South Australia,2363,305,33.08,13.65
+2021,9,Spring,TAS,Tasmania,149,78,80.08,10.02
+2021,9,Spring,VIC,Victoria,6326,307,84.02,12.47
+2021,9,Spring,WA,Western Australia,802,298,59.97,16.14
+2021,10,Spring,ACT,Australian Capital Territory,1361,169,61.26,12.19
+2021,10,Spring,NSW,New South Wales,5610,444,97.13,16.82
+2021,10,Spring,NT,Northern Territory,195,132,30.17,30.29
+2021,10,Spring,QLD,Queensland,4849,595,109.55,22.87
+2021,10,Spring,SA,South Australia,3002,301,51.97,14.67
+2021,10,Spring,TAS,Tasmania,283,107,185.97,10.94
+2021,10,Spring,VIC,Victoria,7903,375,117.31,13.44
+2021,10,Spring,WA,Western Australia,829,249,88.42,15.82
+2021,11,Spring,ACT,Australian Capital Territory,792,139,179.4,14.76
+2021,11,Spring,NSW,New South Wales,4210,478,180.22,18.32
+2021,11,Spring,NT,Northern Territory,134,92,122.16,29.38
+2021,11,Spring,QLD,Queensland,3224,479,200.44,23.13
+2021,11,Spring,SA,South Australia,1364,280,47.52,16.97
+2021,11,Spring,TAS,Tasmania,280,93,80.21,12.12
+2021,11,Spring,VIC,Victoria,4735,363,86.35,15.12
+2021,11,Spring,WA,Western Australia,658,211,23.94,18.52
+2021,12,Summer,ACT,Australian Capital Territory,1437,173,93.13,18.16
+2021,12,Summer,NSW,New South Wales,4370,486,121.9,20.65
+2021,12,Summer,NT,Northern Territory,175,109,310.47,29.87
+2021,12,Summer,QLD,Queensland,3447,517,164.49,25.23
+2021,12,Summer,SA,South Australia,1654,296,2.54,19.36
+2021,12,Summer,TAS,Tasmania,371,121,28.48,14.63
+2021,12,Summer,VIC,Victoria,4348,344,31.39,17.99
+2021,12,Summer,WA,Western Australia,754,209,8.48,20.94
+2022,1,Summer,ACT,Australian Capital Territory,892,134,117.75,20.79
+2022,1,Summer,NSW,New South Wales,4332,459,154.34,22.55
+2022,1,Summer,NT,Northern Territory,253,154,304.7,29.46
+2022,1,Summer,QLD,Queensland,3543,576,186.83,25.43
+2022,1,Summer,SA,South Australia,1760,295,42.9,23.04
+2022,1,Summer,TAS,Tasmania,619,140,68.18,17.12
+2022,1,Summer,VIC,Victoria,4646,357,78.38,22.36
+2022,1,Summer,WA,Western Australia,662,234,21.12,23.58
+2022,2,Summer,ACT,Australian Capital Territory,840,133,90.84,18.84
+2022,2,Summer,NSW,New South Wales,3054,445,226.94,21.18
+2022,2,Summer,NT,Northern Territory,135,100,261.22,28.59
+2022,2,Summer,QLD,Queensland,3244,490,471.03,24.78
+2022,2,Summer,SA,South Australia,1602,270,7.82,20.99
+2022,2,Summer,TAS,Tasmania,597,152,24.86,16.6
+2022,2,Summer,VIC,Victoria,3964,343,9.02,19.64
+2022,2,Summer,WA,Western Australia,599,218,15.47,24.18
+2022,3,Autumn,ACT,Australian Capital Territory,1062,146,42.13,17.96
+2022,3,Autumn,NSW,New South Wales,3548,397,415.59,20.44
+2022,3,Autumn,NT,Northern Territory,103,79,97.86,29.33
+2022,3,Autumn,QLD,Queensland,2943,470,182.95,24.84
+2022,3,Autumn,SA,South Australia,1607,306,15.83,20.74
+2022,3,Autumn,TAS,Tasmania,1313,156,63.85,15.68
+2022,3,Autumn,VIC,Victoria,3819,353,62.33,18.85
+2022,3,Autumn,WA,Western Australia,555,199,29.69,22.4
+2022,4,Autumn,ACT,Australian Capital Territory,790,122,85.48,14.06
+2022,4,Autumn,NSW,New South Wales,3688,449,162.61,18.2
+2022,4,Autumn,NT,Northern Territory,600,213,93.96,28.46
+2022,4,Autumn,QLD,Queensland,3389,522,98.23,22.59
+2022,4,Autumn,SA,South Australia,2770,336,17.84,17.82
+2022,4,Autumn,TAS,Tasmania,316,108,63.66,12.85
+2022,4,Autumn,VIC,Victoria,5167,342,80.61,15.85
+2022,4,Autumn,WA,Western Australia,678,225,63.27,19.31
+2022,5,Autumn,ACT,Australian Capital Territory,894,125,109.84,9.77
+2022,5,Autumn,NSW,New South Wales,2681,381,129.38,15.35
+2022,5,Autumn,NT,Northern Territory,444,185,0.83,26.83
+2022,5,Autumn,QLD,Queensland,3028,515,258.66,20.99
+2022,5,Autumn,SA,South Australia,2306,261,80.21,13.38
+2022,5,Autumn,TAS,Tasmania,279,101,129.96,10.07
+2022,5,Autumn,VIC,Victoria,4878,317,40.09,11.81
+2022,5,Autumn,WA,Western Australia,780,282,70.95,18.73
+2022,6,Winter,ACT,Australian Capital Territory,534,102,30.25,5.92
+2022,6,Winter,NSW,New South Wales,2885,347,15.96,11.14
+2022,6,Winter,NT,Northern Territory,429,188,7.0,22.24
+2022,6,Winter,QLD,Queensland,4188,534,19.12,16.88
+2022,6,Winter,SA,South Australia,1354,274,72.01,11.32
+2022,6,Winter,TAS,Tasmania,252,90,101.18,8.13
+2022,6,Winter,VIC,Victoria,3053,265,86.99,9.8
+2022,6,Winter,WA,Western Australia,1070,290,50.3,19.45
+2022,7,Winter,ACT,Australian Capital Territory,265,85,23.75,6.03
+2022,7,Winter,NSW,New South Wales,3067,372,251.77,11.4
+2022,7,Winter,NT,Northern Territory,771,227,1.64,17.55
+2022,7,Winter,QLD,Queensland,5000,600,113.75,16.13
+2022,7,Winter,SA,South Australia,1584,273,27.53,9.87
+2022,7,Winter,TAS,Tasmania,391,92,43.69,7.8
+2022,7,Winter,VIC,Victoria,4025,291,53.21,8.72
+2022,7,Winter,WA,Western Australia,1414,314,87.24,15.1
+2022,8,Winter,ACT,Australian Capital Territory,272,74,136.62,8.19
+2022,8,Winter,NSW,New South Wales,3900,419,49.84,12.61
+2022,8,Winter,NT,Northern Territory,887,249,1.31,23.65
+2022,8,Winter,QLD,Queensland,4449,581,29.58,16.94
+2022,8,Winter,SA,South Australia,1740,277,82.87,11.56
+2022,8,Winter,TAS,Tasmania,200,79,135.25,8.85
+2022,8,Winter,VIC,Victoria,4382,307,109.45,10.55
+2022,8,Winter,WA,Western Australia,1313,349,106.24,14.82
+2022,9,Spring,ACT,Australian Capital Territory,607,124,84.43,10.12
+2022,9,Spring,NSW,New South Wales,4119,454,123.0,14.41
+2022,9,Spring,NT,Northern Territory,624,237,24.49,26.54
+2022,9,Spring,QLD,Queensland,5780,626,64.86,20.31
+2022,9,Spring,SA,South Australia,2652,322,70.01,12.4
+2022,9,Spring,TAS,Tasmania,350,104,79.44,9.77
+2022,9,Spring,VIC,Victoria,6392,355,67.39,11.42
+2022,9,Spring,WA,Western Australia,1390,341,48.16,18.26
+2022,10,Spring,ACT,Australian Capital Territory,966,150,194.86,13.18
+2022,10,Spring,NSW,New South Wales,5910,455,192.2,16.96
+2022,10,Spring,NT,Northern Territory,364,196,50.2,27.46
+2022,10,Spring,QLD,Queensland,6369,658,121.97,22.2
+2022,10,Spring,SA,South Australia,3039,334,78.94,15.26
+2022,10,Spring,TAS,Tasmania,379,120,158.13,11.28
+2022,10,Spring,VIC,Victoria,7725,379,171.06,13.73
+2022,10,Spring,WA,Western Australia,1994,389,46.04,16.31
+2022,11,Spring,ACT,Australian Capital Territory,979,139,113.53,13.86
+2022,11,Spring,NSW,New South Wales,5209,450,60.54,17.56
+2022,11,Spring,NT,Northern Territory,271,123,139.15,27.38
+2022,11,Spring,QLD,Queensland,5733,619,63.14,23.0
+2022,11,Spring,SA,South Australia,2414,351,83.11,16.9
+2022,11,Spring,TAS,Tasmania,640,123,110.54,12.13
+2022,11,Spring,VIC,Victoria,5627,355,121.01,14.64
+2022,11,Spring,WA,Western Australia,1541,289,25.63,19.84
+2022,12,Summer,ACT,Australian Capital Territory,1222,146,43.89,16.24
+2022,12,Summer,NSW,New South Wales,5520,467,44.99,19.2
+2022,12,Summer,NT,Northern Territory,358,159,151.47,28.48
+2022,12,Summer,QLD,Queensland,4943,577,130.46,23.42
+2022,12,Summer,SA,South Australia,2041,332,13.83,20.17
+2022,12,Summer,TAS,Tasmania,1257,152,68.08,14.07
+2022,12,Summer,VIC,Victoria,5849,377,56.48,17.35
+2022,12,Summer,WA,Western Australia,1106,265,5.28,21.47
+2023,1,Summer,ACT,Australian Capital Territory,1261,158,72.55,19.97
+2023,1,Summer,NSW,New South Wales,5599,490,116.89,21.84
+2023,1,Summer,NT,Northern Territory,255,142,237.33,28.67
+2023,1,Summer,QLD,Queensland,5543,586,181.29,25.05
+2023,1,Summer,SA,South Australia,2307,316,17.9,21.88
+2023,1,Summer,TAS,Tasmania,958,149,32.31,16.85
+2023,1,Summer,VIC,Victoria,5863,376,27.79,20.42
+2023,1,Summer,WA,Western Australia,1156,289,34.54,23.15
+2023,2,Summer,ACT,Australian Capital Territory,951,144,40.72,19.75
+2023,2,Summer,NSW,New South Wales,4480,468,112.65,22.34
+2023,2,Summer,NT,Northern Territory,335,167,280.43,28.14
+2023,2,Summer,QLD,Queensland,4691,538,149.25,25.22
+2023,2,Summer,SA,South Australia,1698,296,16.82,21.47
+2023,2,Summer,TAS,Tasmania,876,160,57.05,15.99
+2023,2,Summer,VIC,Victoria,4926,372,30.99,19.35
+2023,2,Summer,WA,Western Australia,834,226,3.44,23.51
+2023,3,Autumn,ACT,Australian Capital Territory,1182,160,75.89,18.2
+2023,3,Autumn,NSW,New South Wales,6447,521,81.51,22.02
+2023,3,Autumn,NT,Northern Territory,379,165,154.9,28.67
+2023,3,Autumn,QLD,Queensland,4531,557,125.77,25.17
+2023,3,Autumn,SA,South Australia,1960,319,25.6,19.24
+2023,3,Autumn,TAS,Tasmania,656,140,64.82,14.36
+2023,3,Autumn,VIC,Victoria,6153,396,56.3,17.74
+2023,3,Autumn,WA,Western Australia,981,250,34.09,22.55
+2023,4,Autumn,ACT,Australian Capital Territory,1125,153,73.09,12.43
+2023,4,Autumn,NSW,New South Wales,5172,499,98.59,17.43
+2023,4,Autumn,NT,Northern Territory,331,160,76.7,27.28
+2023,4,Autumn,QLD,Queensland,5799,595,67.71,21.91
+2023,4,Autumn,SA,South Australia,2787,339,51.66,16.36
+2023,4,Autumn,TAS,Tasmania,433,119,63.92,12.84
+2023,4,Autumn,VIC,Victoria,7948,363,85.84,14.95
+2023,4,Autumn,WA,Western Australia,1751,377,56.82,19.09
+2023,5,Autumn,ACT,Australian Capital Territory,1041,119,47.31,7.7
+2023,5,Autumn,NSW,New South Wales,4204,422,39.49,13.22
+2023,5,Autumn,NT,Northern Territory,581,224,0.82,24.4
+2023,5,Autumn,QLD,Queensland,5872,573,62.21,17.78
+2023,5,Autumn,SA,South Australia,2415,305,52.46,12.94
+2023,5,Autumn,TAS,Tasmania,432,118,47.64,10.09
+2023,5,Autumn,VIC,Victoria,5865,333,78.12,11.4
+2023,5,Autumn,WA,Western Australia,1330,340,21.63,17.61
+2023,6,Winter,ACT,Australian Capital Territory,814,118,35.18,7.49
+2023,6,Winter,NSW,New South Wales,4134,384,17.73,12.45
+2023,6,Winter,NT,Northern Territory,1023,256,5.24,24.37
+2023,6,Winter,QLD,Queensland,7147,573,22.54,17.69
+2023,6,Winter,SA,South Australia,1909,308,104.98,12.43
+2023,6,Winter,TAS,Tasmania,332,99,111.82,8.92
+2023,6,Winter,VIC,Victoria,5257,300,76.68,10.69
+2023,6,Winter,WA,Western Australia,1277,355,111.83,14.28
+2023,7,Winter,ACT,Australian Capital Territory,935,115,10.18,6.94
+2023,7,Winter,NSW,New South Wales,4319,408,24.94,12.41
+2023,7,Winter,NT,Northern Territory,2208,265,1.79,24.5
+2023,7,Winter,QLD,Queensland,8213,595,68.38,17.57
+2023,7,Winter,SA,South Australia,2122,290,39.87,10.96
+2023,7,Winter,TAS,Tasmania,268,98,53.94,10.23
+2023,7,Winter,VIC,Victoria,4753,303,35.03,10.23
+2023,7,Winter,WA,Western Australia,1594,353,69.74,15.47
+2023,8,Winter,ACT,Australian Capital Territory,1229,136,22.15,8.48
+2023,8,Winter,NSW,New South Wales,5657,445,42.71,13.54
+2023,8,Winter,NT,Northern Territory,880,229,0.14,25.28
+2023,8,Winter,QLD,Queensland,8131,622,34.27,18.75
+2023,8,Winter,SA,South Australia,2294,304,38.23,12.09
+2023,8,Winter,TAS,Tasmania,253,104,52.41,9.51
+2023,8,Winter,VIC,Victoria,5515,340,38.29,10.83
+2023,8,Winter,WA,Western Australia,1674,347,46.35,16.24
+2023,9,Spring,ACT,Australian Capital Territory,1388,167,18.05,11.59
+2023,9,Spring,NSW,New South Wales,6463,492,17.88,16.07
+2023,9,Spring,NT,Northern Territory,1680,292,0.32,27.13
+2023,9,Spring,QLD,Queensland,8801,644,33.62,20.18
+2023,9,Spring,SA,South Australia,2990,376,21.57,15.26
+2023,9,Spring,TAS,Tasmania,486,128,47.02,10.83
+2023,9,Spring,VIC,Victoria,8715,388,32.29,13.39
+2023,9,Spring,WA,Western Australia,2171,386,49.53,17.68
+2023,10,Spring,ACT,Australian Capital Territory,1743,177,40.49,13.27
+2023,10,Spring,NSW,New South Wales,7715,548,45.51,17.89
+2023,10,Spring,NT,Northern Territory,850,256,4.86,29.16
+2023,10,Spring,QLD,Queensland,8424,652,16.76,21.88
+2023,10,Spring,SA,South Australia,3657,414,15.26,15.72
+2023,10,Spring,TAS,Tasmania,1978,162,84.99,11.51
+2023,10,Spring,VIC,Victoria,7341,407,91.09,13.62
+2023,10,Spring,WA,Western Australia,2168,341,11.8,18.96
+2023,11,Spring,ACT,Australian Capital Territory,1334,167,135.21,17.83
+2023,11,Spring,NSW,New South Wales,8319,536,127.8,19.95
+2023,11,Spring,NT,Northern Territory,645,227,73.38,29.71
+2023,11,Spring,QLD,Queensland,9166,651,107.62,23.28
+2023,11,Spring,SA,South Australia,3936,369,48.07,17.76
+2023,11,Spring,TAS,Tasmania,1337,170,41.67,13.74
+2023,11,Spring,VIC,Victoria,9353,397,54.08,16.82
+2023,11,Spring,WA,Western Australia,2049,321,9.83,22.56
+2023,12,Summer,ACT,Australian Capital Territory,1005,160,101.12,19.77
+2023,12,Summer,NSW,New South Wales,8102,522,110.97,22.8
+2023,12,Summer,NT,Northern Territory,367,179,120.67,30.4
+2023,12,Summer,QLD,Queensland,7722,655,209.64,26.18
+2023,12,Summer,SA,South Australia,3313,348,67.15,19.24
+2023,12,Summer,TAS,Tasmania,1661,175,57.07,15.15
+2023,12,Summer,VIC,Victoria,7367,384,95.56,18.46
+2023,12,Summer,WA,Western Australia,1983,342,5.32,23.71
+2024,1,Summer,ACT,Australian Capital Territory,1010,180,136.74,20.65
+2024,1,Summer,NSW,New South Wales,6230,511,142.37,23.49
+2024,1,Summer,NT,Northern Territory,302,149,574.89,29.16
+2024,1,Summer,QLD,Queensland,6672,619,330.21,26.35
+2024,1,Summer,SA,South Australia,3264,360,40.11,21.84
+2024,1,Summer,TAS,Tasmania,1808,161,71.5,16.7
+2024,1,Summer,VIC,Victoria,8773,394,102.53,19.94
+2024,1,Summer,WA,Western Australia,2165,298,13.58,24.43
+2024,2,Summer,ACT,Australian Capital Territory,719,158,44.49,20.99
+2024,2,Summer,NSW,New South Wales,5431,459,113.08,23.22
+2024,2,Summer,NT,Northern Territory,457,153,271.32,29.76
+2024,2,Summer,QLD,Queensland,5680,557,175.16,26.1
+2024,2,Summer,SA,South Australia,2808,329,0.35,22.01
+2024,2,Summer,TAS,Tasmania,1195,166,16.96,17.12
+2024,2,Summer,VIC,Victoria,6528,360,11.16,20.35
+2024,2,Summer,WA,Western Australia,1832,294,6.26,26.36
+2024,3,Autumn,ACT,Australian Capital Territory,983,157,32.28,18.84
+2024,3,Autumn,NSW,New South Wales,7228,511,54.92,21.62
+2024,3,Autumn,NT,Northern Territory,818,242,306.17,28.59
+2024,3,Autumn,QLD,Queensland,6695,620,229.62,24.39
+2024,3,Autumn,SA,South Australia,3025,351,4.58,21.99
+2024,3,Autumn,TAS,Tasmania,1672,165,29.96,15.39
+2024,3,Autumn,VIC,Victoria,7577,381,9.38,19.14
+2024,3,Autumn,WA,Western Australia,1784,308,17.69,23.15
+2024,4,Autumn,ACT,Australian Capital Territory,752,124,73.07,12.91
+2024,4,Autumn,NSW,New South Wales,5477,504,187.25,17.9
+2024,4,Autumn,NT,Northern Territory,579,221,24.13,25.52
+2024,4,Autumn,QLD,Queensland,6594,574,109.98,22.2
+2024,4,Autumn,SA,South Australia,3683,328,11.88,14.9
+2024,4,Autumn,TAS,Tasmania,646,133,60.86,12.46
+2024,4,Autumn,VIC,Victoria,10092,369,99.75,14.15
+2024,4,Autumn,WA,Western Australia,2420,373,7.91,21.01
+2024,5,Autumn,ACT,Australian Capital Territory,416,97,39.97,9.73
+2024,5,Autumn,NSW,New South Wales,4660,447,147.33,14.66
+2024,5,Autumn,NT,Northern Territory,724,249,10.47,24.16
+2024,5,Autumn,QLD,Queensland,7170,607,55.89,19.6
+2024,5,Autumn,SA,South Australia,2820,292,12.96,13.34
+2024,5,Autumn,TAS,Tasmania,479,124,53.57,10.25
+2024,5,Autumn,VIC,Victoria,6525,335,33.32,11.99
+2024,5,Autumn,WA,Western Australia,1942,382,59.01,19.64
+2024,6,Winter,ACT,Australian Capital Territory,406,109,36.93,6.42
+2024,6,Winter,NSW,New South Wales,4826,418,139.71,11.71
+2024,6,Winter,NT,Northern Territory,904,252,1.55,23.17
+2024,6,Winter,QLD,Queensland,7472,593,18.65,16.11
+2024,6,Winter,SA,South Australia,2450,278,70.62,10.77
+2024,6,Winter,TAS,Tasmania,300,100,77.21,7.31
+2024,6,Winter,VIC,Victoria,5982,319,45.55,9.32
+2024,6,Winter,WA,Western Australia,2064,394,88.78,17.01
+2024,7,Winter,ACT,Australian Capital Territory,521,116,25.27,6.25
+2024,7,Winter,NSW,New South Wales,5177,400,70.31,11.59
+2024,7,Winter,NT,Northern Territory,1009,256,0.65,22.38
+2024,7,Winter,QLD,Queensland,9742,635,41.46,16.88
+2024,7,Winter,SA,South Australia,2580,281,54.18,10.41
+2024,7,Winter,TAS,Tasmania,537,125,117.6,7.73
+2024,7,Winter,VIC,Victoria,5575,310,105.87,9.05
+2024,7,Winter,WA,Western Australia,2255,393,99.97,14.9
+2024,8,Winter,ACT,Australian Capital Territory,732,127,19.52,9.45
+2024,8,Winter,NSW,New South Wales,6689,495,49.78,14.38
+2024,8,Winter,NT,Northern Territory,2015,289,0.18,26.27
+2024,8,Winter,QLD,Queensland,11369,674,79.31,19.42
+2024,8,Winter,SA,South Australia,2838,320,36.22,13.78
+2024,8,Winter,TAS,Tasmania,665,141,106.67,10.31
+2024,8,Winter,VIC,Victoria,6659,343,29.37,12.27
+2024,8,Winter,WA,Western Australia,2012,364,113.04,16.23
+2024,9,Spring,ACT,Australian Capital Territory,1062,158,20.36,10.75
+2024,9,Spring,NSW,New South Wales,10062,540,73.5,15.6
+2024,9,Spring,NT,Northern Territory,1863,344,38.59,27.82
+2024,9,Spring,QLD,Queensland,12440,688,38.84,20.54
+2024,9,Spring,SA,South Australia,4078,378,24.01,13.77
+2024,9,Spring,TAS,Tasmania,1179,157,119.82,9.9
+2024,9,Spring,VIC,Victoria,13987,382,64.53,12.4
+2024,9,Spring,WA,Western Australia,4511,465,27.72,18.68
+2024,10,Spring,ACT,Australian Capital Territory,1228,163,26.45,14.06
+2024,10,Spring,NSW,New South Wales,9521,573,50.93,17.45
+2024,10,Spring,NT,Northern Territory,803,278,34.18,29.69
+2024,10,Spring,QLD,Queensland,10712,654,74.7,22.43
+2024,10,Spring,SA,South Australia,4344,391,25.79,17.32
+2024,10,Spring,TAS,Tasmania,1501,161,65.19,11.7
+2024,10,Spring,VIC,Victoria,10866,421,54.95,14.95
+2024,10,Spring,WA,Western Australia,2780,377,35.04,19.3
+2024,11,Spring,ACT,Australian Capital Territory,941,154,40.5,19.46
+2024,11,Spring,NSW,New South Wales,8069,542,100.93,21.28
+2024,11,Spring,NT,Northern Territory,717,256,97.05,29.19
+2024,11,Spring,QLD,Queensland,9963,665,179.27,24.39
+2024,11,Spring,SA,South Australia,3453,384,33.42,19.82
+2024,11,Spring,TAS,Tasmania,1979,181,53.15,13.92
+2024,11,Spring,VIC,Victoria,9349,422,57.33,18.11
+2024,11,Spring,WA,Western Australia,2224,397,22.98,21.24
+2024,12,Summer,ACT,Australian Capital Territory,1000,160,95.09,21.0
+2024,12,Summer,NSW,New South Wales,7502,529,63.58,22.88
+2024,12,Summer,NT,Northern Territory,699,216,191.12,30.12
+2024,12,Summer,QLD,Queensland,9171,634,307.12,25.69
+2024,12,Summer,SA,South Australia,3288,342,17.12,21.37
+2024,12,Summer,TAS,Tasmania,1926,180,117.99,15.31
+2024,12,Summer,VIC,Victoria,9597,419,41.16,19.68
+2024,12,Summer,WA,Western Australia,2788,346,10.14,23.8

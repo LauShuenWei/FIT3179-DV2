@@ -1,0 +1,118 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "When Is Wildlife Most Often Recorded?",
+    "subtitle": "Share of each animal group's recorded observations by month, 2018–2024",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+
+  "width": 760,
+  "height": 240,
+
+  "data": {
+    "url": "data/06_group_month_heatmap.csv"
+  },
+
+  "params": [
+    {
+      "name": "hover",
+      "select": {
+        "type": "point",
+        "fields": ["animal_group", "month"],
+        "on": "mouseover",
+        "clear": "mouseout"
+      }
+    }
+  ],
+
+  "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 1
+  },
+
+  "encoding": {
+    "x": {
+      "field": "month_name",
+      "type": "ordinal",
+      "sort": [
+        "Jan", "Feb", "Mar", "Apr",
+        "May", "Jun", "Jul", "Aug",
+        "Sep", "Oct", "Nov", "Dec"
+      ],
+      "title": "Month",
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+
+    "y": {
+      "field": "animal_group",
+      "type": "nominal",
+      "sort": [
+        "Bird",
+        "Mammal",
+        "Reptile",
+        "Amphibian"
+      ],
+      "title": null
+    },
+
+    "color": {
+      "field": "percentage",
+      "type": "quantitative",
+      "title": "% of group observations",
+      "scale": {
+        "scheme": "yellowgreenblue"
+      }
+    },
+
+    "opacity": {
+      "condition": {
+        "param": "hover",
+        "value": 1
+      },
+      "value": 0.82
+    },
+
+    "tooltip": [
+      {
+        "field": "animal_group",
+        "type": "nominal",
+        "title": "Animal group"
+      },
+      {
+        "field": "month_name",
+        "type": "ordinal",
+        "title": "Month"
+      },
+      {
+        "field": "observation_count",
+        "type": "quantitative",
+        "title": "Recorded observations",
+        "format": ","
+      },
+      {
+        "field": "percentage",
+        "type": "quantitative",
+        "title": "Share of group",
+        "format": ".2f"
+      }
+    ]
+  },
+
+  "config": {
+  "background": "transparent",
+  "view": {
+    "stroke": "transparent"
+  },
+  "font": "Arial",
+  "axis": {
+    "grid": false
+  }
+}
+}
