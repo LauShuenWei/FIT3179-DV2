@@ -1,0 +1,242 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "Where Is Wildlife Most Frequently Recorded?",
+    "subtitle": "Top 100 0.25° grid cells by recorded wildlife observations in Australia, 2018–2024",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+
+  "width": 760,
+  "height": 480,
+
+  "projection": {
+    "type": "mercator"
+  },
+
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+
+      "transform": [
+        {
+          "filter": "datum.id == 36"
+        }
+      ],
+
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eee9df",
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      }
+    },
+
+    {
+      "data": {
+        "url": "data/01_top_observation_locations.csv"
+      },
+
+      "mark": {
+        "type": "circle",
+        "filled": true,
+        "color": "#b9afa3",
+        "opacity": 0.55,
+        "stroke": "#ffffff",
+        "strokeWidth": 0.8
+      },
+
+      "encoding": {
+        "longitude": {
+          "field": "grid_lon",
+          "type": "quantitative"
+        },
+
+        "latitude": {
+          "field": "grid_lat",
+          "type": "quantitative"
+        },
+
+        "size": {
+          "field": "observation_count",
+          "type": "quantitative",
+          "title": "Recorded Observations",
+          "scale": {
+            "type": "sqrt",
+            "range": [25, 900]
+          },
+          "legend": {
+            "values": [
+              5000,
+              10000,
+              20000,
+              30000,
+              40000,
+              50000
+            ],
+            "labelExpr": "datum.value / 1000 + 'k'",
+            "titleFontSize": 12,
+            "labelFontSize": 11
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "hotspot_rank",
+            "type": "quantitative",
+            "title": "Grid-cell rank"
+          },
+          {
+            "field": "observation_count",
+            "type": "quantitative",
+            "title": "Recorded observations",
+            "format": ","
+          },
+          {
+            "field": "species_richness",
+            "type": "quantitative",
+            "title": "Recorded species",
+            "format": ","
+          }
+        ]
+      }
+    },
+
+    {
+      "data": {
+        "url": "data/01_top_observation_locations.csv"
+      },
+
+      "transform": [
+        {
+          "filter": "toNumber(datum.hotspot_rank) <= 5"
+        }
+      ],
+
+      "mark": {
+        "type": "circle",
+        "filled": true,
+        "color": "#2f6f9f",
+        "opacity": 0.95,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.2
+      },
+
+      "encoding": {
+        "longitude": {
+          "field": "grid_lon",
+          "type": "quantitative"
+        },
+
+        "latitude": {
+          "field": "grid_lat",
+          "type": "quantitative"
+        },
+
+        "size": {
+          "field": "observation_count",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "range": [25, 900]
+          },
+          "legend": null
+        },
+
+        "tooltip": [
+          {
+            "field": "place_label",
+            "type": "nominal",
+            "title": "Area"
+          },
+          {
+            "field": "hotspot_rank",
+            "type": "quantitative",
+            "title": "Rank"
+          },
+          {
+            "field": "observation_count",
+            "type": "quantitative",
+            "title": "Recorded observations",
+            "format": ","
+          },
+          {
+            "field": "species_richness",
+            "type": "quantitative",
+            "title": "Recorded species",
+            "format": ","
+          }
+        ]
+      }
+    },
+
+    {
+        "data": {
+            "url": "data/01_top_observation_locations.csv"
+        },
+
+        "transform": [
+            {
+            "filter": "toNumber(datum.hotspot_rank) <= 5"
+            },
+            {
+            "calculate": "'#' + datum.hotspot_rank + ' ' + replace(datum.place_label, ' area', '') + ' · ' + format(toNumber(datum.observation_count) / 1000, '.1f') + 'k'",
+            "as": "short_label"
+            },
+            {
+            "calculate": "toNumber(datum.hotspot_rank) == 1 ? toNumber(datum.grid_lon) + 0.9 : toNumber(datum.hotspot_rank) == 2 ? toNumber(datum.grid_lon) + 0.9 : toNumber(datum.hotspot_rank) == 3 ? toNumber(datum.grid_lon) + 0.8 : toNumber(datum.hotspot_rank) == 4 ? toNumber(datum.grid_lon) + 0.8 : toNumber(datum.grid_lon) + 0.8",
+            "as": "label_lon"
+            },
+            {
+            "calculate": "toNumber(datum.hotspot_rank) == 1 ? toNumber(datum.grid_lat) + 0.15 : toNumber(datum.hotspot_rank) == 2 ? toNumber(datum.grid_lat) - 1.15 : toNumber(datum.hotspot_rank) == 3 ? toNumber(datum.grid_lat) + 0.75 : toNumber(datum.hotspot_rank) == 4 ? toNumber(datum.grid_lat) + 0.65 : toNumber(datum.grid_lat) + 0.65",
+            "as": "label_lat"
+            }
+        ],
+
+        "mark": {
+            "type": "text",
+            "fontSize": 11,
+            "fontWeight": "bold",
+            "color": "#333333",
+            "align": "left",
+            "baseline": "middle"
+        },
+
+        "encoding": {
+            "longitude": {
+            "field": "label_lon",
+            "type": "quantitative"
+            },
+
+            "latitude": {
+            "field": "label_lat",
+            "type": "quantitative"
+            },
+
+            "text": {
+            "field": "short_label",
+            "type": "nominal"
+            }
+        }
+    }
+  ],
+
+  "config": {
+    "background": "transparent",
+
+    "view": {
+      "stroke": "transparent"
+    },
+
+    "font": "Arial"
+  }
+}

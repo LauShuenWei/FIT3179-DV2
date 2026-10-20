@@ -1,3 +1,11 @@
+var chart01 = "vegalite/01_observation_density_grid.json";
+
+vegaEmbed("#chart01", chart01, {
+    actions: false
+}).then(function(result) {
+    console.log("Chart 01 loaded successfully");
+}).catch(console.error);
+
 var chart04 = "vegalite/04_state_group_lollipop.json";
 
 vegaEmbed("#chart04", chart04, {
