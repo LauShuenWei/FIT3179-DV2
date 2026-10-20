@@ -1,3 +1,11 @@
+var chart04 = "vegalite/04_state_group_heatmap.json";
+
+vegaEmbed("#chart04", chart04, {
+    actions: false
+}).then(function(result) {
+    console.log("Chart 04 loaded successfully");
+}).catch(console.error);
+
 var chart06 = "vegalite/06_group_month_heatmap.json";
 
 vegaEmbed("#chart06", chart06, {

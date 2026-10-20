@@ -1,0 +1,138 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "Where Is Each Animal Group Most Often Recorded?",
+    "subtitle": "Share of each group's recorded observations by Australian state or territory, 2018–2024",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+
+  "width": 760,
+  "height": 330,
+
+  "data": {
+    "url": "data/04_state_group_heatmap.csv"
+  },
+
+  "params": [
+    {
+      "name": "hover",
+      "select": {
+        "type": "point",
+        "fields": ["state_code", "animal_group"],
+        "on": "mouseover",
+        "clear": "mouseout"
+      }
+    }
+  ],
+
+  "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 1
+  },
+
+  "encoding": {
+    "x": {
+      "field": "animal_group",
+      "type": "nominal",
+      "sort": [
+        "Bird",
+        "Mammal",
+        "Reptile",
+        "Amphibian"
+      ],
+      "title": "Animal group",
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "titleFontSize": 13
+      }
+    },
+
+    "y": {
+      "field": "state_name",
+      "type": "nominal",
+      "sort": [
+        "Australian Capital Territory",
+        "New South Wales",
+        "Northern Territory",
+        "Queensland",
+        "South Australia",
+        "Tasmania",
+        "Victoria",
+        "Western Australia"
+      ],
+      "title": null,
+      "axis": {
+        "labelFontSize": 12,
+        "labelPadding": 7
+      }
+    },
+
+    "color": {
+      "field": "percentage",
+      "type": "quantitative",
+      "title": "Share of group observations (%)",
+      "scale": {
+        "scheme": "yellowgreenblue"
+      },
+      "legend": {
+        "titleFontSize": 12,
+        "labelFontSize": 11
+      }
+    },
+
+    "opacity": {
+      "condition": {
+        "param": "hover",
+        "value": 1
+      },
+      "value": 0.84
+    },
+
+    "tooltip": [
+      {
+        "field": "state_name",
+        "type": "nominal",
+        "title": "State / territory"
+      },
+      {
+        "field": "animal_group",
+        "type": "nominal",
+        "title": "Animal group"
+      },
+      {
+        "field": "observation_count",
+        "type": "quantitative",
+        "title": "Recorded observations",
+        "format": ","
+      },
+      {
+        "field": "percentage",
+        "type": "quantitative",
+        "title": "Share of group (%)",
+        "format": ".2f"
+      }
+    ]
+  },
+
+  "config": {
+    "background": "transparent",
+
+    "view": {
+      "stroke": "transparent"
+    },
+
+    "font": "Arial",
+
+    "axis": {
+      "grid": false,
+      "domainColor": "#999999",
+      "tickColor": "#999999"
+    }
+  }
+}
