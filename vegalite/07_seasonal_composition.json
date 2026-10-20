@@ -1,0 +1,187 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "How Does Wildlife Recording Vary by Season Over Time?",
+    "subtitle": "Seasonal share of recorded observations in Australia, 2018–2024",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+
+  "width": 760,
+  "height": 330,
+
+  "data": {
+    "url": "data/07_seasonal_composition.csv"
+  },
+
+  "params": [
+    {
+      "name": "Group",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Bird",
+          "Mammal",
+          "Reptile",
+          "Amphibian"
+        ],
+        "name": "Animal group: "
+      }
+    }
+  ],
+
+  "transform": [
+    {
+      "filter": "datum.animal_group == Group"
+    },
+    {
+      "calculate": "datum.month_name == 'Dec' || datum.month_name == 'Jan' || datum.month_name == 'Feb' ? 'Summer' : datum.month_name == 'Mar' || datum.month_name == 'Apr' || datum.month_name == 'May' ? 'Autumn' : datum.month_name == 'Jun' || datum.month_name == 'Jul' || datum.month_name == 'Aug' ? 'Winter' : 'Spring'",
+      "as": "season"
+    },
+    {
+      "calculate": "datum.season == 'Summer' ? 1 : datum.season == 'Autumn' ? 2 : datum.season == 'Winter' ? 3 : 4",
+      "as": "season_order"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "percentage",
+          "as": "season_percentage"
+        },
+        {
+          "op": "sum",
+          "field": "observation_count",
+          "as": "season_observations"
+        }
+      ],
+      "groupby": [
+        "year",
+        "animal_group",
+        "season",
+        "season_order"
+      ]
+    }
+  ],
+
+  "mark": {
+    "type": "area",
+    "opacity": 0.9
+  },
+
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "titleFontSize": 13
+      }
+    },
+
+    "y": {
+      "field": "season_percentage",
+      "type": "quantitative",
+      "title": "Share of Observations (%)",
+      "stack": "zero",
+      "scale": {
+        "domain": [0, 100]
+      },
+      "axis": {
+        "values": [0, 20, 40, 60, 80, 100],
+        "grid": true,
+        "gridColor": "#eeeeee",
+        "gridOpacity": 0.5
+      }
+    },
+
+    "color": {
+      "field": "season",
+      "type": "nominal",
+      "title": "Season",
+      "sort": [
+        "Summer",
+        "Autumn",
+        "Winter",
+        "Spring"
+      ],
+      "scale": {
+        "domain": [
+          "Summer",
+          "Autumn",
+          "Winter",
+          "Spring"
+        ],
+        "range": [
+          "#E69F00",
+          "#CC79A7",
+          "#56B4E9",
+          "#009E73"
+        ]
+      },
+      "legend": {
+        "orient": "right",
+        "titleFontSize": 12,
+        "labelFontSize": 11
+      }
+    },
+
+    "order": {
+      "field": "season_order",
+      "type": "quantitative",
+      "sort": "ascending"
+    },
+
+    "tooltip": [
+      {
+        "field": "animal_group",
+        "type": "nominal",
+        "title": "Animal group"
+      },
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "season",
+        "type": "nominal",
+        "title": "Season"
+      },
+      {
+        "field": "season_observations",
+        "type": "quantitative",
+        "title": "Recorded observations",
+        "format": ","
+      },
+      {
+        "field": "season_percentage",
+        "type": "quantitative",
+        "title": "Share (%)",
+        "format": ".1f"
+      }
+    ]
+  },
+
+  "config": {
+    "background": "transparent",
+
+    "view": {
+      "stroke": "transparent"
+    },
+
+    "font": "Arial",
+
+    "axis": {
+      "domainColor": "#999999",
+      "tickColor": "#999999"
+    }
+  }
+}
