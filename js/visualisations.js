@@ -45,3 +45,11 @@ vegaEmbed("#chart10", chart10, {
 }).then(function(result) {
     console.log("Chart 10 loaded successfully");
 }).catch(console.error);
+
+var chart11 = "vegalite/11_temperature_distribution_by_group.json";
+
+vegaEmbed("#chart11", chart11, {
+    actions: false
+}).then(function(result) {
+    console.log("Chart 11 loaded successfully");
+}).catch(console.error);

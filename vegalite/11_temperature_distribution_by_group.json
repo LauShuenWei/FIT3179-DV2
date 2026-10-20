@@ -1,0 +1,173 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "At What Temperatures Is Wildlife Most Often Recorded?",
+    "subtitle": "Distribution of recorded observations by mean monthly temperature and animal group, 2018–2024",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+
+  "data": {
+    "url": "data/11_temperature_distribution_by_group.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "-datum.percentage",
+      "as": "negative_percentage"
+    }
+  ],
+
+  "facet": {
+    "field": "animal_group",
+    "type": "nominal",
+    "sort": [
+      "Bird",
+      "Mammal",
+      "Reptile",
+      "Amphibian"
+    ],
+    "header": {
+      "title": null,
+      "labelFontSize": 15,
+      "labelFontWeight": "bold",
+      "labelPadding": 10
+    }
+  },
+
+  "columns": 2,
+
+  "spec": {
+    "width": 310,
+    "height": 160,
+
+    "layer": [
+      {
+        "mark": {
+          "type": "area",
+          "interpolate": "monotone",
+          "opacity": 0.7
+        },
+
+        "encoding": {
+          "x": {
+            "field": "temperature_midpoint",
+            "type": "quantitative",
+            "title": "Mean Monthly Temperature (°C)",
+            "scale": {
+                "domain": [-2, 34]
+            },
+            "axis": {
+                "values": [-2, 0, 5, 10, 15, 20, 25, 30, 34],
+                "labelExpr": "datum.value == -2 ? '< 0' : datum.value",
+                "labelFontSize": 11,
+                "titleFontSize": 12,
+                "grid": false
+            }
+          },
+
+          "y": {
+            "field": "negative_percentage",
+            "type": "quantitative",
+            "title": null,
+            "axis": null
+          },
+
+          "y2": {
+            "field": "percentage"
+          },
+
+          "color": {
+            "field": "animal_group",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Bird",
+                "Mammal",
+                "Reptile",
+                "Amphibian"
+              ],
+              "range": [
+                "#0072B2",
+                "#E69F00",
+                "#009E73",
+                "#CC79A7"
+              ]
+            },
+            "legend": null
+          },
+
+          "tooltip": [
+            {
+              "field": "animal_group",
+              "type": "nominal",
+              "title": "Animal group"
+            },
+            {
+              "field": "temperature_bin",
+              "type": "quantitative",
+              "title": "Temperature bin (°C)",
+              "format": ".1f"
+            },
+            {
+              "field": "observation_count",
+              "type": "quantitative",
+              "title": "Recorded observations",
+              "format": ","
+            },
+            {
+              "field": "percentage",
+              "type": "quantitative",
+              "title": "Share of group (%)",
+              "format": ".2f"
+            }
+          ]
+        }
+      },
+
+      {
+        "mark": {
+          "type": "rule",
+          "stroke": "#666666",
+          "strokeWidth": 1,
+          "opacity": 0.6
+        },
+
+        "encoding": {
+          "y": {
+            "datum": 0
+          }
+        }
+      }
+    ]
+  },
+
+  "resolve": {
+    "scale": {
+      "x": "shared",
+      "y": "shared"
+    }
+  },
+
+  "config": {
+    "background": "transparent",
+
+    "view": {
+      "stroke": "transparent"
+    },
+
+    "font": "Arial",
+
+    "axis": {
+      "domainColor": "#999999",
+      "tickColor": "#999999"
+    },
+
+    "facet": {
+      "spacing": 28
+    }
+  }
+}
