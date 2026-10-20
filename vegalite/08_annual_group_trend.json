@@ -65,7 +65,9 @@
       "type": "quantitative",
       "title": "Recorded observations",
       "axis": {
-        "format": ","
+        "format": "~s",
+        "gridColor": "#dddddd",
+        "gridOpacity": 0.35
       }
     },
 

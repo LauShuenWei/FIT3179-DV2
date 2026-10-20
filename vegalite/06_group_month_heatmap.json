@@ -65,7 +65,7 @@
     "color": {
       "field": "percentage",
       "type": "quantitative",
-      "title": "% of group observations",
+      "title": "Share of group (%)",
       "scale": {
         "scheme": "yellowgreenblue"
       }
