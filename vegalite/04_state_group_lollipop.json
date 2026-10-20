@@ -1,0 +1,257 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "Where Is Each Animal Group Most Often Recorded?",
+    "subtitle": "Share of each animal group's recorded observations by Australian state or territory, 2018–2024",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+
+  "data": {
+    "url": "data/04_state_group_lollipop.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "0",
+      "as": "zero"
+    }
+  ],
+
+  "facet": {
+    "field": "animal_group",
+    "type": "nominal",
+    "sort": [
+      "Bird",
+      "Mammal",
+      "Reptile",
+      "Amphibian"
+    ],
+    "header": {
+      "title": null,
+      "labelFontSize": 15,
+      "labelFontWeight": "bold",
+      "labelPadding": 10
+    }
+  },
+
+  "columns": 2,
+
+  "spec": {
+    "width": 300,
+    "height": 210,
+
+    "layer": [
+      {
+        "mark": {
+          "type": "rule",
+          "strokeWidth": 3,
+          "opacity": 0.4
+        },
+
+        "encoding": {
+          "y": {
+            "field": "state_name",
+            "type": "nominal",
+            "sort": [
+              "Australian Capital Territory",
+              "New South Wales",
+              "Northern Territory",
+              "Queensland",
+              "South Australia",
+              "Tasmania",
+              "Victoria",
+              "Western Australia"
+            ],
+            "title": null,
+            "axis": {
+              "labelFontSize": 11,
+              "labelPadding": 5,
+              "ticks": false,
+              "domain": false
+            }
+          },
+
+          "x": {
+            "field": "zero",
+            "type": "quantitative",
+            "title": "Share of Observations (%)",
+            "scale": {
+              "domain": [0, 50]
+            },
+            "axis": {
+              "values": [0, 10, 20, 30, 40, 50],
+              "grid": true,
+              "gridColor": "#eeeeee",
+              "gridOpacity": 0.7
+            }
+          },
+
+          "x2": {
+            "field": "percentage"
+          },
+
+          "color": {
+            "field": "animal_group",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Bird",
+                "Mammal",
+                "Reptile",
+                "Amphibian"
+              ],
+              "range": [
+                "#0072B2",
+                "#E69F00",
+                "#009E73",
+                "#CC79A7"
+              ]
+            },
+            "legend": null
+          },
+
+          "tooltip": [
+            {
+              "field": "state_name",
+              "type": "nominal",
+              "title": "State / territory"
+            },
+            {
+              "field": "animal_group",
+              "type": "nominal",
+              "title": "Animal group"
+            },
+            {
+              "field": "observation_count",
+              "type": "quantitative",
+              "title": "Recorded observations",
+              "format": ","
+            },
+            {
+              "field": "percentage",
+              "type": "quantitative",
+              "title": "Share of group (%)",
+              "format": ".2f"
+            }
+          ]
+        }
+      },
+
+      {
+        "mark": {
+          "type": "point",
+          "filled": true,
+          "size": 120
+        },
+
+        "encoding": {
+          "y": {
+            "field": "state_name",
+            "type": "nominal",
+            "sort": [
+              "Australian Capital Territory",
+              "New South Wales",
+              "Northern Territory",
+              "Queensland",
+              "South Australia",
+              "Tasmania",
+              "Victoria",
+              "Western Australia"
+            ],
+            "title": null,
+            "axis": {
+              "labelFontSize": 11,
+              "labelPadding": 5,
+              "ticks": false,
+              "domain": false
+            }
+          },
+
+          "x": {
+            "field": "percentage",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 50]
+            }
+          },
+
+          "color": {
+            "field": "animal_group",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Bird",
+                "Mammal",
+                "Reptile",
+                "Amphibian"
+              ],
+              "range": [
+                "#0072B2",
+                "#E69F00",
+                "#009E73",
+                "#CC79A7"
+              ]
+            },
+            "legend": null
+          },
+
+          "tooltip": [
+            {
+              "field": "state_name",
+              "type": "nominal",
+              "title": "State / territory"
+            },
+            {
+              "field": "animal_group",
+              "type": "nominal",
+              "title": "Animal group"
+            },
+            {
+              "field": "observation_count",
+              "type": "quantitative",
+              "title": "Recorded observations",
+              "format": ","
+            },
+            {
+              "field": "percentage",
+              "type": "quantitative",
+              "title": "Share of group (%)",
+              "format": ".2f"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "resolve": {
+    "scale": {
+      "x": "shared",
+      "y": "independent"
+    }
+  },
+
+  "config": {
+    "background": "transparent",
+
+    "view": {
+      "stroke": "transparent"
+    },
+
+    "font": "Arial",
+
+    "axis": {
+      "titleFontSize": 12,
+      "labelColor": "#444444",
+      "titleColor": "#333333"
+    },
+
+    "facet": {
+      "spacing": 28
+    }
+  }
+}
