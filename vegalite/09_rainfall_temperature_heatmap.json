@@ -1,0 +1,168 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "Under What Climate Conditions Is Wildlife Recorded?",
+    "subtitle": "Distribution of wildlife observations across rainfall and temperature conditions, 2018–2024",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+
+  "width": 760,
+  "height": 360,
+
+  "data": {
+    "url": "data/09_rainfall_temperature_heatmap.csv"
+  },
+
+  "params": [
+    {
+      "name": "Group",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Bird",
+          "Mammal",
+          "Reptile",
+          "Amphibian"
+        ],
+        "name": "Animal group: "
+      }
+    },
+    {
+      "name": "hover",
+      "select": {
+        "type": "point",
+        "fields": [
+          "rainfall_bin",
+          "temperature_bin"
+        ],
+        "on": "mouseover",
+        "clear": "mouseout"
+      }
+    }
+  ],
+
+  "transform": [
+    {
+      "filter": "datum.animal_group == Group"
+    },
+    {
+      "calculate": "toNumber(datum.temperature_bin)",
+      "as": "temperature_sort"
+    },
+    {
+      "calculate": "toNumber(datum.rainfall_bin)",
+      "as": "rainfall_sort"
+    }
+  ],
+
+  "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 0.7
+  },
+
+  "encoding": {
+    "x": {
+      "field": "temperature_sort",
+      "type": "ordinal",
+      "title": "Mean Monthly Temperature (°C)",
+      "scale": {
+          "domain": [-2, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34]
+      },
+      "axis": {
+          "labelAngle": 0,
+          "labelFontSize": 11,
+          "titleFontSize": 13,
+          "labelExpr": "datum.label == '-2' ? '< 0' : datum.label"
+      }
+    },
+
+    "y": {
+      "field": "rainfall_sort",
+      "type": "ordinal",
+      "title": "Monthly Rainfall (mm)",
+      "scale": {
+          "domain": [500, 450, 400, 350, 300, 250, 200, 150, 100, 50, 0]
+      },
+      "axis": {
+          "labelFontSize": 11,
+          "titleFontSize": 13,
+          "labelExpr": "datum.label == '500' ? '500+' : datum.label"
+      }
+    },
+
+    "color": {
+      "field": "percentage",
+      "type": "quantitative",
+      "title": "Share of Observations (%)",
+      "scale": {
+        "scheme": "yellowgreenblue",
+        "domain": [0, 10]
+      },
+      "legend": {
+        "titleFontSize": 12,
+        "labelFontSize": 11
+      }
+    },
+
+    "opacity": {
+      "condition": {
+        "param": "hover",
+        "value": 1
+      },
+      "value": 0.85
+    },
+
+    "tooltip": [
+      {
+        "field": "animal_group",
+        "type": "nominal",
+        "title": "Animal group"
+      },
+      {
+        "field": "temperature_bin",
+        "type": "ordinal",
+        "title": "Mean temperature"
+      },
+      {
+        "field": "rainfall_bin",
+        "type": "ordinal",
+        "title": "Monthly rainfall"
+      },
+      {
+        "field": "observation_count",
+        "type": "quantitative",
+        "title": "Recorded observations",
+        "format": ","
+      },
+      {
+        "field": "percentage",
+        "type": "quantitative",
+        "title": "Share (%)",
+        "format": ".2f"
+      }
+    ]
+  },
+
+  "config": {
+    "background": "transparent",
+
+    "view": {
+      "stroke": "transparent"
+    },
+
+    "font": "Arial",
+
+    "axis": {
+      "grid": false,
+      "domainColor": "#999999",
+      "tickColor": "#999999"
+    }
+  }
+}

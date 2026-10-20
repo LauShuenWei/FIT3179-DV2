@@ -29,3 +29,11 @@ vegaEmbed("#chart08", chart08, {
 }).then(function(result) {
     console.log("Chart 08 loaded successfully");
 }).catch(console.error);
+
+var chart09 = "vegalite/09_rainfall_temperature_heatmap.json";
+
+vegaEmbed("#chart09", chart09, {
+    actions: false
+}).then(function(result) {
+    console.log("Chart 09 loaded successfully");
+}).catch(console.error);
