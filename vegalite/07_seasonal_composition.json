@@ -14,7 +14,7 @@
   "height": 330,
 
   "data": {
-    "url": "data/07_seasonal_composition.csv"
+    "url": "data/07_year_month_heatmap.csv"
   },
 
   "params": [

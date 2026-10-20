@@ -6,6 +6,14 @@ vegaEmbed("#chart01", chart01, {
     console.log("Chart 01 loaded successfully");
 }).catch(console.error);
 
+var chart02 = "vegalite/02_state_species_richness.json";
+
+vegaEmbed("#chart02", chart02, {
+    actions: false
+}).then(function(result) {
+    console.log("Chart 02 loaded successfully");
+}).catch(console.error);
+
 var chart04 = "vegalite/04_state_group_lollipop.json";
 
 vegaEmbed("#chart04", chart04, {
