@@ -1,0 +1,158 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "How Do Wildlife Groups Differ Across Australia?",
+    "subtitle": "Locations of 0.5° grid cells containing recorded observations by animal group, 2018–2024",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+
+  "data": {
+    "url": "data/05_group_spatial_distribution.csv"
+  },
+
+  "facet": {
+    "field": "animal_group",
+    "type": "nominal",
+    "sort": [
+      "Bird",
+      "Mammal",
+      "Reptile",
+      "Amphibian"
+    ],
+    "header": {
+      "title": null,
+      "labelFontSize": 15,
+      "labelFontWeight": "bold",
+      "labelPadding": 8
+    }
+  },
+
+  "columns": 2,
+
+  "spec": {
+    "width": 400,
+    "height": 300,
+
+    "projection": {
+      "type": "mercator"
+    },
+
+    "layer": [
+      {
+        "data": {
+          "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+          "format": {
+            "type": "topojson",
+            "feature": "countries"
+          }
+        },
+
+        "transform": [
+          {
+            "filter": "datum.id == 36"
+          }
+        ],
+
+        "mark": {
+          "type": "geoshape",
+          "fill": "#f2efe8",
+          "stroke": "#999999",
+          "strokeWidth": 0.9
+        }
+      },
+
+      {
+        "mark": {
+          "type": "circle",
+          "filled": true,
+          "size": 16,
+          "opacity": 0.42,
+          "stroke": "white",
+          "strokeWidth": 0.15
+        },
+
+        "encoding": {
+          "longitude": {
+            "field": "grid_lon",
+            "type": "quantitative"
+          },
+
+          "latitude": {
+            "field": "grid_lat",
+            "type": "quantitative"
+          },
+
+          "color": {
+            "field": "animal_group",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Bird",
+                "Mammal",
+                "Reptile",
+                "Amphibian"
+              ],
+              "range": [
+                "#4C8FC1",
+                "#E8A43A",
+                "#43A983",
+                "#D487AF"
+              ]
+            },
+            "legend": null
+          },
+
+          "tooltip": [
+            {
+              "field": "animal_group",
+              "type": "nominal",
+              "title": "Animal group"
+            },
+            {
+              "field": "observation_count",
+              "type": "quantitative",
+              "title": "Recorded observations",
+              "format": ","
+            },
+            {
+              "field": "species_richness",
+              "type": "quantitative",
+              "title": "Recorded species",
+              "format": ","
+            },
+            {
+              "field": "grid_lat",
+              "type": "quantitative",
+              "title": "Latitude",
+              "format": ".2f"
+            },
+            {
+              "field": "grid_lon",
+              "type": "quantitative",
+              "title": "Longitude",
+              "format": ".2f"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "config": {
+    "background": "transparent",
+
+    "view": {
+      "stroke": "transparent"
+    },
+
+    "facet": {
+      "spacing": 18
+    },
+
+    "font": "Arial"
+  }
+}

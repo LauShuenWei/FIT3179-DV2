@@ -22,6 +22,14 @@ vegaEmbed("#chart04", chart04, {
     console.log("Chart 04 loaded successfully");
 }).catch(console.error);
 
+var chart05 = "vegalite/05_group_spatial_distribution.json";
+
+vegaEmbed("#chart05", chart05, {
+    actions: false
+}).then(function(result) {
+    console.log("Chart 05 loaded successfully");
+}).catch(console.error);
+
 var chart06 = "vegalite/06_group_month_heatmap.json";
 
 vegaEmbed("#chart06", chart06, {
