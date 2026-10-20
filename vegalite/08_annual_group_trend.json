@@ -63,9 +63,20 @@
     "y": {
       "field": "observation_count",
       "type": "quantitative",
-      "title": "Recorded observations",
+      "title": "Recorded Observations (k)",
       "axis": {
-        "format": "~s",
+        "values": [
+          0,
+          50000,
+          100000,
+          150000,
+          200000,
+          250000,
+          300000,
+          350000,
+          400000
+        ],
+        "labelExpr": "datum.value / 1000",
         "gridColor": "#dddddd",
         "gridOpacity": 0.35
       }
