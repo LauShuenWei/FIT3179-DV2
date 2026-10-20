@@ -1,0 +1,106 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "Growth in Citizen-Science Wildlife Records",
+    "subtitle": "Annual recorded observations in Australia, 2018–2024",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+
+  "width": 760,
+  "height": 320,
+
+  "data": {
+    "url": "data/08_annual_group_trend.csv"
+  },
+
+  "params": [
+    {
+      "name": "Group",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Bird",
+          "Mammal",
+          "Reptile",
+          "Amphibian"
+        ],
+        "name": "Animal group: "
+      }
+    }
+  ],
+
+  "transform": [
+    {
+      "filter": "datum.animal_group == Group"
+    }
+  ],
+
+  "mark": {
+    "type": "line",
+    "point": {
+      "filled": true,
+      "size": 80
+    },
+    "strokeWidth": 3
+  },
+
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+
+    "y": {
+      "field": "observation_count",
+      "type": "quantitative",
+      "title": "Recorded observations",
+      "axis": {
+        "format": ","
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "animal_group",
+        "type": "nominal",
+        "title": "Animal group"
+      },
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "observation_count",
+        "type": "quantitative",
+        "title": "Recorded observations",
+        "format": ","
+      }
+    ]
+  },
+
+  "config": {
+    "background": "transparent",
+
+    "view": {
+      "stroke": "transparent"
+    },
+
+    "font": "Arial",
+
+    "axis": {
+      "gridColor": "#e5e5e5",
+      "gridOpacity": 0.7
+    }
+  }
+}

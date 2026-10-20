@@ -5,3 +5,11 @@ vegaEmbed("#chart06", chart06, {
 }).then(function(result) {
     console.log("Chart 06 loaded successfully");
 }).catch(console.error);
+
+var chart08 = "vegalite/08_annual_group_trend.json";
+
+vegaEmbed("#chart08", chart08, {
+    actions: false
+}).then(function(result) {
+    console.log("Chart 08 loaded successfully");
+}).catch(console.error);
