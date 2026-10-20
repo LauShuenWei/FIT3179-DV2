@@ -1,0 +1,190 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "More Observations Reveal More Recorded Species",
+    "subtitle": "Relationship between observation effort and recorded species richness by state and month, 2018–2024",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+
+  "width": 760,
+  "height": 380,
+
+  "data": {
+    "url": "data/12_climate_species_richness.csv"
+  },
+
+  "params": [
+    {
+      "name": "Season",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Summer",
+          "Autumn",
+          "Winter",
+          "Spring"
+        ],
+        "name": "Season: "
+      }
+    }
+  ],
+
+  "transform": [
+    {
+      "filter": "Season == 'All' || datum.season == Season"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 0.65,
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+
+      "encoding": {
+        "x": {
+            "field": "observation_count",
+            "type": "quantitative",
+            "title": "Recorded Observations (k)",
+            "scale": {
+                "domain": [0, 14000]
+            },
+            "axis": {
+                "values": [
+                0,
+                2000,
+                4000,
+                6000,
+                8000,
+                10000,
+                12000,
+                14000
+                ],
+                "labelExpr": "datum.value / 1000",
+                "grid": true,
+                "gridColor": "#eeeeee",
+                "gridOpacity": 0.6,
+                "titleFontSize": 13,
+                "labelFontSize": 11
+            }
+        },
+
+        "y": {
+            "field": "species_richness",
+            "type": "quantitative",
+            "title": "Recorded Species Richness",
+            "scale": {
+                "domain": [0, 800]
+            },
+            "axis": {
+                "grid": true,
+                "gridColor": "#eeeeee",
+                "gridOpacity": 0.6,
+                "titleFontSize": 13,
+                "labelFontSize": 11
+            }
+        },
+
+        "color": {
+          "field": "mean_temperature_c",
+          "type": "quantitative",
+          "title": "Mean Temperature (°C)",
+          "scale": {
+            "scheme": "yelloworangered",
+            "domain": [5, 30]
+          },
+          "legend": {
+            "titleFontSize": 12,
+            "labelFontSize": 11
+          }
+        },
+
+        "size": {
+          "field": "mean_rainfall_mm",
+          "type": "quantitative",
+          "title": "Mean Rainfall (mm)",
+          "scale": {
+            "domain": [0, 500],
+            "range": [25, 220]
+          },
+          "legend": {
+            "titleFontSize": 12,
+            "labelFontSize": 11
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "month",
+            "type": "ordinal",
+            "title": "Month"
+          },
+          {
+            "field": "season",
+            "type": "nominal",
+            "title": "Season"
+          },
+          {
+            "field": "observation_count",
+            "type": "quantitative",
+            "title": "Recorded observations",
+            "format": ","
+          },
+          {
+            "field": "species_richness",
+            "type": "quantitative",
+            "title": "Recorded species",
+            "format": ","
+          },
+          {
+            "field": "mean_temperature_c",
+            "type": "quantitative",
+            "title": "Mean temperature (°C)",
+            "format": ".1f"
+          },
+          {
+            "field": "mean_rainfall_mm",
+            "type": "quantitative",
+            "title": "Mean rainfall (mm)",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ],
+
+  "config": {
+    "background": "transparent",
+
+    "view": {
+      "stroke": "transparent"
+    },
+
+    "font": "Arial",
+
+    "axis": {
+      "domainColor": "#999999",
+      "tickColor": "#999999"
+    }
+  }
+}
