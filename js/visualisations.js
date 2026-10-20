@@ -37,3 +37,11 @@ vegaEmbed("#chart09", chart09, {
 }).then(function(result) {
     console.log("Chart 09 loaded successfully");
 }).catch(console.error);
+
+var chart10 = "vegalite/10_rainfall_by_group.json";
+
+vegaEmbed("#chart10", chart10, {
+    actions: false
+}).then(function(result) {
+    console.log("Chart 10 loaded successfully");
+}).catch(console.error);

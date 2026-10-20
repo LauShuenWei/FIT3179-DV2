@@ -1,0 +1,230 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "How Does Rainfall Differ Across Animal Groups?",
+    "subtitle": "Distribution of monthly rainfall associated with recorded wildlife observations, 2018–2024",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+
+  "width": 760,
+  "height": 300,
+
+  "data": {
+    "url": "data/10_rainfall_by_group.csv"
+  },
+
+  "encoding": {
+    "y": {
+      "field": "animal_group",
+      "type": "nominal",
+      "sort": [
+        "Bird",
+        "Mammal",
+        "Reptile",
+        "Amphibian"
+      ],
+      "title": "Animal Group",
+      "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "labelPadding": 8
+      }
+    },
+
+    "color": {
+      "field": "animal_group",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Bird",
+          "Mammal",
+          "Reptile",
+          "Amphibian"
+        ],
+        "range": [
+          "#0072B2",
+          "#E69F00",
+          "#009E73",
+          "#CC79A7"
+        ]
+      },
+      "legend": null
+    },
+
+    "tooltip": [
+      {
+        "field": "animal_group",
+        "type": "nominal",
+        "title": "Animal group"
+      },
+      {
+        "field": "count",
+        "type": "quantitative",
+        "title": "Observations",
+        "format": ","
+      },
+      {
+        "field": "mean",
+        "type": "quantitative",
+        "title": "Mean rainfall (mm)",
+        "format": ".1f"
+      },
+      {
+        "field": "q1",
+        "type": "quantitative",
+        "title": "Q1 (mm)",
+        "format": ".1f"
+      },
+      {
+        "field": "median",
+        "type": "quantitative",
+        "title": "Median (mm)",
+        "format": ".1f"
+      },
+      {
+        "field": "q3",
+        "type": "quantitative",
+        "title": "Q3 (mm)",
+        "format": ".1f"
+      },
+      {
+        "field": "lower_whisker",
+        "type": "quantitative",
+        "title": "Lower whisker (mm)",
+        "format": ".1f"
+      },
+      {
+        "field": "upper_whisker",
+        "type": "quantitative",
+        "title": "Upper whisker (mm)",
+        "format": ".1f"
+      }
+    ]
+  },
+
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "lower_whisker",
+          "type": "quantitative",
+          "title": "Monthly Rainfall (mm)",
+          "scale": {
+            "zero": true
+          },
+          "axis": {
+            "grid": true,
+            "gridColor": "#eeeeee",
+            "gridOpacity": 0.6,
+            "titleFontSize": 13,
+            "labelFontSize": 11
+          }
+        },
+        "x2": {
+          "field": "upper_whisker"
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "bar",
+        "size": 42,
+        "opacity": 0.65
+      },
+      "encoding": {
+        "x": {
+          "field": "q1",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "q3"
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "tick",
+        "thickness": 3,
+        "size": 42,
+        "color": "#222222"
+      },
+      "encoding": {
+        "x": {
+          "field": "median",
+          "type": "quantitative"
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "shape": "diamond",
+        "size": 90,
+        "color": "white",
+        "stroke": "#333333",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "mean",
+          "type": "quantitative"
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "tick",
+        "thickness": 2,
+        "size": 20
+      },
+      "encoding": {
+        "x": {
+          "field": "lower_whisker",
+          "type": "quantitative"
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "tick",
+        "thickness": 2,
+        "size": 20
+      },
+      "encoding": {
+        "x": {
+          "field": "upper_whisker",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+
+  "config": {
+    "background": "transparent",
+
+    "view": {
+      "stroke": "transparent"
+    },
+
+    "font": "Arial",
+
+    "axis": {
+      "domainColor": "#999999",
+      "tickColor": "#999999"
+    }
+  }
+}
