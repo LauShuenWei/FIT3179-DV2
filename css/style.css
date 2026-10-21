@@ -234,6 +234,61 @@ body {
     display: none;
 }
 
+/* =========================================
+   CHART 1 CONTROLS
+========================================= */
+
+.chart01-card {
+    position: relative;
+}
+
+.chart01-controls {
+    position: absolute;
+    top: 40px;
+    right: 42px;
+    z-index: 20;
+
+    padding: 8px 14px;
+
+    background: #eef4f4;
+    border: 1px solid #d0dddd;
+    border-radius: 7px;
+
+    font-size: 13px;
+    color: #334444;
+}
+
+.chart01-controls .vega-bind-name {
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.chart01-controls label {
+    margin-right: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.chart01-controls label:last-child {
+    margin-right: 0;
+}
+
+.chart01-controls input[type="radio"] {
+    margin-right: 5px;
+    accent-color: #177a80;
+    cursor: pointer;
+
+.chart-note {
+        max-width: 900px;
+        margin: 8px auto 0;
+        padding-top: 14px;
+        border-top: 1px solid #ece9e1;
+
+        font-size: 13px;
+        line-height: 1.6;
+        color: #666963;
+    }
+}
 
 /* =========================================
    RESPONSIVE — SMALL LAPTOP / TABLET
@@ -261,6 +316,12 @@ body {
     .chart-container-wide {
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    .chart01-controls {
+        position: static;
+        width: fit-content;
+        margin: 0 0 16px auto;
     }
 }
 
@@ -316,5 +377,32 @@ body {
 
     .sources {
         padding: 55px 10px 65px;
+    }
+
+    /* =========================================
+        VEGA INTERACTIVE CONTROLS
+    ========================================= */
+
+    .vega-bindings {
+        margin: 4px 0 20px;
+        font-size: 14px;
+        color: #444444;
+    }
+
+    .vega-bindings .vega-bind-name {
+        font-weight: 700;
+        margin-right: 12px;
+    }
+
+    .vega-bindings label {
+        margin-right: 22px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    .vega-bindings input[type="radio"] {
+        margin-right: 6px;
+        accent-color: #3e916d;
+        cursor: pointer;
     }
 }

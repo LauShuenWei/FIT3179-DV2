@@ -1,9 +1,8 @@
 var chart01 = "vegalite/01_observation_density_grid.json";
 
 vegaEmbed("#chart01", chart01, {
-    actions: false
-}).then(function(result) {
-    console.log("Chart 01 loaded successfully");
+    actions: false,
+    bind: "#chart01-controls"
 }).catch(console.error);
 
 var chart02 = "vegalite/02_state_species_richness.json";

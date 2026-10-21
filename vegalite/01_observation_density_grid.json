@@ -2,136 +2,81 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
   "title": {
-    "text": "Where Is Wildlife Most Frequently Recorded?",
-    "subtitle": "Top 100 0.25° grid cells by recorded wildlife observations in Australia, 2018–2024",
+    "text": "Wildlife Recording Activity Across Australia",
+    "subtitle": "Spatial patterns of citizen-science observation records and recorded species richness, 2018–2024",
     "anchor": "start",
     "fontSize": 22,
+    "fontWeight": "bold",
     "subtitleFontSize": 13,
+    "subtitleFontWeight": "normal",
+    "subtitleColor": "#555555",
     "subtitlePadding": 8
   },
 
-  "width": 760,
-  "height": 480,
+  "width": 980,
+  "height": 680,
+
+  "params": [
+    {
+      "name": "measure",
+      "value": "Observation records",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "Observation records",
+          "Species richness"
+        ],
+        "name": "Show: "
+      }
+    }
+  ],
 
   "projection": {
     "type": "mercator"
   },
 
   "layer": [
+
     {
       "data": {
-        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "url": "data/australia_states.geojson",
         "format": {
-          "type": "topojson",
-          "feature": "countries"
+          "type": "json",
+          "property": "features"
         }
       },
-
-      "transform": [
-        {
-          "filter": "datum.id == 36"
-        }
-      ],
 
       "mark": {
         "type": "geoshape",
-        "fill": "#eee9df",
-        "stroke": "#ffffff",
-        "strokeWidth": 1
+        "fill": "#f1efe8",
+        "stroke": null
       }
     },
 
     {
       "data": {
-        "url": "data/01_top_observation_locations.csv"
-      },
-
-      "mark": {
-        "type": "circle",
-        "filled": true,
-        "color": "#b9afa3",
-        "opacity": 0.55,
-        "stroke": "#ffffff",
-        "strokeWidth": 0.8
-      },
-
-      "encoding": {
-        "longitude": {
-          "field": "grid_lon",
-          "type": "quantitative"
-        },
-
-        "latitude": {
-          "field": "grid_lat",
-          "type": "quantitative"
-        },
-
-        "size": {
-          "field": "observation_count",
-          "type": "quantitative",
-          "title": "Recorded Observations",
-          "scale": {
-            "type": "sqrt",
-            "range": [25, 900]
-          },
-          "legend": {
-            "values": [
-              5000,
-              10000,
-              20000,
-              30000,
-              40000,
-              50000
-            ],
-            "labelExpr": "datum.value / 1000 + 'k'",
-            "titleFontSize": 12,
-            "labelFontSize": 11
-          }
-        },
-
-        "tooltip": [
-          {
-            "field": "hotspot_rank",
-            "type": "quantitative",
-            "title": "Grid-cell rank"
-          },
-          {
-            "field": "observation_count",
-            "type": "quantitative",
-            "title": "Recorded observations",
-            "format": ","
-          },
-          {
-            "field": "species_richness",
-            "type": "quantitative",
-            "title": "Recorded species",
-            "format": ","
-          }
-        ]
-      }
-    },
-
-    {
-      "data": {
-        "url": "data/01_top_observation_locations.csv"
+        "url": "data/01_observation_density_grid.csv"
       },
 
       "transform": [
         {
-          "filter": "toNumber(datum.hotspot_rank) <= 5"
+          "filter": "datum.grid_lon >= 112 && datum.grid_lon <= 154.5 && datum.grid_lat >= -44.5 && datum.grid_lat <= -10"
+        },
+        {
+          "calculate": "measure == 'Observation records' ? datum.observation_count : datum.species_richness",
+          "as": "selected_value"
         }
       ],
 
       "mark": {
-        "type": "circle",
+        "type": "square",
         "filled": true,
-        "color": "#2f6f9f",
-        "opacity": 0.95,
-        "stroke": "#ffffff",
-        "strokeWidth": 1.2
+        "size": 32,
+        "opacity": 1
       },
 
       "encoding": {
+
         "longitude": {
           "field": "grid_lon",
           "type": "quantitative"
@@ -142,101 +87,248 @@
           "type": "quantitative"
         },
 
-        "size": {
-          "field": "observation_count",
+        "color": {
+          "field": "selected_value",
           "type": "quantitative",
+
           "scale": {
-            "type": "sqrt",
-            "range": [25, 900]
+            "type": "pow",
+            "exponent": 0.25,
+            "zero": true,
+            "range": [
+              "#b8dfdc",
+              "#81c9c3",
+              "#4baba6",
+              "#268b8d",
+              "#146b75",
+              "#0b4f60",
+              "#053948"
+            ]
           },
-          "legend": null
+
+          "legend": {
+            "title": "Selected value per 0.25° grid",
+            "orient": "bottom-left",
+            "direction": "horizontal",
+            "gradientLength": 320,
+            "gradientThickness": 14,
+            "offset": 10,
+            "labelFontSize": 11,
+            "titleFontSize": 12,
+            "titlePadding": 7
+          }
+        }
+      }
+    },
+
+    {
+      "data": {
+        "url": "data/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.1,
+        "strokeOpacity": 0.95
+      }
+    },
+
+    {
+      "data": {
+        "url": "data/01_observation_density_grid.csv"
+      },
+
+      "transform": [
+        {
+          "filter": "datum.grid_lon >= 112 && datum.grid_lon <= 154.5 && datum.grid_lat >= -44.5 && datum.grid_lat <= -10"
+        }
+      ],
+
+      "mark": {
+        "type": "square",
+        "filled": true,
+        "size": 60,
+        "fillOpacity": 0.001,
+        "strokeOpacity": 0
+      },
+
+      "encoding": {
+
+        "longitude": {
+          "field": "grid_lon",
+          "type": "quantitative"
+        },
+
+        "latitude": {
+          "field": "grid_lat",
+          "type": "quantitative"
         },
 
         "tooltip": [
           {
-            "field": "place_label",
-            "type": "nominal",
-            "title": "Area"
-          },
-          {
-            "field": "hotspot_rank",
-            "type": "quantitative",
-            "title": "Rank"
-          },
-          {
             "field": "observation_count",
             "type": "quantitative",
-            "title": "Recorded observations",
+            "title": "Observation records",
             "format": ","
           },
           {
             "field": "species_richness",
             "type": "quantitative",
-            "title": "Recorded species",
+            "title": "Species richness",
             "format": ","
+          },
+          {
+            "field": "grid_lat",
+            "type": "quantitative",
+            "title": "Latitude",
+            "format": ".2f"
+          },
+          {
+            "field": "grid_lon",
+            "type": "quantitative",
+            "title": "Longitude",
+            "format": ".2f"
           }
         ]
       }
     },
 
     {
-        "data": {
-            "url": "data/01_top_observation_locations.csv"
-        },
+      "data": {
+        "values": [
+          {
+            "city": "Melbourne hotspot",
+            "lon": 144.96,
+            "lat": -37.81
+          },
+          {
+            "city": "Sydney cluster",
+            "lon": 151.21,
+            "lat": -33.87
+          },
+          {
+            "city": "Brisbane cluster",
+            "lon": 153.03,
+            "lat": -27.47
+          }
+        ]
+      },
 
-        "transform": [
-            {
-            "filter": "toNumber(datum.hotspot_rank) <= 5"
-            },
-            {
-            "calculate": "'#' + datum.hotspot_rank + ' ' + replace(datum.place_label, ' area', '') + ' · ' + format(toNumber(datum.observation_count) / 1000, '.1f') + 'k'",
-            "as": "short_label"
-            },
-            {
-            "calculate": "toNumber(datum.hotspot_rank) == 1 ? toNumber(datum.grid_lon) + 0.9 : toNumber(datum.hotspot_rank) == 2 ? toNumber(datum.grid_lon) + 0.9 : toNumber(datum.hotspot_rank) == 3 ? toNumber(datum.grid_lon) + 0.8 : toNumber(datum.hotspot_rank) == 4 ? toNumber(datum.grid_lon) + 0.8 : toNumber(datum.grid_lon) + 0.8",
-            "as": "label_lon"
-            },
-            {
-            "calculate": "toNumber(datum.hotspot_rank) == 1 ? toNumber(datum.grid_lat) + 0.15 : toNumber(datum.hotspot_rank) == 2 ? toNumber(datum.grid_lat) - 1.15 : toNumber(datum.hotspot_rank) == 3 ? toNumber(datum.grid_lat) + 0.75 : toNumber(datum.hotspot_rank) == 4 ? toNumber(datum.grid_lat) + 0.65 : toNumber(datum.grid_lat) + 0.65",
-            "as": "label_lat"
-            }
-        ],
-
-        "mark": {
-            "type": "text",
-            "fontSize": 11,
-            "fontWeight": "bold",
-            "color": "#333333",
-            "align": "left",
-            "baseline": "middle"
-        },
-
-        "encoding": {
-            "longitude": {
-            "field": "label_lon",
-            "type": "quantitative"
-            },
-
-            "latitude": {
-            "field": "label_lat",
-            "type": "quantitative"
-            },
-
-            "text": {
-            "field": "short_label",
-            "type": "nominal"
-            }
+      "transform": [
+        {
+          "filter": "measure == 'Observation records'"
         }
+      ],
+
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 70,
+        "color": "#173b42",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      },
+
+      "encoding": {
+
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+
+        "tooltip": [
+          {
+            "field": "city",
+            "type": "nominal",
+            "title": "Recording hotspot"
+          }
+        ]
+      }
+    },
+
+    {
+      "data": {
+        "values": [
+          {
+            "city": "Melbourne hotspot",
+            "lon": 144.96,
+            "lat": -37.81
+          },
+          {
+            "city": "Sydney cluster",
+            "lon": 151.21,
+            "lat": -33.87
+          },
+          {
+            "city": "Brisbane cluster",
+            "lon": 153.03,
+            "lat": -27.47
+          }
+        ]
+      },
+
+      "transform": [
+        {
+          "filter": "measure == 'Observation records'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 9,
+        "dy": -9,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#263f44"
+      },
+
+      "encoding": {
+
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+
+        "text": {
+          "field": "city",
+          "type": "nominal"
+        }
+      }
     }
+
   ],
 
   "config": {
+
     "background": "transparent",
 
     "view": {
       "stroke": "transparent"
     },
 
-    "font": "Arial"
+    "font": "Arial",
+
+    "legend": {
+      "labelColor": "#444444",
+      "titleColor": "#333333"
+    }
   }
 }
