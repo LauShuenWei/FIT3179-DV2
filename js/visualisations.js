@@ -13,6 +13,14 @@ vegaEmbed("#chart02", chart02, {
     console.log("Chart 02 loaded successfully");
 }).catch(console.error);
 
+var chart03 = "vegalite/03_overall_group_composition.json";
+
+vegaEmbed("#chart03", chart03, {
+    actions: false
+}).then(function(result) {
+    console.log("Chart 03 loaded successfully");
+}).catch(console.error);
+
 var chart04 = "vegalite/04_state_group_lollipop.json";
 
 vegaEmbed("#chart04", chart04, {

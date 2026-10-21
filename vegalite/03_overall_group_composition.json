@@ -1,0 +1,320 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 650,
+  "height": 360,
+
+  "data": {
+    "url": "data/03_overall_group_composition.csv"
+  },
+
+  "transform": [
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "observation_count",
+          "as": "total_records"
+        }
+      ]
+    },
+    {
+      "calculate": "(datum.observation_count / datum.total_records) * 100",
+      "as": "percentage"
+    },
+    {
+      "calculate": "format(datum.percentage, '.1f') + '%'",
+      "as": "percentage_label"
+    },
+    {
+      "calculate": "format(datum.observation_count, ',') + ' records'",
+      "as": "record_label"
+    }
+  ],
+
+  "layer": [
+
+    {
+      "params": [
+        {
+          "name": "groupHover",
+          "select": {
+            "type": "point",
+            "fields": ["animal_group"],
+            "on": "pointerover",
+            "clear": "pointerout",
+            "toggle": false
+          }
+        }
+      ],
+
+      "mark": {
+        "type": "arc",
+        "innerRadius": 95,
+        "outerRadius": 155,
+        "padAngle": 0.02,
+        "cornerRadius": 3,
+        "stroke": "#ffffff",
+        "strokeWidth": 2
+      },
+
+      "encoding": {
+
+        "theta": {
+          "field": "observation_count",
+          "type": "quantitative",
+          "stack": true
+        },
+
+        "color": {
+          "field": "animal_group",
+          "type": "nominal",
+
+          "scale": {
+            "domain": [
+              "Bird",
+              "Mammal",
+              "Reptile",
+              "Amphibian"
+            ],
+
+            "range": [
+              "#729fc7",
+              "#d5a354",
+              "#67a98d",
+              "#c989ae"
+            ]
+          },
+
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal",
+            "columns": 4,
+            "labelFont": "Arial",
+            "labelFontSize": 12,
+            "labelColor": "#444444",
+            "symbolType": "square",
+            "symbolSize": 100,
+            "offset": 12
+          }
+        },
+
+        "opacity": {
+          "condition": {
+            "param": "groupHover",
+            "value": 1,
+            "empty": true
+          },
+          "value": 0.2
+        },
+
+        "order": {
+          "field": "observation_count",
+          "type": "quantitative",
+          "sort": "descending"
+        },
+
+        "tooltip": [
+          {
+            "field": "animal_group",
+            "type": "nominal",
+            "title": "Animal group"
+          },
+          {
+            "field": "observation_count",
+            "type": "quantitative",
+            "title": "Observation records",
+            "format": ","
+          },
+          {
+            "field": "percentage_label",
+            "type": "nominal",
+            "title": "Share of records"
+          }
+        ]
+      }
+    },
+
+
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "observation_count",
+              "as": "grand_total"
+            }
+          ]
+        },
+        {
+          "calculate": "format(datum.grand_total, ',')",
+          "as": "total_label"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "font": "Arial",
+        "fontSize": 20,
+        "fontWeight": "bold",
+        "color": "#24372a",
+        "dy": -7
+      },
+
+      "encoding": {
+        "text": {
+          "field": "total_label",
+          "type": "nominal"
+        }
+      }
+    },
+
+
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "observation_count",
+              "as": "grand_total"
+            }
+          ]
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "font": "Arial",
+        "fontSize": 12,
+        "color": "#666963",
+        "dy": 16
+      },
+
+      "encoding": {
+        "text": {
+          "value": "total records"
+        }
+      }
+    },
+
+
+    {
+      "transform": [
+        {
+          "filter": {
+            "param": "groupHover",
+            "empty": false
+          }
+        }
+      ],
+
+      "mark": {
+        "type": "circle",
+        "size": 25000,
+        "color": "#ffffff",
+        "opacity": 1
+      }
+    },
+
+
+    {
+      "transform": [
+        {
+          "filter": {
+            "param": "groupHover",
+            "empty": false
+          }
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "font": "Arial",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "#24372a",
+        "dy": -28
+      },
+
+      "encoding": {
+        "text": {
+          "field": "animal_group",
+          "type": "nominal"
+        }
+      }
+    },
+
+
+    {
+      "transform": [
+        {
+          "filter": {
+            "param": "groupHover",
+            "empty": false
+          }
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "font": "Arial",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "color": "#24372a",
+        "dy": 0
+      },
+
+      "encoding": {
+        "text": {
+          "field": "percentage_label",
+          "type": "nominal"
+        }
+      }
+    },
+
+
+    {
+      "transform": [
+        {
+          "filter": {
+            "param": "groupHover",
+            "empty": false
+          }
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "font": "Arial",
+        "fontSize": 11,
+        "color": "#666963",
+        "dy": 25
+      },
+
+      "encoding": {
+        "text": {
+          "field": "record_label",
+          "type": "nominal"
+        }
+      }
+    }
+
+  ],
+
+  "config": {
+    "background": "transparent",
+
+    "font": "Arial",
+
+    "view": {
+      "stroke": "transparent"
+    },
+
+    "legend": {
+      "labelColor": "#444444"
+    }
+  }
+}
