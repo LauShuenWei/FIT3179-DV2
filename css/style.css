@@ -375,6 +375,132 @@ body {
 }
 
 /* =========================================
+   CHART 8 — TREND + INSIGHT PANEL
+========================================= */
+
+.chart08-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(250px, 0.75fr);
+    gap: 28px;
+    align-items: center;
+
+    max-width: 1050px;
+    margin: 10px auto 0;
+}
+
+
+.chart08-chart {
+    min-width: 0;
+}
+
+
+.chart08-chart .vega-embed {
+    margin: 0;
+}
+
+
+.chart08-insight {
+    --chart08-accent: #4f7159;
+
+    min-height: 225px;
+
+    padding: 24px 24px 22px;
+
+    background: #f6f7f3;
+
+    border: 1px solid #daddd5;
+    border-top: 4px solid var(--chart08-accent);
+
+    border-radius: 10px;
+
+    transition:
+        border-color 0.18s ease,
+        background-color 0.18s ease;
+}
+
+
+.chart08-kicker {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: #70746e;
+}
+
+
+.chart08-insight h4 {
+    margin: 0 0 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 23px;
+    line-height: 1.2;
+
+    color: #24372a;
+}
+
+
+.chart08-big-number {
+    margin: 0 0 7px;
+
+    font-size: 29px;
+    line-height: 1.15;
+    font-weight: 700;
+
+    color: var(--chart08-accent);
+}
+
+
+.chart08-growth {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #dedfd9;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #555b55;
+}
+
+
+.chart08-insight p {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.65;
+
+    color: #62665f;
+}
+
+
+/* Tablet */
+@media (max-width: 1000px) {
+
+    .chart08-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .chart08-chart .vega-embed {
+        margin: 0 auto;
+    }
+
+    .chart08-insight {
+        min-height: auto;
+        max-width: 650px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+/* =========================================
    CHART NOTES
 ========================================= */
 .chart-note {

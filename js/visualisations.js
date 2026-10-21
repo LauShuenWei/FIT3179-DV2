@@ -59,7 +59,160 @@ var chart08 = "vegalite/08_annual_group_trend.json";
 vegaEmbed("#chart08", chart08, {
     actions: false
 }).then(function(result) {
+
     console.log("Chart 08 loaded successfully");
+
+    var view = result.view;
+
+    var panel = document.getElementById("chart08-insight");
+    var yearElement = document.getElementById("chart08-year");
+    var groupElement = document.getElementById("chart08-group");
+    var countElement = document.getElementById("chart08-count");
+    var growthElement = document.getElementById("chart08-growth");
+    var textElement = document.getElementById("chart08-text");
+
+    var groupColours = {
+        "Bird": "#729fc7",
+        "Mammal": "#d5a354",
+        "Reptile": "#67a98d",
+        "Amphibian": "#c989ae"
+    };
+
+    function resetInsight() {
+
+        panel.style.setProperty("--chart08-accent", "#4f7159");
+
+        yearElement.textContent = "2018–2024";
+
+        groupElement.textContent =
+            "Compare recording growth";
+
+        countElement.textContent =
+            "2018 = 100";
+
+        growthElement.textContent =
+            "Indexed to each animal group's own 2018 level";
+
+        textElement.textContent =
+            "Hover over a point to compare how recording activity changed for birds, mammals, reptiles and amphibians.";
+    }
+
+    function updateInsight(datum) {
+
+        if (
+            !datum ||
+            !datum.animal_group ||
+            datum.animal_group === "All" ||
+            datum.year === undefined ||
+            datum.observation_count === undefined ||
+            datum.growth_index === undefined
+        ) {
+            return;
+        }
+
+        var group = datum.animal_group;
+        var year = datum.year;
+
+        var count =
+            Number(datum.observation_count);
+
+        var index =
+            Number(datum.growth_index);
+
+        var multiple =
+            index / 100;
+
+        var percentChange =
+            index - 100;
+
+
+        panel.style.setProperty(
+            "--chart08-accent",
+            groupColours[group] || "#4f7159"
+        );
+
+        yearElement.textContent =
+            year;
+
+        groupElement.textContent =
+            group;
+
+        countElement.textContent =
+            count.toLocaleString() + " records";
+
+        if (Number(year) === 2018) {
+
+            growthElement.textContent =
+                "Baseline year · Growth index 100";
+
+            textElement.textContent =
+                "2018 is used as the baseline for comparing changes in " +
+                group.toLowerCase() +
+                " recording activity.";
+
+        } else {
+
+            growthElement.textContent =
+                multiple.toFixed(1) +
+                "× the 2018 level · " +
+                (percentChange >= 0 ? "+" : "") +
+                percentChange.toFixed(0) +
+                "%";
+
+
+            textElement.textContent =
+                group +
+                " recording activity in " +
+                year +
+                " was about " +
+                multiple.toFixed(1) +
+                " times its 2018 level.";
+        }
+    }
+
+    view.addEventListener(
+        "pointermove",
+        function(event, item) {
+
+            if (
+                item &&
+                item.datum &&
+                item.datum.animal_group
+            ) {
+
+                // Highlight this animal group and fade the others
+                view.signal(
+                    "hoverGroup",
+                    item.datum.animal_group
+                ).runAsync();
+
+
+                // Only update the explanation when a yearly point is available
+                if (item.datum.year !== undefined) {
+                    updateInsight(item.datum);
+                }
+            }
+        }
+    );
+
+    document
+        .getElementById("chart08")
+        .addEventListener(
+            "mouseleave",
+            function() {
+
+                view.signal(
+                    "hoverGroup",
+                    ""
+                ).runAsync();
+
+                resetInsight();
+            }
+        );
+
+
+    resetInsight();
+
 }).catch(console.error);
 
 var chart09 = "vegalite/09_rainfall_temperature_heatmap.json";

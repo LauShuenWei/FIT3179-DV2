@@ -1,110 +1,248 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 760,
-  "height": 320,
+  "width": 610,
+  "height": 330,
 
   "data": {
     "url": "data/08_annual_group_trend.csv"
   },
 
-  "params": [
-    {
-      "name": "Group",
-      "value": "All",
-      "bind": {
-        "input": "select",
-        "options": [
-          "All",
-          "Bird",
-          "Mammal",
-          "Reptile",
-          "Amphibian"
-        ],
-        "name": "Animal group: "
-      }
-    }
-  ],
-
   "transform": [
     {
-      "filter": "datum.animal_group == Group"
+      "filter": "datum.animal_group != 'All'"
+    },
+
+    {
+      "window": [
+        {
+          "op": "first_value",
+          "field": "observation_count",
+          "as": "baseline_count"
+        }
+      ],
+      "sort": [
+        {
+          "field": "year",
+          "order": "ascending"
+        }
+      ],
+      "groupby": [
+        "animal_group"
+      ],
+      "frame": [
+        null,
+        null
+      ]
+    },
+
+    {
+      "calculate": "(datum.observation_count / datum.baseline_count) * 100",
+      "as": "growth_index"
+    },
+
+    {
+      "calculate": "datum.growth_index - 100",
+      "as": "growth_change"
     }
   ],
 
-  "mark": {
-    "type": "line",
-    "point": {
-      "filled": true,
-      "size": 80
-    },
-    "strokeWidth": 3
-  },
+  "params": [
+    {
+      "name": "hoverGroup",
+      "value": ""
+    }
+  ],
 
-  "encoding": {
-    "x": {
-      "field": "year",
-      "type": "ordinal",
-      "title": "Year",
-      "axis": {
-        "labelAngle": 0
-      }
-    },
+  "layer": [
 
-    "y": {
-      "field": "observation_count",
-      "type": "quantitative",
-      "title": "Recorded Observations (k)",
-      "axis": {
-        "values": [
-          0,
-          50000,
-          100000,
-          150000,
-          200000,
-          250000,
-          300000,
-          350000,
-          400000
-        ],
-        "labelExpr": "datum.value / 1000",
-        "gridColor": "#dddddd",
-        "gridOpacity": 0.35
-      }
-    },
-
-    "tooltip": [
-      {
-        "field": "animal_group",
-        "type": "nominal",
-        "title": "Animal group"
+    {
+      "mark": {
+        "type": "rule",
+        "stroke": "#aaa9a3",
+        "strokeDash": [5, 5],
+        "strokeWidth": 1
       },
-      {
-        "field": "year",
-        "type": "ordinal",
-        "title": "Year"
-      },
-      {
-        "field": "observation_count",
-        "type": "quantitative",
-        "title": "Recorded observations",
-        "format": ","
+
+      "encoding": {
+        "y": {
+          "datum": 100
+        }
       }
-    ]
-  },
+    },
+
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3
+      },
+
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": "Year",
+
+          "axis": {
+            "labelAngle": 0,
+            "labelFontSize": 11,
+            "titleFontSize": 12
+          }
+        },
+
+        "y": {
+          "field": "growth_index",
+          "type": "quantitative",
+          "title": "Growth index (2018 = 100)",
+
+          "scale": {
+            "zero": false
+          },
+
+          "axis": {
+            "labelFontSize": 10,
+            "titleFontSize": 11,
+            "grid": true,
+            "gridColor": "#ecebe6",
+            "gridOpacity": 0.8
+          }
+        },
+
+        "color": {
+          "field": "animal_group",
+          "type": "nominal",
+
+          "scale": {
+            "domain": [
+              "Bird",
+              "Mammal",
+              "Reptile",
+              "Amphibian"
+            ],
+
+            "range": [
+              "#729fc7",
+              "#d5a354",
+              "#67a98d",
+              "#c989ae"
+            ]
+          },
+
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal",
+            "labelFontSize": 11,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3
+          }
+        },
+
+        "opacity": {
+          "condition": {
+            "test": "hoverGroup == '' || datum.animal_group == hoverGroup",
+            "value": 1
+          },
+          "value": 0.15
+        },
+
+        "detail": {
+          "field": "animal_group"
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 85,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      },
+
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+
+        "y": {
+          "field": "growth_index",
+          "type": "quantitative"
+        },
+
+        "color": {
+          "field": "animal_group",
+          "type": "nominal",
+
+          "scale": {
+            "domain": [
+              "Bird",
+              "Mammal",
+              "Reptile",
+              "Amphibian"
+            ],
+
+            "range": [
+              "#729fc7",
+              "#d5a354",
+              "#67a98d",
+              "#c989ae"
+            ]
+          },
+
+          "legend": null
+        },
+
+        "opacity": {
+          "condition": {
+            "test": "hoverGroup == '' || datum.animal_group == hoverGroup",
+            "value": 1
+          },
+          "value": 0.15
+        },
+
+        "tooltip": [
+          {
+            "field": "animal_group",
+            "type": "nominal",
+            "title": "Animal group"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "observation_count",
+            "type": "quantitative",
+            "title": "Observation records",
+            "format": ","
+          },
+          {
+            "field": "growth_index",
+            "type": "quantitative",
+            "title": "Growth index",
+            "format": ".0f"
+          }
+        ]
+      }
+    }
+  ],
 
   "config": {
     "background": "transparent",
+
+    "font": "Arial",
 
     "view": {
       "stroke": "transparent"
     },
 
-    "font": "Arial",
-
     "axis": {
-      "gridColor": "#e5e5e5",
-      "gridOpacity": 0.7
+      "domainColor": "#999999",
+      "tickColor": "#999999"
     }
   }
 }
