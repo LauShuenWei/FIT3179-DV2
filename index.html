@@ -23,59 +23,306 @@
 
     <main class="page">
 
+        <!-- ========================= HERO ========================== -->
+
+        <header class="hero">
+
+            <p class="eyebrow">
+                Australian Wildlife • 2018–2024
+            </p>
+
         <h1>Wild Australia</h1>
 
         <p class="subtitle">
             Where, When and Under What Conditions Is Wildlife Observed?
         </p>
 
-        <section>
+        <p class="hero-intro">
+            Citizen-science observations provide a valuable view of when and
+            where wildlife is recorded across Australia. This visualisation
+            explores how recording patterns differ across animal groups,
+            locations, seasons and climate conditions.
+        </p>
 
+        </header>
+
+        <!-- ========================= SECTION 01 WILDLIFE ACROSS AUSTRALIA ========================== -->
+
+        <section class="story-section" id="wildlife-across-australia">
+
+            <div class="section-heading">
+
+                <p class="section-number">
+                    01
+                </p>
+
+                <h2>
+                    Wildlife Across Australia
+                </h2>
+
+                <p class="section-intro">
+                    Wildlife records are not distributed evenly across the
+                    continent. Some locations contain far more recorded
+                    observations and species than others.
+                </p>
+
+            </div>
+
+
+            <!-- Chart 1 -->
             <div class="chart-container">               
                 <div id="chart01"></div>          
             </div>
 
+            <!-- Chart 2 -->
             <div class="chart-container">               
                 <div id="chart02"></div>          
             </div>
 
+            </section>
+
+            <!-- ========================= SECTION 02 DIFFERENT ANIMALS, DIFFERENT PLACES ========================== -->
+
+            <section class="story-section" id="animal-groups">
+
+            <div class="section-heading">
+
+                <p class="section-number">
+                    02
+                </p>
+
+                <h2>
+                    Different Animals, Different Places
+                </h2>
+
+                <p class="section-intro">
+                    Birds, mammals, reptiles and amphibians show different
+                    recording patterns across Australian states and across
+                    the landscape.
+                </p>
+
+            </div>
+
+            <!-- Chart 4 -->
             <div class="chart-container">               
                 <div id="chart04"></div>          
             </div>
 
+            <!-- Chart 5 -->
             <div class="chart-container">               
                 <div id="chart05"></div>          
             </div>
 
+        </section>
+
+        <!-- ========================= SECTION 03 WILDLIFE THROUGH THE SEASONS ========================== -->
+
+        <section class="story-section" id="seasonality">
+
+            <div class="section-heading">
+
+                <p class="section-number">
+                    03
+                </p>
+
+                <h2>
+                    Wildlife Through the Seasons
+                </h2>
+
+                <p class="section-intro">
+                    Observation activity also changes through the year.
+                    Comparing months, seasons and years reveals when different
+                    animal groups are most often recorded.
+                </p>
+
+            </div>
+
+            <!-- Chart 6 -->
             <div class="chart-container">
                 <div id="chart06"></div>
             </div>
 
+            <!-- Chart 7 -->
             <div class="chart-container">
                 <div id="chart07"></div>
             </div>
 
+            <!-- Chart 8 -->
             <div class="chart-container">
                 <div id="chart08"></div>         
             </div>
 
+        </section>
+
+        <!-- ========================= SECTION 04 WEATHER & WILDLIFE ========================== -->
+
+        <section class="story-section" id="climate">
+
+            <div class="section-heading">
+
+                <p class="section-number">
+                    04
+                </p>
+
+                <h2>
+                    Weather &amp; Wildlife
+                </h2>
+
+                <p class="section-intro">
+                    Rainfall and temperature provide environmental context for
+                    wildlife records. The following charts compare the climate
+                    conditions associated with observations of each animal group.
+                </p>
+
+            </div>
+
+            <!-- Chart 9 -->
             <div class="chart-container">
                 <div id="chart09"></div>         
             </div>
 
+            <!-- Chart 10 -->
             <div class="chart-container">
                 <div id="chart10"></div>         
             </div>
 
+            <!-- Chart 11 -->
             <div class="chart-container">
                 <div id="chart11"></div>         
             </div>
 
+        </section>
+
+        <!-- ========================= SECTION 05 THE BIGGER PICTURE ========================== -->
+
+        <section class="story-section" id="bigger-picture">
+
+            <div class="section-heading">
+
+                <p class="section-number">
+                    05
+                </p>
+
+                <h2>
+                    The Bigger Picture
+                </h2>
+
+                <p class="section-intro">
+                    Places and months with more wildlife observations also tend
+                    to reveal more recorded species. This highlights an important
+                    feature of citizen-science data: greater observation effort
+                    can reveal greater recorded diversity.
+                </p>
+
+            </div>
+
+            <!-- Chart 12 -->
             <div class="chart-container">
                 <div id="chart12"></div>         
             </div>
 
+            <div class="takeaway">
+
+                <h3>
+                    What does this tell us?
+                </h3>
+
+                <p>
+                    Australian wildlife records show strong geographic,
+                    seasonal and environmental patterns, but they also reflect
+                    where and when people are observing. These data should
+                    therefore be interpreted as patterns in
+                    <strong>recorded observations</strong>, rather than direct
+                    estimates of wildlife population size or abundance.
+                </p>
+
+            </div>
+
         </section>
+
+        <!-- ========================= SOURCES & METHODOLOGY ========================== -->
+
+        <footer class="sources">
+
+            <h2>
+                Data &amp; Methodology
+            </h2>
+
+            <p>
+                Wildlife observations are based on research-grade iNaturalist
+                records accessed through GBIF for birds, mammals, reptiles and
+                amphibians recorded in Australia from 2018 to 2024.
+            </p>
+
+            <p>
+                Climate information is derived from SILO Australian climate
+                datasets, including monthly rainfall and temperature conditions.
+                Wildlife observations were spatially matched to the nearest SILO
+                climate grid location.
+            </p>
+
+            <p>
+                These visualisations describe patterns in recorded observations.
+                Citizen-science records are influenced by where and when people
+                observe wildlife, so they should not be interpreted as direct
+                measures of wildlife population size or abundance.
+            </p>
+
+            <h3>
+                Data Sources
+            </h3>
+
+            <p>
+                GBIF.org. (2026a). <em>GBIF occurrence download</em> [Data set].
+                GBIF.org.
+                <a href="https://doi.org/10.15468/dl.yucyd7" target="_blank">
+                    https://doi.org/10.15468/dl.yucyd7
+                </a>
+            </p>
+
+            <p>
+                GBIF.org. (2026b). <em>GBIF occurrence download</em> [Data set].
+                GBIF.org.
+                <a href="https://doi.org/10.15468/dl.rt9ugp" target="_blank">
+                    https://doi.org/10.15468/dl.rt9ugp
+                </a>
+            </p>
+
+            <p>
+                GBIF.org. (2026c). <em>GBIF occurrence download</em> [Data set].
+                GBIF.org.
+                <a href="https://doi.org/10.15468/dl.ngbcrn" target="_blank">
+                    https://doi.org/10.15468/dl.ngbcrn
+                </a>
+            </p>
+
+            <p>
+                GBIF.org. (2026d). <em>GBIF occurrence download</em> [Data set].
+                GBIF.org.
+                <a href="https://doi.org/10.15468/dl.fp36gj" target="_blank">
+                    https://doi.org/10.15468/dl.fp36gj
+                </a>
+            </p>
+
+            <p>
+                Jeffrey, S. J., Carter, J. O., Moodie, K. B., &amp; Beswick, A. R.
+                (2001). Using spatial interpolation to construct a comprehensive
+                archive of Australian climate data.
+                <em>Environmental Modelling &amp; Software, 16</em>(4), 309–330.
+                <a href="https://doi.org/10.1016/S1364-8152(01)00008-1" target="_blank">
+                    https://doi.org/10.1016/S1364-8152(01)00008-1
+                </a>
+            </p>
+
+            <p>
+                Queensland Government. (2024, December 10).
+                <em>Access gridded data</em>. LongPaddock.
+                <a href="https://www.longpaddock.qld.gov.au/silo/gridded-data/" target="_blank">
+                    https://www.longpaddock.qld.gov.au/silo/gridded-data/
+                </a>
+            </p>
+
+        </footer>
 
     </main>
 
