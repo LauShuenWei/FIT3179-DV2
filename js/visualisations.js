@@ -37,7 +37,7 @@ vegaEmbed("#chart05", chart05, {
     console.log("Chart 05 loaded successfully");
 }).catch(console.error);
 
-var chart06 = "vegalite/06_group_month_heatmap.json";
+var chart06 = "vegalite/06_group_month_radial.json";
 
 vegaEmbed("#chart06", chart06, {
     actions: false

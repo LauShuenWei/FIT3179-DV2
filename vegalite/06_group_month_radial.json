@@ -1,0 +1,210 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "data": {
+    "url": "data/06_group_month_radial.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "format(datum.percentage, '.1f') + '%'",
+      "as": "percentage_label"
+    }
+  ],
+
+  "facet": {
+    "field": "animal_group",
+    "type": "nominal",
+
+    "sort": [
+      "Bird",
+      "Mammal",
+      "Reptile",
+      "Amphibian"
+    ],
+
+    "header": {
+      "title": null,
+      "labelFont": "Arial",
+      "labelFontSize": 15,
+      "labelFontWeight": "bold",
+      "labelColor": "#444444",
+      "labelPadding": 10
+    }
+  },
+
+  "columns": 2,
+
+  "spec": {
+    "width": 300,
+    "height": 300,
+
+    "layer": [
+      {
+        "params": [
+          {
+            "name": "monthHover",
+            "select": {
+              "type": "point",
+              "fields": ["month_name"],
+              "on": "pointerover",
+              "clear": "pointerout",
+              "toggle": false
+            }
+          }
+        ],
+
+        "mark": {
+          "type": "arc",
+          "innerRadius": 32,
+          "stroke": "#ffffff",
+          "strokeWidth": 1.5,
+          "cornerRadius": 2
+        },
+
+        "encoding": {
+          "theta": {
+            "field": "month_name",
+            "type": "ordinal",
+
+            "sort": [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec"
+            ]
+          },
+
+          "radius": {
+            "field": "percentage",
+            "type": "quantitative",
+
+            "scale": {
+              "domain": [0, 15],
+              "range": [42, 116]
+            },
+
+            "legend": null
+          },
+
+          "color": {
+            "field": "animal_group",
+            "type": "nominal",
+
+            "scale": {
+              "domain": [
+                "Bird",
+                "Mammal",
+                "Reptile",
+                "Amphibian"
+              ],
+
+              "range": [
+                "#729fc7",
+                "#d5a354",
+                "#67a98d",
+                "#c989ae"
+              ]
+            },
+
+            "legend": null
+          },
+
+          "opacity": {
+            "condition": {
+              "param": "monthHover",
+              "value": 1,
+              "empty": true
+            },
+            "value": 0.35
+          },
+
+          "tooltip": [
+            {
+              "field": "animal_group",
+              "type": "nominal",
+              "title": "Animal group"
+            },
+            {
+              "field": "month_name",
+              "type": "ordinal",
+              "title": "Month"
+            },
+            {
+              "field": "observation_count",
+              "type": "quantitative",
+              "title": "Recorded observations",
+              "format": ","
+            },
+            {
+              "field": "percentage_label",
+              "type": "nominal",
+              "title": "Share of group"
+            }
+          ]
+        }
+      },
+
+      {
+        "mark": {
+          "type": "text",
+          "font": "Arial",
+          "fontSize": 10,
+          "fontWeight": 500,
+          "color": "#555555"
+        },
+
+        "encoding": {
+          "theta": {
+            "field": "month_name",
+            "type": "ordinal",
+
+            "sort": [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec"
+            ]
+          },
+
+          "radius": {
+            "value": 130
+          },
+
+          "text": {
+            "field": "month_name",
+            "type": "nominal"
+          }
+        }
+      }
+    ]
+  },
+
+  "spacing": 26,
+
+  "config": {
+    "background": "transparent",
+
+    "font": "Arial",
+
+    "view": {
+      "stroke": "transparent"
+    }
+  }
+}
