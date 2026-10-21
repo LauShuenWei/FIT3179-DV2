@@ -500,6 +500,15 @@ body {
     }
 }
 
+.stat-key {
+    display: flex;
+    justify-content: flex-end;
+    gap: 18px;
+    margin: -6px 50px 4px 0;
+    font-size: 12px;
+    color: #666963;
+}
+
 /* =========================================
    CHART NOTES
 ========================================= */

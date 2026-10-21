@@ -2,33 +2,46 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
   "width": 760,
-  "height": 300,
+  "height": 285,
 
   "data": {
     "url": "data/10_rainfall_by_group.csv"
   },
 
+  "transform": [
+    {
+      "calculate": "format(datum.median, '.0f') + ' mm median'",
+      "as": "median_label"
+    }
+  ],
+
   "encoding": {
     "y": {
       "field": "animal_group",
       "type": "nominal",
+
       "sort": [
         "Bird",
         "Mammal",
         "Reptile",
         "Amphibian"
       ],
-      "title": "Animal Group",
+
+      "title": null,
+
       "axis": {
         "labelFontSize": 12,
-        "titleFontSize": 13,
-        "labelPadding": 8
+        "labelFontWeight": "bold",
+        "labelPadding": 12,
+        "domain": false,
+        "ticks": false
       }
     },
 
     "color": {
       "field": "animal_group",
       "type": "nominal",
+
       "scale": {
         "domain": [
           "Bird",
@@ -36,13 +49,15 @@
           "Reptile",
           "Amphibian"
         ],
+
         "range": [
-          "#0072B2",
-          "#E69F00",
-          "#009E73",
-          "#CC79A7"
+          "#729fc7",
+          "#d5a354",
+          "#67a98d",
+          "#c989ae"
         ]
       },
+
       "legend": null
     },
 
@@ -55,70 +70,54 @@
       {
         "field": "count",
         "type": "quantitative",
-        "title": "Observations",
+        "title": "Observation records",
         "format": ","
-      },
-      {
-        "field": "mean",
-        "type": "quantitative",
-        "title": "Mean rainfall (mm)",
-        "format": ".1f"
-      },
-      {
-        "field": "q1",
-        "type": "quantitative",
-        "title": "Q1 (mm)",
-        "format": ".1f"
       },
       {
         "field": "median",
         "type": "quantitative",
-        "title": "Median (mm)",
+        "title": "Median rainfall",
         "format": ".1f"
       },
       {
-        "field": "q3",
+        "field": "mean",
         "type": "quantitative",
-        "title": "Q3 (mm)",
-        "format": ".1f"
-      },
-      {
-        "field": "lower_whisker",
-        "type": "quantitative",
-        "title": "Lower whisker (mm)",
-        "format": ".1f"
-      },
-      {
-        "field": "upper_whisker",
-        "type": "quantitative",
-        "title": "Upper whisker (mm)",
+        "title": "Mean rainfall",
         "format": ".1f"
       }
     ]
   },
 
   "layer": [
+
     {
       "mark": {
         "type": "rule",
-        "strokeWidth": 2
+        "strokeWidth": 2,
+        "opacity": 0.85
       },
+
       "encoding": {
         "x": {
           "field": "lower_whisker",
           "type": "quantitative",
-          "title": "Monthly Rainfall (mm)",
+
+          "title": "Monthly rainfall (mm)",
+
           "scale": {
             "zero": true
           },
+
           "axis": {
             "grid": true,
-            "gridColor": "#eeeeee",
-            "gridOpacity": 0.6,
-            "titleFontSize": 13,
-            "labelFontSize": 11
+            "gridColor": "#ecebe6",
+            "gridOpacity": 0.8,
+            "titleFontSize": 12,
+            "labelFontSize": 11,
+            "titlePadding": 10
           }
         },
+
         "x2": {
           "field": "upper_whisker"
         }
@@ -128,14 +127,17 @@
     {
       "mark": {
         "type": "bar",
-        "size": 42,
-        "opacity": 0.65
+        "size": 34,
+        "opacity": 0.55,
+        "cornerRadius": 2
       },
+
       "encoding": {
         "x": {
           "field": "q1",
           "type": "quantitative"
         },
+
         "x2": {
           "field": "q3"
         }
@@ -146,9 +148,10 @@
       "mark": {
         "type": "tick",
         "thickness": 3,
-        "size": 42,
-        "color": "#222222"
+        "size": 34,
+        "color": "#3e403c"
       },
+
       "encoding": {
         "x": {
           "field": "median",
@@ -162,15 +165,38 @@
         "type": "point",
         "filled": true,
         "shape": "diamond",
-        "size": 90,
-        "color": "white",
-        "stroke": "#333333",
-        "strokeWidth": 1.5
+        "size": 85,
+        "fill": "#ffffff",
+        "strokeWidth": 2
       },
+
       "encoding": {
         "x": {
           "field": "mean",
           "type": "quantitative"
+        },
+
+        "stroke": {
+          "field": "animal_group",
+          "type": "nominal",
+
+          "scale": {
+            "domain": [
+              "Bird",
+              "Mammal",
+              "Reptile",
+              "Amphibian"
+            ],
+
+            "range": [
+              "#729fc7",
+              "#d5a354",
+              "#67a98d",
+              "#c989ae"
+            ]
+          },
+
+          "legend": null
         }
       }
     },
@@ -179,8 +205,9 @@
       "mark": {
         "type": "tick",
         "thickness": 2,
-        "size": 20
+        "size": 18
       },
+
       "encoding": {
         "x": {
           "field": "lower_whisker",
@@ -193,15 +220,43 @@
       "mark": {
         "type": "tick",
         "thickness": 2,
-        "size": 20
+        "size": 18
       },
+
       "encoding": {
         "x": {
           "field": "upper_whisker",
           "type": "quantitative"
         }
       }
+    },
+
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 9,
+        "dy": -23,
+        "font": "Arial",
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "#555851"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "median",
+          "type": "quantitative"
+        },
+
+        "text": {
+          "field": "median_label",
+          "type": "nominal"
+        }
+      }
     }
+
   ],
 
   "config": {
@@ -215,7 +270,9 @@
 
     "axis": {
       "domainColor": "#999999",
-      "tickColor": "#999999"
+      "tickColor": "#999999",
+      "labelColor": "#4d504b",
+      "titleColor": "#3f423e"
     }
   }
 }
