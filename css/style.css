@@ -325,6 +325,56 @@ body {
 }
 
 /* =========================================
+   CHART 7 CONTROLS
+========================================= */
+
+.chart07-controls:empty {
+    display: none;
+}
+
+.chart07-controls {
+    width: fit-content;
+    max-width: 100%;
+    margin: 4px 0 14px auto;
+    padding: 10px 14px;
+    background: #eef4f0;
+    border: 1px solid #d1ddd4;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #33443a;
+}
+
+.chart07-controls .vega-bindings {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+}
+
+.chart07-controls .vega-bind-name {
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+.chart07-controls label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 4px;
+    border-radius: 999px;
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+.chart07-controls input[type="radio"] {
+    margin: 0;
+    accent-color: #4f7159;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* =========================================
    CHART NOTES
 ========================================= */
 .chart-note {
@@ -464,31 +514,35 @@ body {
     .sources {
         padding: 55px 10px 65px;
     }
+}
 
-    /* =========================================
-        VEGA INTERACTIVE CONTROLS
-    ========================================= */
+/* =========================================
+    VEGA INTERACTIVE CONTROLS
+========================================= */
 
-    .vega-bindings {
-        margin: 4px 0 20px;
-        font-size: 14px;
-        color: #444444;
-    }
+.vega-bindings {
+    margin: 14px 0 0;
+    font-size: 14px;
+    color: #444444;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+}
 
-    .vega-bindings .vega-bind-name {
-        font-weight: 700;
-        margin-right: 12px;
-    }
+.vega-bindings .vega-bind-name {
+    font-weight: 700;
+    margin-right: 4px;
+}
 
-    .vega-bindings label {
-        margin-right: 22px;
-        cursor: pointer;
-        font-weight: 500;
-    }
+.vega-bindings label {
+    margin-right: 0;
+    cursor: pointer;
+    font-weight: 500;
+}
 
-    .vega-bindings input[type="radio"] {
-        margin-right: 6px;
-        accent-color: #3e916d;
-        cursor: pointer;
-    }
+.vega-bindings input[type="radio"] {
+    margin-right: 6px;
+    accent-color: #4f7159;
+    cursor: pointer;
 }

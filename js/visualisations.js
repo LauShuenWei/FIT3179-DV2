@@ -48,7 +48,8 @@ vegaEmbed("#chart06", chart06, {
 var chart07 = "vegalite/07_seasonal_composition.json";
 
 vegaEmbed("#chart07", chart07, {
-    actions: false
+    actions: false,
+    bind: "#chart07-controls"
 }).then(function(result) {
     console.log("Chart 07 loaded successfully");
 }).catch(console.error);
