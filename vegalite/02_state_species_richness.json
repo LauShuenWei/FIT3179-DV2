@@ -2,133 +2,312 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
   "title": {
-    "text": "Where Is Recorded Wildlife Diversity Highest?",
-    "subtitle": "Recorded species richness by Australian state or territory, 2018–2024",
+    "text": "Queensland Leads Recorded Species Richness",
+    "subtitle": "Distinct wildlife species recorded by Australian state or territory, 2018–2024",
     "anchor": "start",
     "fontSize": 22,
+    "fontWeight": "bold",
     "subtitleFontSize": 13,
+    "subtitleFontWeight": "normal",
+    "subtitleColor": "#555555",
     "subtitlePadding": 8
   },
 
-  "width": 760,
-  "height": 480,
-
-  "data": {
-    "url": "data/02_state_species_richness.csv"
-  },
-
-  "transform": [
+  "hconcat": [
     {
-      "lookup": "state_name",
-      "from": {
-        "data": {
-          "url": "data/australia_states.geojson",
-          "format": {
-            "type": "json",
-            "property": "features"
+      "width": 700,
+      "height": 450,
+
+      "projection": {
+        "type": "mercator"
+      },
+
+      "layer": [
+        {
+          "data": {
+            "url": "data/02_state_species_richness.csv"
+          },
+
+          "transform": [
+            {
+              "lookup": "state_name",
+              "from": {
+                "data": {
+                  "url": "data/australia_states.geojson",
+                  "format": {
+                    "type": "json",
+                    "property": "features"
+                  }
+                },
+                "key": "properties.state_name_2021"
+              },
+              "as": "geo"
+            }
+          ],
+
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#ffffff",
+            "strokeWidth": 0.6
+          },
+
+          "encoding": {
+            "shape": {
+              "field": "geo",
+              "type": "geojson"
+            },
+
+            "color": {
+              "field": "species_richness",
+              "type": "quantitative",
+              "scale": {
+                "domain": [300, 1350],
+                "range": [
+                  "#eef4e8",
+                  "#d8e8cf",
+                  "#bcd7ad",
+                  "#98c184",
+                  "#72a85f",
+                  "#4f8b42",
+                  "#316b2d"
+                ]
+              },
+              "legend": {
+                "title": "Recorded species",
+                "orient": "bottom",
+                "direction": "horizontal",
+                "gradientLength": 260,
+                "gradientThickness": 13,
+                "titleFontSize": 12,
+                "labelFontSize": 11,
+                "titlePadding": 7
+              }
+            },
+
+            "tooltip": [
+              {
+                "field": "state_name",
+                "type": "nominal",
+                "title": "State / territory"
+              },
+              {
+                "field": "species_richness",
+                "type": "quantitative",
+                "title": "Recorded species",
+                "format": ","
+              },
+              {
+                "field": "observation_count",
+                "type": "quantitative",
+                "title": "Observation records",
+                "format": ","
+              }
+            ]
           }
         },
-        "key": "properties.state_name_2021"
-      },
-      "as": "geo"
-    }
-  ],
 
-  "projection": {
-    "type": "mercator"
-  },
+        {
+          "data": {
+            "values": [
+              { "label": "Western Australia", "lon": 121.5, "lat": -25.5 },
+              { "label": "Northern Territory", "lon": 133.5, "lat": -19.5 },
+              { "label": "South Australia", "lon": 135.0, "lat": -30.0 },
+              { "label": "Queensland", "lon": 145.0, "lat": -21.5 },
+              { "label": "New South Wales", "lon": 147.0, "lat": -32.5 },
+              { "label": "Victoria", "lon": 144.5, "lat": -36.6 },
+              { "label": "Tasmania", "lon": 146.8, "lat": -42.0 },
+              { "label": "ACT", "lon": 149.2, "lat": -35.4 }
+            ]
+          },
 
-  "params": [
+          "mark": {
+            "type": "text",
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "fill": "#ffffff",
+            "stroke": "#173b42",
+            "strokeWidth": 0.8,
+            "align": "center",
+            "baseline": "middle"
+          },
+
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "label"
+            }
+          }
+        }
+      ]
+    },
+
     {
-      "name": "hover",
-      "select": {
-        "type": "point",
-        "fields": [
-          "state_name"
-        ],
-        "on": "mouseover",
-        "clear": "mouseout"
-      }
+      "width": 210,
+      "height": 450,
+
+      "data": {
+        "url": "data/02_state_species_richness.csv"
+      },
+
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "cornerRadiusEnd": 4,
+            "size": 15
+          },
+
+          "encoding": {
+            "y": {
+              "field": "state_name",
+              "type": "nominal",
+              "sort": [
+                "Queensland",
+                "Western Australia",
+                "New South Wales",
+                "South Australia",
+                "Northern Territory",
+                "Victoria",
+                "Australian Capital Territory",
+                "Tasmania"
+              ],
+              "axis": {
+                "title": null,
+                "labelFontSize": 11,
+                "labelLimit": 160
+              }
+            },
+
+            "x": {
+              "field": "species_richness",
+              "type": "quantitative",
+              "scale": {
+                "domain": [0, 1450]
+              },
+              "axis": {
+                "title": "Recorded species",
+                "titleFontSize": 12,
+                "labelFontSize": 10,
+                "grid": true,
+                "gridColor": "#eeeeea",
+                "tickCount": 5
+              }
+            },
+
+            "color": {
+              "field": "species_richness",
+              "type": "quantitative",
+              "scale": {
+                "domain": [300, 1350],
+                "range": [
+                  "#eef4e8",
+                  "#d8e8cf",
+                  "#bcd7ad",
+                  "#98c184",
+                  "#72a85f",
+                  "#4f8b42",
+                  "#316b2d"
+                ]
+              },
+              "legend": null
+            },
+
+            "tooltip": [
+              {
+                "field": "state_name",
+                "type": "nominal",
+                "title": "State / territory"
+              },
+              {
+                "field": "species_richness",
+                "type": "quantitative",
+                "title": "Recorded species",
+                "format": ","
+              },
+              {
+                "field": "observation_count",
+                "type": "quantitative",
+                "title": "Observation records",
+                "format": ","
+              }
+            ]
+          }
+        },
+
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 5,
+            "fontSize": 10,
+            "fontWeight": "bold",
+            "color": "#3f4542"
+          },
+
+          "encoding": {
+            "y": {
+              "field": "state_name",
+              "type": "nominal",
+              "sort": [
+                "Queensland",
+                "Western Australia",
+                "New South Wales",
+                "South Australia",
+                "Northern Territory",
+                "Victoria",
+                "Australian Capital Territory",
+                "Tasmania"
+              ]
+            },
+
+            "x": {
+              "field": "species_richness",
+              "type": "quantitative",
+              "scale": {
+                "domain": [0, 1450]
+              }
+            },
+
+            "text": {
+              "field": "species_richness",
+              "type": "quantitative",
+              "format": ","
+            }
+          }
+        }
+      ]
     }
   ],
 
-  "mark": {
-    "type": "geoshape",
-    "stroke": "#ffffff",
-    "strokeWidth": 1.5
-  },
-
-  "encoding": {
-    "shape": {
-      "field": "geo",
-      "type": "geojson"
-    },
-
-    "color": {
-      "field": "species_richness",
-      "type": "quantitative",
-      "title": "Recorded Species",
-      "scale": {
-        "scheme": "greens",
-        "domain": [300, 1350]
-      },
-      "legend": {
-        "values": [
-          300,
-          500,
-          700,
-          900,
-          1100,
-          1300
-        ],
-        "labelExpr": "format(datum.value, ',.0f')",
-        "titleFontSize": 12,
-        "labelFontSize": 11,
-        "gradientLength": 180
-      }
-    },
-
-    "opacity": {
-      "condition": {
-        "param": "hover",
-        "value": 1
-      },
-      "value": 0.9
-    },
-
-    "tooltip": [
-      {
-        "field": "state_name",
-        "type": "nominal",
-        "title": "State / territory"
-      },
-      {
-        "field": "state_code",
-        "type": "nominal",
-        "title": "Code"
-      },
-      {
-        "field": "species_richness",
-        "type": "quantitative",
-        "title": "Recorded species",
-        "format": ","
-      },
-      {
-        "field": "observation_count",
-        "type": "quantitative",
-        "title": "Recorded observations",
-        "format": ","
-      }
-    ]
-  },
+  "spacing": 12,
 
   "config": {
     "background": "transparent",
+
+    "font": "Arial",
 
     "view": {
       "stroke": "transparent"
     },
 
-    "font": "Arial"
+    "axis": {
+      "domainColor": "#bcbcb7",
+      "tickColor": "#bcbcb7",
+      "labelColor": "#444444",
+      "titleColor": "#444444"
+    },
+
+    "legend": {
+      "labelColor": "#444444",
+      "titleColor": "#333333"
+    }
   }
 }
