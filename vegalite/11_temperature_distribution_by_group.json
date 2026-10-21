@@ -1,15 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": {
-    "text": "At What Temperatures Is Wildlife Most Often Recorded?",
-    "subtitle": "Distribution of recorded observations by mean monthly temperature and animal group, 2018–2024",
-    "anchor": "start",
-    "fontSize": 22,
-    "subtitleFontSize": 13,
-    "subtitlePadding": 8
-  },
-
   "data": {
     "url": "data/11_temperature_distribution_by_group.csv"
   },

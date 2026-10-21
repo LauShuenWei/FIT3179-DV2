@@ -1,18 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": {
-    "text": "Queensland Leads Recorded Species Richness",
-    "subtitle": "Distinct wildlife species recorded by Australian state or territory, 2018–2024",
-    "anchor": "start",
-    "fontSize": 22,
-    "fontWeight": "bold",
-    "subtitleFontSize": 13,
-    "subtitleFontWeight": "normal",
-    "subtitleColor": "#555555",
-    "subtitlePadding": 8
-  },
-
   "hconcat": [
     {
       "width": 700,

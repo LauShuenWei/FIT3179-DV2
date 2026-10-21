@@ -1,15 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": {
-    "text": "Where Is Each Animal Group Most Often Recorded?",
-    "subtitle": "Share of each animal group's recorded observations by Australian state or territory, 2018–2024",
-    "anchor": "start",
-    "fontSize": 22,
-    "subtitleFontSize": 13,
-    "subtitlePadding": 8
-  },
-
   "data": {
     "url": "data/04_state_group_lollipop.csv"
   },

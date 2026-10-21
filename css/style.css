@@ -44,6 +44,7 @@ body {
 
 .hero h1 {
     margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(52px, 7vw, 82px);
     line-height: 0.98;
     letter-spacing: -0.04em;
@@ -93,6 +94,7 @@ body {
 
 .section-heading h2 {
     margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(32px, 4vw, 46px);
     line-height: 1.15;
     letter-spacing: -0.025em;
@@ -150,9 +152,43 @@ body {
 }
 
 #chart05 .vega-embed {
-    max-width: none;
+    max-width: 100%;
 }
 
+/* =========================================
+   CHART TITLES
+========================================= */
+
+.chart-heading {
+    width: 100%;
+    margin: 0 0 20px;
+    text-align: left;
+}
+
+/* All chart titles */
+.chart-heading h3,
+.chart-container > h3 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: #4f7159;
+}
+
+/* All chart subtitles */
+.chart-heading p,
+.chart-container > h3 + p {
+    margin: 6px 0 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    color: #555555;
+}
 
 /* =========================================
    FINAL TAKEAWAY
@@ -193,12 +229,14 @@ body {
 
 .sources h2 {
     margin: 0 0 22px;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 32px;
     color: #24372a;
 }
 
 .sources h3 {
     margin: 42px 0 18px;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 22px;
     color: #24372a;
 }
@@ -209,6 +247,13 @@ body {
     font-size: 14px;
     line-height: 1.75;
     color: #5d605b;
+}
+
+/* APA 7 reference formatting */
+.sources .reference {
+    padding-left: 0.5in;
+    text-indent: -0.5in;
+    margin-bottom: 18px;
 }
 
 .sources a {
@@ -277,7 +322,11 @@ body {
     margin-right: 5px;
     accent-color: #177a80;
     cursor: pointer;
+}
 
+/* =========================================
+   CHART NOTES
+========================================= */
 .chart-note {
         max-width: 900px;
         margin: 8px auto 0;
@@ -288,7 +337,6 @@ body {
         line-height: 1.6;
         color: #666963;
     }
-}
 
 /* =========================================
    RESPONSIVE — SMALL LAPTOP / TABLET
@@ -322,6 +370,25 @@ body {
         position: static;
         width: fit-content;
         margin: 0 0 16px auto;
+    }
+
+    .chart-heading {
+        margin-bottom: 16px;
+    }
+
+    .chart-heading h3,
+    .chart-container > h3 {
+        font-size: 22px;
+    }
+
+    .chart-heading p,
+    .chart-container > h3 + p {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .chart-note {
+        font-size: 12px;
     }
 }
 
@@ -368,6 +435,25 @@ body {
         padding: 22px 14px;
         margin-bottom: 30px;
         border-radius: 12px;
+    }
+
+    .chart-heading {
+        margin-bottom: 16px;
+    }
+
+    .chart-heading h3,
+    .chart-container > h3 {
+        font-size: 22px;
+    }
+
+    .chart-heading p,
+    .chart-container > h3 + p {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .chart-note {
+        font-size: 12px;
     }
 
     .takeaway {

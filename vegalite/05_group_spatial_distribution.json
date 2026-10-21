@@ -1,41 +1,77 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": {
-    "text": "How Do Wildlife Groups Differ Across Australia?",
-    "subtitle": "Locations of 0.5° grid cells containing recorded observations by animal group, 2018–2024",
-    "anchor": "start",
-    "fontSize": 22,
-    "subtitleFontSize": 13,
-    "subtitlePadding": 8
-  },
-
   "data": {
     "url": "data/05_group_spatial_distribution.csv"
   },
 
+  "transform": [
+    {
+      "filter": "datum.grid_lon >= 112 && datum.grid_lon <= 154.5 && datum.grid_lat >= -44.5 && datum.grid_lat <= -10"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "observation_count",
+          "as": "group_max"
+        }
+      ],
+      "groupby": [
+        "animal_group"
+      ]
+    },
+    {
+      "calculate": "(datum.observation_count / datum.group_max) * 100",
+      "as": "relative_intensity"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "observation_count",
+          "order": "descending"
+        }
+      ],
+      "groupby": [
+        "animal_group"
+      ]
+    },
+    {
+      "filter": "datum.rank <= 250"
+    }
+  ],
+
   "facet": {
     "field": "animal_group",
     "type": "nominal",
+
     "sort": [
       "Bird",
       "Mammal",
       "Reptile",
       "Amphibian"
     ],
+
     "header": {
       "title": null,
-      "labelFontSize": 15,
+      "labelFontSize": 16,
       "labelFontWeight": "bold",
-      "labelPadding": 8
+      "labelColor": "#222222",
+      "labelPadding": 7
     }
   },
 
   "columns": 2,
 
   "spec": {
-    "width": 400,
-    "height": 300,
+    "width": 370,
+    "height": 255,
 
     "projection": {
       "type": "mercator"
@@ -44,24 +80,18 @@
     "layer": [
       {
         "data": {
-          "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+          "url": "data/australia_states.geojson",
           "format": {
-            "type": "topojson",
-            "feature": "countries"
+            "type": "json",
+            "property": "features"
           }
         },
 
-        "transform": [
-          {
-            "filter": "datum.id == 36"
-          }
-        ],
-
         "mark": {
           "type": "geoshape",
-          "fill": "#f2efe8",
-          "stroke": "#999999",
-          "strokeWidth": 0.9
+          "fill": "#f1efe8",
+          "stroke": "#b9bbb4",
+          "strokeWidth": 0.7
         }
       },
 
@@ -69,10 +99,9 @@
         "mark": {
           "type": "circle",
           "filled": true,
-          "size": 16,
-          "opacity": 0.42,
-          "stroke": "white",
-          "strokeWidth": 0.15
+          "opacity": 0.55,
+          "stroke": "#ffffff",
+          "strokeWidth": 0.35
         },
 
         "encoding": {
@@ -89,6 +118,7 @@
           "color": {
             "field": "animal_group",
             "type": "nominal",
+
             "scale": {
               "domain": [
                 "Bird",
@@ -96,14 +126,35 @@
                 "Reptile",
                 "Amphibian"
               ],
+
               "range": [
-                "#4C8FC1",
-                "#E8A43A",
-                "#43A983",
-                "#D487AF"
+                "#729fc7",
+                "#d5a354",
+                "#67a98d",
+                "#c989ae"
               ]
             },
+
             "legend": null
+          },
+
+          "size": {
+            "field": "relative_intensity",
+            "type": "quantitative",
+            "scale": {
+              "type": "sqrt",
+              "domain": [0, 100],
+              "range": [8, 360]
+            },
+            "legend": {
+              "title": "Relative intensity within group",
+              "orient": "bottom",
+              "direction": "horizontal",
+              "values": [25, 50, 75, 100],
+              "labelExpr": "datum.label + '%'",
+              "labelFontSize": 10,
+              "titleFontSize": 11
+            }
           },
 
           "tooltip": [
@@ -115,7 +166,7 @@
             {
               "field": "observation_count",
               "type": "quantitative",
-              "title": "Recorded observations",
+              "title": "Observation records",
               "format": ","
             },
             {
@@ -125,16 +176,10 @@
               "format": ","
             },
             {
-              "field": "grid_lat",
+              "field": "relative_intensity",
               "type": "quantitative",
-              "title": "Latitude",
-              "format": ".2f"
-            },
-            {
-              "field": "grid_lon",
-              "type": "quantitative",
-              "title": "Longitude",
-              "format": ".2f"
+              "title": "Relative intensity (%)",
+              "format": ".0f"
             }
           ]
         }
@@ -142,17 +187,20 @@
     ]
   },
 
+  "spacing": 16,
+
   "config": {
     "background": "transparent",
+
+    "font": "Arial",
 
     "view": {
       "stroke": "transparent"
     },
 
-    "facet": {
-      "spacing": 18
-    },
-
-    "font": "Arial"
+    "legend": {
+      "labelColor": "#444444",
+      "titleColor": "#333333"
+    }
   }
 }

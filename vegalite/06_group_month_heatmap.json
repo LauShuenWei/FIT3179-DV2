@@ -1,15 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": {
-    "text": "When Is Wildlife Most Often Recorded?",
-    "subtitle": "Share of each animal group's recorded observations by month, 2018–2024",
-    "anchor": "start",
-    "fontSize": 22,
-    "subtitleFontSize": 13,
-    "subtitlePadding": 8
-  },
-
   "width": 760,
   "height": 240,
 

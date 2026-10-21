@@ -1,18 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": {
-    "text": "Wildlife Recording Activity Across Australia",
-    "subtitle": "Spatial patterns of citizen-science observation records and recorded species richness, 2018–2024",
-    "anchor": "start",
-    "fontSize": 22,
-    "fontWeight": "bold",
-    "subtitleFontSize": 13,
-    "subtitleFontWeight": "normal",
-    "subtitleColor": "#555555",
-    "subtitlePadding": 8
-  },
-
   "width": 980,
   "height": 680,
 
