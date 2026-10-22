@@ -9,22 +9,71 @@
     {
       "calculate": "-datum.percentage",
       "as": "negative_percentage"
+    },
+    {
+      "calculate": "datum.temperature_midpoint * datum.observation_count",
+      "as": "weighted_temperature"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "weighted_temperature",
+          "as": "weighted_temperature_sum"
+        },
+        {
+          "op": "sum",
+          "field": "observation_count",
+          "as": "group_observation_total"
+        }
+      ],
+      "groupby": [
+        "animal_group"
+      ]
+    },
+    {
+      "calculate": "datum.weighted_temperature_sum / datum.group_observation_total",
+      "as": "mean_temperature"
+    },
+    {
+      "calculate": "'Mean ' + format(datum.mean_temperature, '.1f') + '°C'",
+      "as": "mean_label"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "group_row"
+        }
+      ],
+      "groupby": [
+        "animal_group"
+      ],
+      "sort": [
+        {
+          "field": "temperature_midpoint",
+          "order": "ascending"
+        }
+      ]
     }
   ],
 
   "facet": {
     "field": "animal_group",
     "type": "nominal",
+
     "sort": [
       "Bird",
       "Mammal",
       "Reptile",
       "Amphibian"
     ],
+
     "header": {
       "title": null,
       "labelFontSize": 15,
       "labelFontWeight": "bold",
+      "labelColor": "#252525",
       "labelPadding": 10
     }
   },
@@ -32,31 +81,52 @@
   "columns": 2,
 
   "spec": {
-    "width": 310,
-    "height": 160,
+    "width": 265,
+    "height": 155,
 
     "layer": [
+
       {
         "mark": {
           "type": "area",
           "interpolate": "monotone",
-          "opacity": 0.7
+          "opacity": 0.72,
+          "strokeWidth": 0.8
         },
 
         "encoding": {
           "x": {
             "field": "temperature_midpoint",
             "type": "quantitative",
-            "title": "Mean Monthly Temperature (°C)",
+
+            "title": "Mean monthly temperature (°C)",
+
             "scale": {
-                "domain": [-2, 34]
+              "domain": [
+                -2,
+                34
+              ]
             },
+
             "axis": {
-                "values": [-2, 0, 5, 10, 15, 20, 25, 30, 34],
-                "labelExpr": "datum.value == -2 ? '< 0' : datum.value",
-                "labelFontSize": 11,
-                "titleFontSize": 12,
-                "grid": false
+              "values": [
+                -2,
+                0,
+                5,
+                10,
+                15,
+                20,
+                25,
+                30,
+                34
+              ],
+
+              "labelExpr": "datum.value == -2 ? '< 0' : datum.value",
+
+              "labelFontSize": 10,
+              "titleFontSize": 11,
+
+              "grid": false
             }
           },
 
@@ -74,6 +144,7 @@
           "color": {
             "field": "animal_group",
             "type": "nominal",
+
             "scale": {
               "domain": [
                 "Bird",
@@ -81,13 +152,15 @@
                 "Reptile",
                 "Amphibian"
               ],
+
               "range": [
-                "#0072B2",
-                "#E69F00",
-                "#009E73",
-                "#CC79A7"
+                "#729fc7",
+                "#d5a354",
+                "#67a98d",
+                "#c989ae"
               ]
             },
+
             "legend": null
           },
 
@@ -98,21 +171,21 @@
               "title": "Animal group"
             },
             {
-              "field": "temperature_bin",
+              "field": "temperature_midpoint",
               "type": "quantitative",
-              "title": "Temperature bin (°C)",
+              "title": "Mean monthly temperature (°C)",
               "format": ".1f"
             },
             {
               "field": "observation_count",
               "type": "quantitative",
-              "title": "Recorded observations",
+              "title": "Observation records",
               "format": ","
             },
             {
               "field": "percentage",
               "type": "quantitative",
-              "title": "Share of group (%)",
+              "title": "Share of group",
               "format": ".2f"
             }
           ]
@@ -123,8 +196,8 @@
         "mark": {
           "type": "rule",
           "stroke": "#666666",
-          "strokeWidth": 1,
-          "opacity": 0.6
+          "strokeWidth": 0.8,
+          "opacity": 0.55
         },
 
         "encoding": {
@@ -132,7 +205,69 @@
             "datum": 0
           }
         }
+      },
+
+      {
+        "transform": [
+          {
+            "filter": "datum.group_row == 1"
+          }
+        ],
+
+        "mark": {
+          "type": "rule",
+          "stroke": "#3f443f",
+          "strokeWidth": 1.3,
+          "strokeDash": [
+            4,
+            3
+          ],
+          "opacity": 0.85
+        },
+
+        "encoding": {
+          "x": {
+            "field": "mean_temperature",
+            "type": "quantitative"
+          }
+        }
+      },
+
+      {
+        "transform": [
+          {
+            "filter": "datum.group_row == 1"
+          }
+        ],
+
+        "mark": {
+          "type": "text",
+          "font": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#404540",
+          "align": "center",
+          "baseline": "bottom",
+          "dy": -8
+        },
+
+        "encoding": {
+          "x": {
+            "field": "mean_temperature",
+            "type": "quantitative"
+          },
+
+          "y": {
+            "datum": 0
+          },
+
+          "text": {
+            "field": "mean_label",
+            "type": "nominal"
+          }
+        }
       }
+
     ]
   },
 
@@ -154,11 +289,13 @@
 
     "axis": {
       "domainColor": "#999999",
-      "tickColor": "#999999"
+      "tickColor": "#999999",
+      "labelColor": "#50534f",
+      "titleColor": "#3f423e"
     },
 
     "facet": {
-      "spacing": 28
+      "spacing": 24
     }
   }
 }
