@@ -280,48 +280,243 @@ body {
 }
 
 /* =========================================
-   CHART 1 CONTROLS
+   CHART 1 — NATIONAL RECORDING PATTERN
 ========================================= */
 
 .chart01-card {
     position: relative;
 }
 
-.chart01-controls {
-    position: absolute;
-    top: 40px;
-    right: 42px;
-    z-index: 20;
+.chart01-layout {
+    display: grid;
 
-    padding: 8px 14px;
+    grid-template-columns:
+        minmax(0, 760px)
+        minmax(240px, 1fr);
+
+    gap: 42px;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 1120px;
+
+    margin: 10px auto 0;
+}
+
+.chart01-chart {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.chart01-chart .vega-embed {
+    margin: 0;
+    max-width: 100%;
+}
+
+
+/* =========================================
+   CHART 1 CONTROLS
+========================================= */
+
+.chart01-controls:empty {
+    display: none;
+}
+
+.chart01-controls {
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 6px 0 20px auto;
+    padding: 10px 16px;
 
     background: #eef4f4;
+
     border: 1px solid #d0dddd;
-    border-radius: 7px;
+    border-radius: 8px;
 
     font-size: 13px;
     color: #334444;
 }
 
-.chart01-controls .vega-bind-name {
-    font-weight: 700;
-    margin-right: 10px;
+.chart01-controls .vega-bindings {
+    margin: 0;
+    display: block;
 }
 
-.chart01-controls label {
-    margin-right: 14px;
-    cursor: pointer;
+.chart01-controls .vega-bind {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    column-gap: 20px;
+    row-gap: 8px;
+}
+
+.chart01-controls .vega-bind-name {
+    margin: 0 2px 0 0;
+
+    font-weight: 700;
+
     white-space: nowrap;
 }
 
-.chart01-controls label:last-child {
-    margin-right: 0;
+.chart01-controls label {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 0;
+    padding: 2px 0;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+    line-height: 1.25;
 }
 
 .chart01-controls input[type="radio"] {
-    margin-right: 5px;
+    width: 14px;
+    height: 14px;
+
+    vertical-align: -2px;
+
+    /* space before AND after every radio */
+    margin: 0 7px 0 20px;
+
     accent-color: #177a80;
     cursor: pointer;
+}
+
+
+/* first radio needs less left spacing */
+.chart01-controls input[type="radio"]:first-of-type {
+    margin-left: 12px;
+}
+
+
+/* =========================================
+   CHART 1 TAKEAWAY
+========================================= */
+
+.chart01-insight {
+    padding: 22px 22px 20px;
+
+    background: #f6f7f3;
+
+    border: 1px solid #daddd5;
+    border-top: 4px solid #63806a;
+    border-radius: 10px;
+}
+
+.chart01-kicker {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: #70746e;
+}
+
+.chart01-insight h4 {
+    margin: 0 0 17px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    line-height: 1.25;
+
+    color: #24372a;
+}
+
+.chart01-big-number {
+    margin: 0 0 3px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    color: #4f7159;
+}
+
+.chart01-main-label {
+    font-size: 12.5px;
+    line-height: 1.45;
+
+    font-weight: 700;
+
+    color: #555b55;
+}
+
+.chart01-divider {
+    margin: 17px 0;
+
+    border-top: 1px solid #dedfd9;
+}
+
+.chart01-insight p {
+    margin: 0 0 12px;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    color: #62665f;
+}
+
+.chart01-insight strong {
+    color: #34493a;
+}
+
+.chart01-highlight {
+    margin-top: 14px !important;
+
+    padding: 10px 11px;
+
+    background: #e9eee7;
+
+    border-left: 3px solid #63806a;
+    border-radius: 0 6px 6px 0;
+
+    color: #4a514a !important;
+}
+
+
+/* =========================================
+   RESPONSIVE — CHART 1
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .chart01-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .chart01-chart {
+        overflow-x: auto;
+    }
+
+    .chart01-chart .vega-embed {
+        margin: 0 auto;
+    }
+
+    .chart01-insight {
+        width: 100%;
+        max-width: 650px;
+
+        margin: 0 auto;
+    }
+
+    .chart01-controls {
+        margin: 6px 0 16px 0;
+    }
 }
 
 /* =========================================

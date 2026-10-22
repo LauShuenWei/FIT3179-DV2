@@ -3,6 +3,103 @@ var chart01 = "vegalite/01_observation_density_grid.json";
 vegaEmbed("#chart01", chart01, {
     actions: false,
     bind: "#chart01-controls"
+}).then(function(result) {
+
+    console.log("Chart 01 loaded successfully");
+
+    var view = result.view;
+
+
+    function updateChart01Insight(value) {
+
+        var kicker =
+            document.getElementById("chart01-kicker");
+
+        var title =
+            document.getElementById("chart01-insight-title");
+
+        var bigNumber =
+            document.getElementById("chart01-big-number");
+
+        var mainLabel =
+            document.getElementById("chart01-main-label");
+
+        var text =
+            document.getElementById("chart01-insight-text");
+
+        var highlight =
+            document.getElementById("chart01-highlight");
+
+
+        if (value === "Species richness") {
+
+            kicker.textContent =
+                "Recorded species richness";
+
+            title.textContent =
+                "Richness follows a broader spatial pattern";
+
+            bigNumber.textContent =
+                "399";
+
+            mainLabel.textContent =
+                "recorded species in the highest-richness 0.25° grid cell";
+
+            text.innerHTML =
+                "High-richness cells are concentrated along parts of " +
+                "<strong>eastern Australia</strong>, especially in south-east Queensland, " +
+                "but the pattern is broader than the strongest recording hotspots.";
+
+            highlight.innerHTML =
+                "Recorded richness is influenced by " +
+                "<strong>observation effort</strong>, so darker cells " +
+                "should not be interpreted as direct measures of total biodiversity.";
+
+        }
+
+        else {
+
+            kicker.textContent =
+                "Observation records";
+
+            title.textContent =
+                "Recording activity clusters around major population centres";
+
+            bigNumber.textContent =
+                "49,601";
+
+            mainLabel.textContent =
+                "records in the highest-recorded 0.25° grid cell";
+
+            text.innerHTML =
+                "Prominent recording clusters occur around " +
+                "<strong>Melbourne, Canberra, Sydney and Brisbane</strong>, " +
+                "with much lower recording activity across large inland areas.";
+
+            highlight.innerHTML =
+                "The map mainly reflects " +
+                "<strong>where people record wildlife</strong>, not where " +
+                "wildlife is most abundant.";
+        }
+    }
+
+
+    /* Initial takeaway */
+    updateChart01Insight(
+        view.signal("measure")
+    );
+
+
+    /* Update takeaway when radio button changes */
+    view.addSignalListener(
+        "measure",
+        function(name, value) {
+
+            updateChart01Insight(value);
+
+        }
+    );
+
 }).catch(console.error);
 
 var chart02 = "vegalite/02_state_species_richness.json";

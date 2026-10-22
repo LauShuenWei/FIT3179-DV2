@@ -35,7 +35,7 @@
 
   "transform": [
     {
-      "filter": "groupSelect == 'All' || datum.animal_group == groupSelect"
+      "filter": "datum.animal_group == groupSelect"
     },
 
     {

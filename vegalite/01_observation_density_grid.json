@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 980,
-  "height": 680,
+  "width": 760,
+  "height": 560,
 
   "params": [
     {
@@ -98,12 +98,12 @@
             "title": "Selected value per 0.25° grid",
             "orient": "bottom-left",
             "direction": "horizontal",
-            "gradientLength": 320,
-            "gradientThickness": 14,
+            "gradientLength": 280,
+            "gradientThickness": 13,
             "offset": 10,
-            "labelFontSize": 11,
-            "titleFontSize": 12,
-            "titlePadding": 7
+            "labelFontSize": 10,
+            "titleFontSize": 11,
+            "titlePadding": 6
           }
         }
       }
@@ -191,19 +191,24 @@
       "data": {
         "values": [
           {
-            "city": "Melbourne hotspot",
-            "lon": 144.96,
-            "lat": -37.81
+            "city": "Melbourne",
+            "lon": 145.125,
+            "lat": -37.875
           },
           {
-            "city": "Sydney cluster",
-            "lon": 151.21,
-            "lat": -33.87
+            "city": "Canberra",
+            "lon": 149.125,
+            "lat": -35.375
           },
           {
-            "city": "Brisbane cluster",
-            "lon": 153.03,
-            "lat": -27.47
+            "city": "Sydney",
+            "lon": 151.125,
+            "lat": -33.875
+          },
+          {
+            "city": "Brisbane",
+            "lon": 153.125,
+            "lat": -27.375
           }
         ]
       },
@@ -217,7 +222,7 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 70,
+        "size": 68,
         "color": "#173b42",
         "stroke": "#ffffff",
         "strokeWidth": 1.5
@@ -249,19 +254,24 @@
       "data": {
         "values": [
           {
-            "city": "Melbourne hotspot",
-            "lon": 144.96,
-            "lat": -37.81
+            "city": "Melbourne",
+            "lon": 145.125,
+            "lat": -37.875
           },
           {
-            "city": "Sydney cluster",
-            "lon": 151.21,
-            "lat": -33.87
+            "city": "Canberra",
+            "lon": 149.125,
+            "lat": -35.375
           },
           {
-            "city": "Brisbane cluster",
-            "lon": 153.03,
-            "lat": -27.47
+            "city": "Sydney",
+            "lon": 151.125,
+            "lat": -33.875
+          },
+          {
+            "city": "Brisbane",
+            "lon": 153.125,
+            "lat": -27.375
           }
         ]
       },
@@ -274,13 +284,13 @@
 
       "mark": {
         "type": "text",
-        "align": "left",
+        "align": "right",
         "baseline": "middle",
-        "dx": 9,
-        "dy": -9,
-        "fontSize": 11,
+        "dx": -9,
+        "dy": -8,
+        "fontSize": 10.5,
         "fontWeight": "bold",
-        "color": "#263f44"
+        "color": "#000000"
       },
 
       "encoding": {
