@@ -218,9 +218,64 @@ vegaEmbed("#chart08", chart08, {
 var chart09 = "vegalite/09_rainfall_temperature_heatmap.json";
 
 vegaEmbed("#chart09", chart09, {
-    actions: false
+    actions: false,
+    bind: "#chart09-controls"
 }).then(function(result) {
+
     console.log("Chart 09 loaded successfully");
+
+    var view = result.view;
+    var lastHoverKey = "";
+
+    view.addEventListener(
+        "pointermove",
+        function(event, item) {
+
+            if (
+                item &&
+                item.datum &&
+                item.datum.temperature_bin !== undefined &&
+                item.datum.rainfall_bin !== undefined
+            ) {
+
+                var temp =
+                    Number(item.datum.temperature_bin);
+
+                var rain =
+                    Number(item.datum.rainfall_bin);
+
+                var hoverKey =
+                    temp + "-" + rain;
+
+                if (hoverKey !== lastHoverKey) {
+
+                    lastHoverKey = hoverKey;
+
+                    view.signal("hoverTemp", temp);
+                    view.signal("hoverRain", rain);
+
+                    view.runAsync();
+                }
+            }
+        }
+    );
+
+
+    document
+        .getElementById("chart09")
+        .addEventListener(
+            "mouseleave",
+            function() {
+
+                lastHoverKey = "";
+
+                view.signal("hoverTemp", -999);
+                view.signal("hoverRain", -999);
+
+                view.runAsync();
+            }
+        );
+
 }).catch(console.error);
 
 var chart10 = "vegalite/10_rainfall_by_group.json";

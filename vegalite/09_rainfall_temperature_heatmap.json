@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 760,
-  "height": 360,
+  "width": 610,
+  "height": 340,
 
   "data": {
     "url": "data/09_rainfall_temperature_heatmap.csv"
@@ -10,11 +10,18 @@
 
   "params": [
     {
-      "name": "Group",
+      "name": "groupSelect",
       "value": "All",
       "bind": {
-        "input": "select",
+        "input": "radio",
         "options": [
+          "All",
+          "Bird",
+          "Mammal",
+          "Reptile",
+          "Amphibian"
+        ],
+        "labels": [
           "All",
           "Bird",
           "Mammal",
@@ -24,136 +31,344 @@
         "name": "Animal group: "
       }
     },
+
     {
-      "name": "hover",
-      "select": {
-        "type": "point",
-        "fields": [
-          "rainfall_bin",
-          "temperature_bin"
-        ],
-        "on": "mouseover",
-        "clear": "mouseout"
-      }
+      "name": "hoverTemp",
+      "value": -999
+    },
+
+    {
+      "name": "hoverRain",
+      "value": -999
     }
   ],
 
   "transform": [
     {
-      "filter": "datum.animal_group == Group"
+      "filter": "datum.animal_group == groupSelect"
     },
+
     {
       "calculate": "toNumber(datum.temperature_bin)",
-      "as": "temperature_sort"
+      "as": "temperature_order"
     },
+
     {
       "calculate": "toNumber(datum.rainfall_bin)",
-      "as": "rainfall_sort"
+      "as": "rainfall_order"
+    },
+
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "percentage",
+          "as": "max_percentage"
+        }
+      ]
+    },
+
+    {
+      "calculate": "(datum.percentage / datum.max_percentage) * 100",
+      "as": "relative_concentration"
+    },
+
+    {
+      "calculate": "format(datum.percentage, '.2f') + '%'",
+      "as": "percentage_label"
     }
   ],
 
-  "mark": {
-    "type": "rect",
-    "stroke": "white",
-    "strokeWidth": 0.7
-  },
+  "layer": [
 
-  "encoding": {
-    "x": {
-      "field": "temperature_sort",
-      "type": "ordinal",
-      "title": "Mean Monthly Temperature (°C)",
-      "scale": {
-          "domain": [-2, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34]
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#ffffff",
+        "strokeWidth": 1
       },
-      "axis": {
-          "labelAngle": 0,
-          "labelFontSize": 11,
-          "titleFontSize": 13,
-          "labelExpr": "datum.label == '-2' ? '< 0' : datum.label"
+
+      "encoding": {
+
+        "x": {
+          "field": "temperature_order",
+          "type": "ordinal",
+
+          "scale": {
+            "domain": [
+              -2,
+              0,
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34
+            ]
+          },
+
+          "title": "Mean monthly temperature (°C)",
+
+          "axis": {
+            "labelAngle": 0,
+            "labelFontSize": 10,
+            "titleFontSize": 12,
+
+            "labelExpr": "datum.label == '-2' || datum.label == -2 ? '< 0' : datum.label",
+
+            "domain": false,
+            "ticks": false
+          }
+        },
+
+        "y": {
+          "field": "rainfall_order",
+          "type": "ordinal",
+
+          "scale": {
+            "domain": [
+              500,
+              450,
+              400,
+              350,
+              300,
+              250,
+              200,
+              150,
+              100,
+              50,
+              0
+            ]
+          },
+
+          "title": "Monthly rainfall (mm)",
+
+          "axis": {
+            "labelFontSize": 10,
+            "titleFontSize": 12,
+
+            "labelExpr": "datum.label == '500' || datum.label == 500 ? '500+' : datum.label",
+
+            "domain": false,
+            "ticks": false
+          }
+        },
+
+        "color": {
+          "field": "relative_concentration",
+          "type": "quantitative",
+
+          "title": "Relative concentration",
+
+          "scale": {
+            "domain": [
+              0,
+              100
+            ],
+
+            "range": [
+              "#f3f0e7",
+              "#dbe5d6",
+              "#b5cfbd",
+              "#83b4a5",
+              "#579487",
+              "#34746f",
+              "#22565c"
+            ]
+          },
+
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+
+            "values": [
+              0,
+              25,
+              50,
+              75,
+              100
+            ],
+
+            "labelExpr": "datum.label + '%'",
+
+            "gradientLength": 260,
+            "gradientThickness": 12,
+
+            "titleFontSize": 11,
+            "labelFontSize": 10,
+
+            "titlePadding": 5,
+            "offset": 16
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "animal_group",
+            "type": "nominal",
+            "title": "Animal group"
+          },
+
+          {
+            "field": "temperature_range",
+            "type": "nominal",
+            "title": "Temperature"
+          },
+
+          {
+            "field": "rainfall_range",
+            "type": "nominal",
+            "title": "Rainfall"
+          },
+
+          {
+            "field": "observation_count",
+            "type": "quantitative",
+            "title": "Observation records",
+            "format": ","
+          },
+
+          {
+            "field": "percentage_label",
+            "type": "nominal",
+            "title": "Share of group"
+          }
+        ]
       }
     },
 
-    "y": {
-      "field": "rainfall_sort",
-      "type": "ordinal",
-      "title": "Monthly Rainfall (mm)",
-      "scale": {
-          "domain": [500, 450, 400, 350, 300, 250, 200, 150, 100, 50, 0]
-      },
-      "axis": {
-          "labelFontSize": 11,
-          "titleFontSize": 13,
-          "labelExpr": "datum.label == '500' ? '500+' : datum.label"
-      }
-    },
 
-    "color": {
-      "field": "percentage",
-      "type": "quantitative",
-      "title": "Share of Observations (%)",
-      "scale": {
-        "scheme": "yellowgreenblue",
-        "domain": [0, 10]
-      },
-      "legend": {
-        "titleFontSize": 12,
-        "labelFontSize": 11
-      }
-    },
+    {
+      "transform": [
+        {
+          "filter": "datum.temperature_order == hoverTemp && datum.rainfall_order == hoverRain"
+        }
+      ],
 
-    "opacity": {
-      "condition": {
-        "param": "hover",
-        "value": 1
+      "mark": {
+        "type": "rect",
+        "fillOpacity": 0,
+        "stroke": "#24372a",
+        "strokeWidth": 2.5
       },
-      "value": 0.85
-    },
 
-    "tooltip": [
-      {
-        "field": "animal_group",
-        "type": "nominal",
-        "title": "Animal group"
-      },
-      {
-        "field": "temperature_bin",
-        "type": "ordinal",
-        "title": "Mean temperature"
-      },
-      {
-        "field": "rainfall_bin",
-        "type": "ordinal",
-        "title": "Monthly rainfall"
-      },
-      {
-        "field": "observation_count",
-        "type": "quantitative",
-        "title": "Recorded observations",
-        "format": ","
-      },
-      {
-        "field": "percentage",
-        "type": "quantitative",
-        "title": "Share (%)",
-        "format": ".2f"
+      "encoding": {
+
+        "x": {
+          "field": "temperature_order",
+          "type": "ordinal",
+
+          "scale": {
+            "domain": [
+              -2,
+              0,
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34
+            ]
+          }
+        },
+
+        "y": {
+          "field": "rainfall_order",
+          "type": "ordinal",
+
+          "scale": {
+            "domain": [
+              500,
+              450,
+              400,
+              350,
+              300,
+              250,
+              200,
+              150,
+              100,
+              50,
+              0
+            ]
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "animal_group",
+            "type": "nominal",
+            "title": "Animal group"
+          },
+
+          {
+            "field": "temperature_range",
+            "type": "nominal",
+            "title": "Temperature"
+          },
+
+          {
+            "field": "rainfall_range",
+            "type": "nominal",
+            "title": "Rainfall"
+          },
+
+          {
+            "field": "observation_count",
+            "type": "quantitative",
+            "title": "Observation records",
+            "format": ","
+          },
+
+          {
+            "field": "percentage_label",
+            "type": "nominal",
+            "title": "Share of group"
+          }
+        ]
       }
-    ]
-  },
+    }
+
+  ],
 
   "config": {
     "background": "transparent",
+
+    "font": "Arial",
 
     "view": {
       "stroke": "transparent"
     },
 
-    "font": "Arial",
-
     "axis": {
-      "grid": false,
-      "domainColor": "#999999",
-      "tickColor": "#999999"
+      "labelColor": "#50534f",
+      "titleColor": "#3f423e"
+    },
+
+    "legend": {
+      "labelColor": "#555851",
+      "titleColor": "#333833"
     }
   }
 }
