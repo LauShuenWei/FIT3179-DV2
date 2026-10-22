@@ -10,7 +10,72 @@ var chart02 = "vegalite/02_state_species_richness.json";
 vegaEmbed("#chart02", chart02, {
     actions: false
 }).then(function(result) {
+
     console.log("Chart 02 loaded successfully");
+
+    var view = result.view;
+    var lastState = "";
+
+    view.addEventListener(
+        "pointermove",
+        function(event, item) {
+
+            if (!item || !item.datum) {
+                return;
+            }
+
+            var stateName = "";
+
+            // Hovering over the map polygon
+            if (
+                item.datum.properties &&
+                item.datum.properties.state_name_2021
+            ) {
+                stateName =
+                    item.datum.properties.state_name_2021;
+            }
+
+            // Hovering over the text label
+            else if (item.datum.state_name) {
+                stateName =
+                    item.datum.state_name;
+            }
+
+            if (
+                stateName &&
+                stateName !== lastState
+            ) {
+
+                lastState = stateName;
+
+                view.signal(
+                    "hoverState",
+                    stateName
+                );
+
+                view.runAsync();
+            }
+        }
+    );
+
+
+    document
+        .getElementById("chart02")
+        .addEventListener(
+            "mouseleave",
+            function() {
+
+                lastState = "";
+
+                view.signal(
+                    "hoverState",
+                    ""
+                );
+
+                view.runAsync();
+            }
+        );
+
 }).catch(console.error);
 
 var chart03 = "vegalite/03_overall_group_composition.json";
