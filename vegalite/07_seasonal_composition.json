@@ -174,16 +174,16 @@
 
           "scale": {
             "domain": [
+              "Spring",
               "Summer",
               "Autumn",
-              "Winter",
-              "Spring"
+              "Winter"
             ],
             "range": [
-              "#9EA6C8",
-              "#B8795D",
-              "#59616B",
-              "#C98F9D"
+              "#C6CEDBFF",
+              "#FFD6A5",
+              "#E6C4B7",
+              "#B7DDDA"
             ]
           },
 
