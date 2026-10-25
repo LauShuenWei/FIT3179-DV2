@@ -7,142 +7,96 @@
 
   "transform": [
     {
-      "calculate": "0",
-      "as": "zero"
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "percentage",
+          "as": "group_max"
+        }
+      ],
+      "groupby": [
+        "animal_group"
+      ]
+    },
+    {
+      "calculate": "datum.percentage == datum.group_max",
+      "as": "is_top"
+    },
+    {
+      "calculate": "format(datum.percentage, '.1f') + '%'",
+      "as": "percentage_label"
     }
   ],
 
   "facet": {
     "field": "animal_group",
     "type": "nominal",
+
     "sort": [
       "Bird",
       "Mammal",
       "Reptile",
       "Amphibian"
     ],
+
     "header": {
       "title": null,
-      "labelFontSize": 15,
+
+      "labelFont": "Arial",
+      "labelFontSize": 17,
       "labelFontWeight": "bold",
-      "labelPadding": 10
+
+      "labelColor": "#111111",
+
+      "labelPadding": 12
     }
   },
 
   "columns": 2,
 
   "spec": {
-    "width": 300,
-    "height": 210,
+
+    "width": 355,
+    "height": 245,
 
     "layer": [
+
       {
         "mark": {
           "type": "rule",
-          "strokeWidth": 3,
-          "opacity": 0.4
+
+          "color": "#8f9692",
+
+          "strokeWidth": 1.2,
+          "strokeDash": [
+            4,
+            4
+          ],
+
+          "opacity": 0.75
         },
 
         "encoding": {
-          "y": {
-            "field": "state_name",
-            "type": "nominal",
-            "sort": [
-              "Australian Capital Territory",
-              "New South Wales",
-              "Northern Territory",
-              "Queensland",
-              "South Australia",
-              "Tasmania",
-              "Victoria",
-              "Western Australia"
-            ],
-            "title": null,
-            "axis": {
-              "labelFontSize": 11,
-              "labelPadding": 5,
-              "ticks": false,
-              "domain": false
-            }
-          },
-
           "x": {
-            "field": "zero",
-            "type": "quantitative",
-            "title": "Share of Observations (%)",
-            "scale": {
-              "domain": [0, 50]
-            },
-            "axis": {
-              "values": [0, 10, 20, 30, 40, 50],
-              "grid": true,
-              "gridColor": "#eeeeee",
-              "gridOpacity": 0.7
-            }
-          },
-
-          "x2": {
-            "field": "percentage"
-          },
-
-          "color": {
-            "field": "animal_group",
-            "type": "nominal",
-            "scale": {
-              "domain": [
-                "Bird",
-                "Mammal",
-                "Reptile",
-                "Amphibian"
-              ],
-              "range": [
-                "#0072B2",
-                "#E69F00",
-                "#009E73",
-                "#CC79A7"
-              ]
-            },
-            "legend": null
-          },
-
-          "tooltip": [
-            {
-              "field": "state_name",
-              "type": "nominal",
-              "title": "State / territory"
-            },
-            {
-              "field": "animal_group",
-              "type": "nominal",
-              "title": "Animal group"
-            },
-            {
-              "field": "observation_count",
-              "type": "quantitative",
-              "title": "Recorded observations",
-              "format": ","
-            },
-            {
-              "field": "percentage",
-              "type": "quantitative",
-              "title": "Share of group (%)",
-              "format": ".2f"
-            }
-          ]
+            "datum": 12.5,
+            "type": "quantitative"
+          }
         }
       },
 
       {
         "mark": {
-          "type": "point",
-          "filled": true,
-          "size": 120
+          "type": "rule",
+
+          "strokeWidth": 3
         },
 
         "encoding": {
+
           "y": {
             "field": "state_name",
             "type": "nominal",
+
             "sort": [
               "Australian Capital Territory",
               "New South Wales",
@@ -153,10 +107,16 @@
               "Victoria",
               "Western Australia"
             ],
-            "title": null,
+
             "axis": {
+              "title": null,
+
               "labelFontSize": 11,
-              "labelPadding": 5,
+
+              "labelColor": "#3f423f",
+
+              "labelLimit": 190,
+
               "ticks": false,
               "domain": false
             }
@@ -165,14 +125,52 @@
           "x": {
             "field": "percentage",
             "type": "quantitative",
+
+            "title": "Share of Observations (%)",
+
             "scale": {
-              "domain": [0, 50]
+              "domain": [
+                0,
+                50
+              ],
+              "nice": false
+            },
+
+            "axis": {
+              "values": [
+                0,
+                10,
+                20,
+                30,
+                40,
+                50
+              ],
+
+              "grid": true,
+
+              "gridColor": "#eceeea",
+              "gridOpacity": 0.9,
+
+              "domainColor": "#999999",
+              "tickColor": "#999999",
+
+              "labelFontSize": 10,
+
+              "titleFontSize": 11,
+              "titleFontWeight": "bold",
+
+              "titlePadding": 8
             }
+          },
+
+          "x2": {
+            "datum": 0
           },
 
           "color": {
             "field": "animal_group",
             "type": "nominal",
+
             "scale": {
               "domain": [
                 "Bird",
@@ -180,69 +178,227 @@
                 "Reptile",
                 "Amphibian"
               ],
+
               "range": [
-                "#0072B2",
-                "#E69F00",
-                "#009E73",
-                "#CC79A7"
+                "#729fc7",
+                "#d5a354",
+                "#67a98d",
+                "#c989ae"
               ]
             },
+
             "legend": null
           },
 
-          "tooltip": [
-            {
-              "field": "state_name",
-              "type": "nominal",
-              "title": "State / territory"
+          "opacity": {
+            "condition": {
+              "test": "datum.is_top",
+              "value": 0.9
             },
+
+            "value": 0.36
+          }
+        }
+      },
+
+      {
+        "mark": {
+          "type": "point",
+
+          "filled": true,
+
+          "stroke": "#ffffff",
+          "strokeWidth": 1
+        },
+
+        "encoding": {
+
+          "y": {
+            "field": "state_name",
+            "type": "nominal",
+
+            "sort": [
+              "Australian Capital Territory",
+              "New South Wales",
+              "Northern Territory",
+              "Queensland",
+              "South Australia",
+              "Tasmania",
+              "Victoria",
+              "Western Australia"
+            ]
+          },
+
+          "x": {
+            "field": "percentage",
+            "type": "quantitative"
+          },
+
+          "color": {
+            "field": "animal_group",
+            "type": "nominal",
+
+            "scale": {
+              "domain": [
+                "Bird",
+                "Mammal",
+                "Reptile",
+                "Amphibian"
+              ],
+
+              "range": [
+                "#729fc7",
+                "#d5a354",
+                "#67a98d",
+                "#c989ae"
+              ]
+            },
+
+            "legend": null
+          },
+
+          "size": {
+            "condition": {
+              "test": "datum.is_top",
+              "value": 140
+            },
+
+            "value": 85
+          },
+
+          "opacity": {
+            "condition": {
+              "test": "datum.is_top",
+              "value": 1
+            },
+
+            "value": 0.7
+          },
+
+          "tooltip": [
             {
               "field": "animal_group",
               "type": "nominal",
               "title": "Animal group"
             },
+
             {
-              "field": "observation_count",
-              "type": "quantitative",
-              "title": "Recorded observations",
-              "format": ","
+              "field": "state_name",
+              "type": "nominal",
+              "title": "State / territory"
             },
+
             {
               "field": "percentage",
               "type": "quantitative",
-              "title": "Share of group (%)",
-              "format": ".2f"
+              "title": "Share of observations",
+              "format": ".1f"
+            },
+
+            {
+              "field": "observation_count",
+              "type": "quantitative",
+              "title": "Observation records",
+              "format": ","
             }
           ]
         }
+      },
+
+      {
+        "transform": [
+          {
+            "filter": "datum.is_top"
+          }
+        ],
+
+        "mark": {
+          "type": "text",
+
+          "align": "left",
+          "baseline": "middle",
+
+          "dx": 9,
+
+          "font": "Arial",
+          "fontSize": 11,
+          "fontWeight": "bold"
+        },
+
+        "encoding": {
+
+          "y": {
+            "field": "state_name",
+            "type": "nominal",
+
+            "sort": [
+              "Australian Capital Territory",
+              "New South Wales",
+              "Northern Territory",
+              "Queensland",
+              "South Australia",
+              "Tasmania",
+              "Victoria",
+              "Western Australia"
+            ]
+          },
+
+          "x": {
+            "field": "percentage",
+            "type": "quantitative"
+          },
+
+          "text": {
+            "field": "percentage_label"
+          },
+
+          "color": {
+            "field": "animal_group",
+            "type": "nominal",
+
+            "scale": {
+              "domain": [
+                "Bird",
+                "Mammal",
+                "Reptile",
+                "Amphibian"
+              ],
+
+              "range": [
+                "#4e82af",
+                "#b47a28",
+                "#3e8066",
+                "#aa648c"
+              ]
+            },
+
+            "legend": null
+          }
+        }
       }
+
     ]
   },
 
   "resolve": {
     "scale": {
       "x": "shared",
-      "y": "independent"
+      "y": "shared"
     }
   },
 
   "config": {
-    "background": "transparent",
 
-    "view": {
-      "stroke": "transparent"
-    },
+    "background": "transparent",
 
     "font": "Arial",
 
-    "axis": {
-      "titleFontSize": 12,
-      "labelColor": "#444444",
-      "titleColor": "#333333"
+    "view": {
+      "stroke": null
     },
 
     "facet": {
-      "spacing": 28
+      "spacing": 35
     }
   }
 }
