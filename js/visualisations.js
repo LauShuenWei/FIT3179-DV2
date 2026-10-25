@@ -459,7 +459,8 @@ vegaEmbed("#chart11", chart11, {
 var chart12 = "vegalite/12_climate_species_richness.json";
 
 vegaEmbed("#chart12", chart12, {
-    actions: false
+    actions: false,
+    bind: "#chart12-controls"
 }).then(function(result) {
     console.log("Chart 12 loaded successfully");
 }).catch(console.error);

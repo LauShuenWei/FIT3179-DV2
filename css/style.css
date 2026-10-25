@@ -1333,6 +1333,224 @@ body {
 }
 
 /* =========================================
+   CHART 12 — BIGGER PICTURE
+========================================= */
+
+.chart12-card {
+    position: relative;
+}
+
+.chart12-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 2.1fr)
+        minmax(240px, 0.72fr);
+
+    gap: 38px;
+
+    align-items: center;
+
+    max-width: 1080px;
+
+    margin: 10px auto 0;
+}
+
+.chart12-chart {
+    min-width: 0;
+}
+
+.chart12-chart .vega-embed {
+    margin: 0;
+}
+
+
+/* =========================================
+   CHART 12 CONTROLS
+========================================= */
+
+.chart12-controls {
+    width: fit-content;
+
+    margin: 6px 0 14px auto;
+
+    padding: 10px 16px;
+
+    background: #eef3ee;
+
+    border: 1px solid #d3ddd4;
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    color: #34483b;
+}
+
+.chart12-controls .vega-bindings,
+.chart12-controls .vega-bind {
+    margin: 0;
+}
+
+.chart12-controls label {
+    display: block;
+
+    margin: 0;
+
+    white-space: nowrap;
+
+    line-height: 1.4;
+}
+
+.chart12-controls .vega-bind-name {
+    font-weight: 700;
+}
+
+.chart12-controls input[type="radio"] {
+
+    width: 14px;
+    height: 14px;
+
+    margin: 0 6px 0 17px;
+
+    vertical-align: -2px;
+
+    accent-color: #4f7159;
+
+    cursor: pointer;
+}
+
+.chart12-controls input[type="radio"]:first-of-type {
+    margin-left: 11px;
+}
+
+
+/* =========================================
+   CHART 12 TAKEAWAY
+========================================= */
+
+.chart12-insight {
+
+    padding: 22px;
+
+    background: #f6f7f3;
+
+    border: 1px solid #daddd5;
+    border-top: 4px solid #63806a;
+
+    border-radius: 10px;
+}
+
+.chart12-kicker {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: #70746e;
+}
+
+.chart12-insight h4 {
+
+    margin: 0 0 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 22px;
+    line-height: 1.25;
+
+    color: #24372a;
+}
+
+.chart12-big-text {
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 20px;
+    line-height: 1.25;
+
+    font-weight: 700;
+
+    color: #4f7159;
+}
+
+.chart12-divider {
+
+    margin: 18px 0;
+
+    border-top: 1px solid #dedfd9;
+}
+
+.chart12-insight p {
+
+    margin: 0 0 13px;
+
+    font-size: 13px;
+    line-height: 1.65;
+
+    color: #62665f;
+}
+
+.chart12-highlight {
+
+    margin-top: 15px !important;
+
+    padding: 11px 12px;
+
+    background: #e9eee7;
+
+    border-left: 3px solid #63806a;
+    border-radius: 0 6px 6px 0;
+
+    color: #4a514a !important;
+}
+
+.chart12-highlight strong {
+    color: #34493a;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .chart12-layout {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .chart12-chart {
+        overflow-x: auto;
+    }
+
+    .chart12-chart .vega-embed {
+        margin: 0 auto;
+    }
+
+    .chart12-insight {
+
+        width: 100%;
+        max-width: 650px;
+
+        margin: 0 auto;
+    }
+
+    .chart12-controls {
+
+        margin: 6px 0 16px 0;
+    }
+}
+
+/* =========================================
     VEGA INTERACTIVE CONTROLS
 ========================================= */
 

@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 760,
-  "height": 380,
+  "width": 700,
+  "height": 450,
 
   "data": {
     "url": "data/12_climate_species_richness.csv"
@@ -10,10 +10,10 @@
 
   "params": [
     {
-      "name": "Season",
+      "name": "seasonSelect",
       "value": "All",
       "bind": {
-        "input": "select",
+        "input": "radio",
         "options": [
           "All",
           "Summer",
@@ -28,89 +28,84 @@
 
   "transform": [
     {
-      "filter": "Season == 'All' || datum.season == Season"
+      "filter": "seasonSelect == 'All' || datum.season == seasonSelect"
+    },
+    {
+      "calculate": "datum.observation_count / 1000",
+      "as": "observation_k"
     }
   ],
 
   "layer": [
+
     {
       "mark": {
-        "type": "point",
+        "type": "circle",
         "filled": true,
-        "opacity": 0.65,
-        "stroke": "white",
+        "size": 58,
+        "opacity": 0.48,
+        "color": "#A7AFB5",
+        "stroke": "#ffffff",
         "strokeWidth": 0.5
       },
 
       "encoding": {
+
         "x": {
-            "field": "observation_count",
-            "type": "quantitative",
-            "title": "Recorded Observations (k)",
-            "scale": {
-                "domain": [0, 14000]
-            },
-            "axis": {
-                "values": [
-                0,
-                2000,
-                4000,
-                6000,
-                8000,
-                10000,
-                12000,
-                14000
-                ],
-                "labelExpr": "datum.value / 1000",
-                "grid": true,
-                "gridColor": "#eeeeee",
-                "gridOpacity": 0.6,
-                "titleFontSize": 13,
-                "labelFontSize": 11
-            }
-        },
-
-        "y": {
-            "field": "species_richness",
-            "type": "quantitative",
-            "title": "Recorded Species Richness",
-            "scale": {
-                "domain": [0, 800]
-            },
-            "axis": {
-                "grid": true,
-                "gridColor": "#eeeeee",
-                "gridOpacity": 0.6,
-                "titleFontSize": 13,
-                "labelFontSize": 11
-            }
-        },
-
-        "color": {
-          "field": "mean_temperature_c",
+          "field": "observation_k",
           "type": "quantitative",
-          "title": "Mean Temperature (°C)",
+          "title": "Recorded Observations (k)",
+
           "scale": {
-            "scheme": "yelloworangered",
-            "domain": [5, 30]
+            "zero": true,
+            "domain": [
+              0,
+              14
+            ]
           },
-          "legend": {
+
+          "axis": {
+            "grid": true,
+            "gridColor": "#ecece8",
+            "gridOpacity": 0.8,
+
+            "domainColor": "#888888",
+            "tickColor": "#888888",
+
+            "labelFontSize": 11,
             "titleFontSize": 12,
-            "labelFontSize": 11
+            "titleFontWeight": "bold",
+
+            "titlePadding": 9
           }
         },
 
-        "size": {
-          "field": "mean_rainfall_mm",
+        "y": {
+          "field": "species_richness",
           "type": "quantitative",
-          "title": "Mean Rainfall (mm)",
+          "title": "Recorded Species Richness",
+
           "scale": {
-            "domain": [0, 500],
-            "range": [25, 220]
+            "zero": true,
+            "domain": [
+              0,
+              800
+            ]
           },
-          "legend": {
+
+          "axis": {
+            "grid": true,
+            "gridColor": "#ecece8",
+            "gridOpacity": 0.8,
+
+            "domainColor": "#888888",
+            "tickColor": "#888888",
+
+            "labelFontSize": 11,
             "titleFontSize": 12,
-            "labelFontSize": 11
+            "titleFontWeight": "bold",
+
+            "titlePadding": 10
           }
         },
 
@@ -120,39 +115,46 @@
             "type": "nominal",
             "title": "State / territory"
           },
+
           {
             "field": "year",
             "type": "ordinal",
             "title": "Year"
           },
+
           {
             "field": "month",
             "type": "ordinal",
             "title": "Month"
           },
+
           {
             "field": "season",
             "type": "nominal",
             "title": "Season"
           },
+
           {
             "field": "observation_count",
             "type": "quantitative",
-            "title": "Recorded observations",
+            "title": "Observation records",
             "format": ","
           },
+
           {
             "field": "species_richness",
             "type": "quantitative",
             "title": "Recorded species",
             "format": ","
           },
+
           {
             "field": "mean_temperature_c",
             "type": "quantitative",
             "title": "Mean temperature (°C)",
             "format": ".1f"
           },
+
           {
             "field": "mean_rainfall_mm",
             "type": "quantitative",
@@ -161,21 +163,48 @@
           }
         ]
       }
+    },
+
+
+    {
+      "transform": [
+        {
+          "loess": "species_richness",
+          "on": "observation_k",
+          "bandwidth": 0.35
+        }
+      ],
+
+      "mark": {
+        "type": "line",
+        "color": "#39434A",
+        "strokeWidth": 3
+      },
+
+      "encoding": {
+
+        "x": {
+          "field": "observation_k",
+          "type": "quantitative"
+        },
+
+        "y": {
+          "field": "species_richness",
+          "type": "quantitative"
+        }
+      }
     }
+
   ],
 
   "config": {
-    "background": "transparent",
 
-    "view": {
-      "stroke": "transparent"
-    },
+    "background": "transparent",
 
     "font": "Arial",
 
-    "axis": {
-      "domainColor": "#999999",
-      "tickColor": "#999999"
+    "view": {
+      "stroke": "transparent"
     }
   }
 }
