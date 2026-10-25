@@ -855,27 +855,6 @@ body {
     color: #747974;
 }
 
-
-/* Tablet */
-@media (max-width: 1000px) {
-
-    .chart08-layout {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .chart08-chart .vega-embed {
-        margin: 0 auto;
-    }
-
-    .chart08-insight {
-        min-height: auto;
-        max-width: 650px;
-        width: 100%;
-        margin: 0 auto;
-    }
-}
-
 /* =========================================
    CHART 9 — CLIMATE HEATMAP
 ========================================= */
@@ -1253,7 +1232,7 @@ body {
     }
 
 /* =========================================
-   RESPONSIVE — SMALL LAPTOP / TABLET
+   RESPONSIVE — SMALL LAPTOP
 ========================================= */
 
 @media (max-width: 1000px) {
@@ -1303,80 +1282,6 @@ body {
 
     .chart-note {
         font-size: 12px;
-    }
-}
-
-
-/* =========================================
-   RESPONSIVE — MOBILE
-========================================= */
-
-@media (max-width: 650px) {
-
-    .page {
-        width: calc(100% - 20px);
-    }
-
-    .hero {
-        padding: 48px 10px 50px;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-    }
-
-    .subtitle {
-        font-size: 21px;
-    }
-
-    .hero-intro {
-        font-size: 15px;
-    }
-
-    .story-section {
-        padding: 52px 10px 58px;
-    }
-
-    .section-heading h2 {
-        font-size: 31px;
-    }
-
-    .section-intro {
-        font-size: 15px;
-    }
-
-    .chart-container {
-        padding: 22px 14px;
-        margin-bottom: 30px;
-        border-radius: 12px;
-    }
-
-    .chart-heading {
-        margin-bottom: 16px;
-    }
-
-    .chart-heading h3,
-    .chart-container > h3 {
-        font-size: 22px;
-    }
-
-    .chart-heading p,
-    .chart-container > h3 + p {
-        font-size: 13px;
-        margin-bottom: 16px;
-    }
-
-    .chart-note {
-        font-size: 12px;
-    }
-
-    .takeaway {
-        margin-top: 38px;
-        padding: 25px 22px;
-    }
-
-    .sources {
-        padding: 55px 10px 65px;
     }
 }
 
