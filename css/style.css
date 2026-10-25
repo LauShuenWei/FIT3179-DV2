@@ -785,13 +785,15 @@ body {
 
 
 .chart08-big-number {
-    margin: 0 0 7px;
+    margin: 0 0 3px;
 
-    font-size: 29px;
-    line-height: 1.15;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 36px;
+    line-height: 1;
+
     font-weight: 700;
 
-    color: var(--chart08-accent);
+    color: #c989ae;
 }
 
 
@@ -815,6 +817,15 @@ body {
     line-height: 1.65;
 
     color: #62665f;
+}
+
+.chart08-baseline {
+    margin-top: 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    color: #747974;
 }
 
 
