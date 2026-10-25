@@ -10,7 +10,7 @@
 
   "params": [
     {
-      "name": "groupSelect",
+      "name": "chart07GroupSelect",
       "value": "All",
       "bind": {
         "input": "radio",
@@ -35,7 +35,7 @@
 
   "transform": [
     {
-      "filter": "datum.animal_group == groupSelect"
+      "filter": "datum.animal_group == chart07GroupSelect"
     },
 
     {
@@ -87,7 +87,7 @@
     },
 
     {
-      "calculate": "groupSelect == 'All' ? 'All animal groups' : groupSelect",
+      "calculate": "chart07GroupSelect == 'All' ? 'All animal groups' : chart07GroupSelect",
       "as": "selected_group"
     }
   ],
