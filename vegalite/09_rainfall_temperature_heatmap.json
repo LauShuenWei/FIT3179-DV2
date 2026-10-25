@@ -178,19 +178,23 @@
             ],
 
             "range": [
-              "#f3f0e7",
-              "#dbe5d6",
-              "#b5cfbd",
-              "#83b4a5",
-              "#579487",
-              "#34746f",
-              "#22565c"
+              "#F1EEF5",
+              "#DDD2E8",
+              "#C5ADD7",
+              "#A782C0",
+              "#835BA5",
+              "#603B84",
+              "#51346F"
             ]
           },
 
           "legend": {
+            "title": "Relative concentration",
             "orient": "bottom",
             "direction": "horizontal",
+
+            "gradientLength": 280,
+            "gradientThickness": 13,
 
             "values": [
               0,
@@ -200,16 +204,7 @@
               100
             ],
 
-            "labelExpr": "datum.label + '%'",
-
-            "gradientLength": 260,
-            "gradientThickness": 12,
-
-            "titleFontSize": 11,
-            "labelFontSize": 10,
-
-            "titlePadding": 5,
-            "offset": 16
+            "labelExpr": "datum.value + '%'"
           }
         },
 
