@@ -637,24 +637,25 @@
 
                 <p class="chart-note">
                     Each point represents one state-month combination. The smooth line
-                    summarises the overall relationship between observation effort and
-                    recorded species richness. Use the season controls to compare seasonal
-                    patterns, and hover over a point for state, climate and observation details.
+                    summarises the overall relationship between observation effort and recorded
+                    species richness. Hover over a point for state, climate and observation details.
                 </p>
 
             </div>
 
-                <h3>
-                    What does this tell us?
-                </h3>
+            <div class="takeaway final-takeaway">
+
+                <span class="takeaway-kicker">
+                    Final takeaway
+                </span>
+
+                <h3>What does this tell us?</h3>
 
                 <p>
-                    Australian wildlife records show strong geographic,
-                    seasonal and environmental patterns, but they also reflect
-                    where and when people are observing. These data should
-                    therefore be interpreted as patterns in
-                    <strong>recorded observations</strong>, rather than direct
-                    estimates of wildlife population size or abundance.
+                    Australian wildlife records show clear geographic, seasonal and
+                    climate-associated patterns. However, observation effort strongly
+                    influences what is recorded, so these patterns should not be interpreted
+                    as direct measures of wildlife population size or abundance.
                 </p>
 
             </div>
@@ -663,7 +664,7 @@
 
         <!-- ========================= SOURCES & METHODOLOGY ========================== -->
 
-        <footer class="sources">
+        <section class="sources">
 
             <h2>
                 Data &amp; Methodology
@@ -676,17 +677,17 @@
             </p>
 
             <p>
-                Climate information is derived from SILO Australian climate
-                datasets, including monthly rainfall and temperature conditions.
-                Wildlife observations were spatially matched to the nearest SILO
-                climate grid location.
+                The wildlife records were cleaned and aggregated into chart-specific
+                summaries by geographic grid cell, state or territory, month, season and
+                animal group. These aggregated files were used to reduce webpage loading
+                time and support the different visualisation idioms.
             </p>
 
             <p>
-                These visualisations describe patterns in recorded observations.
-                Citizen-science records are influenced by where and when people
-                observe wildlife, so they should not be interpreted as direct
-                measures of wildlife population size or abundance.
+                Monthly rainfall and temperature data were obtained from SILO Australian
+                climate grids. Wildlife locations were spatially matched to the nearest
+                SILO grid location before climate values were combined with the wildlife
+                observations for the climate visualisations.
             </p>
 
             <h3>
@@ -742,6 +743,16 @@
                     https://www.longpaddock.qld.gov.au/silo/gridded-data/
                 </a>
             </p>
+
+        </section>
+
+        <footer class="site-footer">
+
+            <div class="footer-meta">
+                <span>Created by <strong>Lau Shuen Wei</strong></span>
+                <span class="footer-separator">•</span>
+                <span>Last edited: 25 October 2026</span>
+            </div>
 
         </footer>
 
