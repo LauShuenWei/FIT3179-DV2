@@ -130,57 +130,67 @@
             "lon": 121.5,
             "lat": -25.5
           },
-
           {
             "state_name": "Northern Territory",
             "label": "Northern\nTerritory",
             "lon": 133.5,
             "lat": -19.5
           },
-
           {
             "state_name": "South Australia",
             "label": "South\nAustralia",
             "lon": 135,
             "lat": -30
           },
-
           {
             "state_name": "Queensland",
             "label": "Queensland",
             "lon": 145,
             "lat": -21.5
           },
-
           {
             "state_name": "New South Wales",
             "label": "New South\nWales",
             "lon": 147,
             "lat": -32.5
           },
-
           {
             "state_name": "Victoria",
             "label": "Victoria",
             "lon": 144.5,
             "lat": -36.6
           },
-
           {
             "state_name": "Tasmania",
             "label": "Tasmania",
             "lon": 146.8,
             "lat": -42
           },
-
           {
             "state_name": "Australian Capital Territory",
-            "label": "Australian\nCapital Territory",
+            "label": "ACT",
             "lon": 149.2,
             "lat": -35.4
           }
         ]
       },
+
+      "transform": [
+        {
+          "lookup": "state_name",
+          "from": {
+            "data": {
+              "url": "data/02_state_species_richness.csv"
+            },
+            "key": "state_name",
+            "fields": [
+              "state_code",
+              "species_richness",
+              "observation_count"
+            ]
+          }
+        }
+      ],
 
       "mark": {
         "type": "text",
@@ -217,10 +227,29 @@
             "value": 1
           },
           "value": 0.18
-        }
+        },
+
+        "tooltip": [
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "species_richness",
+            "type": "quantitative",
+            "title": "Recorded species",
+            "format": ","
+          },
+          {
+            "field": "observation_count",
+            "type": "quantitative",
+            "title": "Observation records",
+            "format": ","
+          }
+        ]
       }
     }
-
   ],
 
   "config": {
