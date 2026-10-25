@@ -1093,16 +1093,23 @@ body {
 
 .chart11-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.75fr);
-    gap: 30px;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        260px;
+
+    gap: 16px;
     align-items: center;
 
-    max-width: 1080px;
+    width: 100%;
+    max-width: 1160px;
+
     margin: 10px auto 0;
 }
 
 .chart11-chart {
     min-width: 0;
+    width: 100%;
 }
 
 .chart11-chart .vega-embed {
@@ -1115,14 +1122,17 @@ body {
 ========================================= */
 
 .chart11-insight {
-    padding: 24px 24px 22px;
+    width: 260px;
+
+    padding: 20px 20px 18px;
 
     background: #f6f7f3;
+
     border: 1px solid #daddd5;
     border-top: 4px solid #63806a;
     border-radius: 10px;
 
-    min-height: 260px;
+    min-height: auto;
 }
 
 .chart11-kicker {
@@ -1140,10 +1150,10 @@ body {
 }
 
 .chart11-insight h4 {
-    margin: 0 0 18px;
+    margin: 0 0 14px;
 
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 23px;
+    font-size: 20px;
     line-height: 1.2;
 
     color: #24372a;
@@ -1152,10 +1162,10 @@ body {
 
 /* Main takeaway number */
 .chart11-big-number {
-    margin: 0 0 5px;
+    margin: 0 0 4px;
 
-    font-size: 32px;
-    line-height: 1.1;
+    font-size: 30px;
+    line-height: 1.05;
     font-weight: 700;
 
     color: #c989ae;
