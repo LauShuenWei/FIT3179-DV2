@@ -39,7 +39,7 @@ body {
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #4f7159;
+    color: #252525;
 }
 
 .hero h1 {
@@ -48,7 +48,7 @@ body {
     font-size: clamp(52px, 7vw, 82px);
     line-height: 0.98;
     letter-spacing: -0.04em;
-    color: #1f3427;
+    color: #4f7159;
 }
 
 .subtitle {
@@ -89,7 +89,7 @@ body {
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: #63806a;
+    color: #62645f;
 }
 
 .section-heading h2 {
@@ -98,7 +98,7 @@ body {
     font-size: clamp(32px, 4vw, 46px);
     line-height: 1.15;
     letter-spacing: -0.025em;
-    color: #24372a;
+    color: #4f7159;
 }
 
 .section-intro {
@@ -174,7 +174,7 @@ body {
     font-weight: 700;
     line-height: 1.2;
 
-    color: #4f7159;
+    color: #252525;
 }
 
 /* All chart subtitles */
