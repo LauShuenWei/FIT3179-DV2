@@ -7,19 +7,7 @@
 
   "transform": [
     {
-      "joinaggregate": [
-        {
-          "op": "max",
-          "field": "percentage",
-          "as": "group_max"
-        }
-      ],
-      "groupby": [
-        "animal_group"
-      ]
-    },
-    {
-      "calculate": "datum.percentage == datum.group_max",
+      "calculate": "(datum.animal_group == 'Bird' && datum.state_name == 'Victoria') || (datum.animal_group == 'Mammal' && datum.state_name == 'Queensland') || (datum.animal_group == 'Reptile' && datum.state_name == 'Queensland') || (datum.animal_group == 'Amphibian' && datum.state_name == 'Queensland')",
       "as": "is_top"
     },
     {
