@@ -1580,20 +1580,3 @@ body {
 .footer-separator {
     color: #a4a69f;
 }
-
-
-@media (max-width: 650px) {
-
-    .site-footer {
-        padding: 24px 10px 30px;
-    }
-
-    .footer-meta {
-        flex-direction: column;
-        gap: 3px;
-    }
-
-    .footer-separator {
-        display: none;
-    }
-}
